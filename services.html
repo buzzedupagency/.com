@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — Buzzed Up</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .accordion-content { display: none; }
+    .accordion-item.open .accordion-content { display: block; }
+    .accordion-item.open .chevron { transform: rotate(180deg); }
+    .chevron { transition: transform 0.2s ease; }
+  </style>
+</head>
+<body class="bg-white text-black">
+
+  <nav class="border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-8 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-[#2222DD] font-black text-xl leading-tight">Buzzed<br/>up.</a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700">
+        <a href="about.html" class="hover:text-[#2222DD]">About</a>
+        <a href="services.html" class="text-[#2222DD] border-b-2 border-[#2222DD]">Services</a>
+        <a href="talents.html" class="hover:text-[#2222DD]">Talents</a>
+        <a href="careers.html" class="hover:text-[#2222DD]">Careers</a>
+        <a href="cases.html" class="hover:text-[#2222DD]">Cases</a>
+        <a href="contact.html" class="hover:text-[#2222DD]">Contact</a>
+      </div>
+      <a href="contact.html" class="bg-[#CCFF00] text-black font-bold text-sm px-5 py-2 rounded-full">GET BUZZED UP</a>
+    </div>
+  </nav>
+
+  <section class="py-12">
+    <div class="max-w-6xl mx-auto px-8">
+      <span class="bg-[#2222DD] text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-4">WHAT WE DO</span>
+      <h1 class="font-black text-6xl mb-4">Services</h1>
+      <p class="text-gray-600 text-base leading-relaxed max-w-lg">Everything you need to win with creators. Pick what you need, or let us handle it all.</p>
+    </div>
+  </section>
+
+  <section class="pb-16">
+    <div class="max-w-3xl mx-auto px-8">
+      <div class="accordion-item border-b border-gray-200 py-5 cursor-pointer" onclick="toggleAccordion(this)">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 bg-[#CCFF00] rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-base">Strategy</h3>
+              <p class="text-gray-500 text-sm">Data-driven creator strategy that aligns with your goals.</p>
+            </div>
+          </div>
+          <svg class="chevron w-5 h-5 text-gray-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-content mt-5 pl-14">
+          <p class="text-[#2222DD] text-xs font-bold uppercase mb-2">What's included</p>
+          <ul class="text-sm text-gray-700 space-y-1 mb-4">
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Market & audience research</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Creator landscape analysis</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Platform strategy</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Content roadmap</li>
+          </ul>
+          <p class="text-[#2222DD] text-xs font-bold uppercase mb-1">Best for</p>
+          <p class="text-gray-600 text-sm mb-4">Brands starting their creator journey or looking to level up</p>
+          <p class="text-[#2222DD] text-xs font-bold uppercase mb-2">Deliverables</p>
+          <div class="flex gap-2 flex-wrap">
+            <span class="border border-gray-300 text-gray-700 text-xs px-3 py-1 rounded-full">Strategy deck</span>
+            <span class="border border-gray-300 text-gray-700 text-xs px-3 py-1 rounded-full">Creator shortlist</span>
+            <span class="border border-gray-300 text-gray-700 text-xs px-3 py-1 rounded-full">Content calendar template</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item border-b border-gray-200 py-5 cursor-pointer" onclick="toggleAccordion(this)">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 bg-[#CCFF00] rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-base">Talent Management</h3>
+              <p class="text-gray-500 text-sm">Full-service management for creators who want to grow.</p>
+            </div>
+          </div>
+          <svg class="chevron w-5 h-5 text-gray-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-content mt-5 pl-14">
+          <p class="text-[#2222DD] text-xs font-bold uppercase mb-2">What's included</p>
+          <ul class="text-sm text-gray-700 space-y-1 mb-4">
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Brand partnership sourcing</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Contract negotiation</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Content planning</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Career development</li>
+          </ul>
+          <p class="text-[#2222DD] text-xs font-bold uppercase mb-1">Best for</p>
+          <p class="text-gray-600 text-sm mb-4">Creators with 50K+ followers looking to scale</p>
+          <p class="text-[#2222DD] text-xs font-bold uppercase mb-2">Deliverables</p>
+          <div class="flex gap-2 flex-wrap">
+            <span class="border border-gray-300 text-gray-700 text-xs px-3 py-1 rounded-full">Monthly reports</span>
+            <span class="border border-gray-300 text-gray-700 text-xs px-3 py-1 rounded-full">Brand opportunities</span>
+            <span class="border border-gray-300 text-gray-700 text-xs px-3 py-1 rounded-full">Growth strategy</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item border-b border-gray-200 py-5 cursor-pointer" onclick="toggleAccordion(this)">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 bg-[#CCFF00] rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-base">Campaigns</h3>
+              <p class="text-gray-500 text-sm">End-to-end campaign execution with measurable results.</p>
+            </div>
+          </div>
+          <svg class="chevron w-5 h-5 text-gray-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-content mt-5 pl-14">
+          <p class="text-[#2222DD] text-xs font-bold uppercase mb-2">What's included</p>
+          <ul class="text-sm text-gray-700 space-y-1 mb-4">
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Creator briefing & alignment</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Content review & approval</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Campaign scheduling</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Performance reporting</li>
+          </ul>
+          <p class="text-[#2222DD] text-xs font-bold uppercase mb-1">Best for</p>
+          <p class="text-gray-600 text-sm mb-4">Brands running product launches or awareness campaigns</p>
+          <p class="text-[#2222DD] text-xs font-bold uppercase mb-2">Deliverables</p>
+          <div class="flex gap-2 flex-wrap">
+            <span class="border border-gray-300 text-gray-700 text-xs px-3 py-1 rounded-full">Campaign report</span>
+            <span class="border border-gray-300 text-gray-700 text-xs px-3 py-1 rounded-full">Content library</span>
+            <span class="border border-gray-300 text-gray-700 text-xs px-3 py-1 rounded-full">ROI analysis</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item border-b border-gray-200 py-5 cursor-pointer" onclick="toggleAccordion(this)">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 bg-[#CCFF00] rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M10 10l5 3-5 3V10z"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-base">Production</h3>
+              <p class="text-gray-500 text-sm">Thumb-stopping content created by our in-house team.</p>
+            </div>
+          </div>
+          <svg class="chevron w-5 h-5 text-gray-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-content mt-5 pl-14">
+          <p class="text-[#2222DD] text-xs font-bold uppercase mb-2">What's included</p>
+          <ul class="text-sm text-gray-700 space-y-1 mb-4">
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Concept development</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> On-location shooting</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Professional editing</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Platform-optimized formats</li>
+          </ul>
+          <p class="text-[#2222DD] text-xs font-bold uppercase mb-1">Best for</p>
+          <p class="text-gray-600 text-sm mb-4">Brands that need high-quality content at scale</p>
+          <p class="text-[#2222DD] text-xs font-bold uppercase mb-2">Deliverables</p>
+          <div class="flex gap-2 flex-wrap">
+            <span class="border border-gray-300 text-gray-700 text-xs px-3 py-1 rounded-full">Video assets</span>
+            <span class="border border-gray-300 text-gray-700 text-xs px-3 py-1 rounded-full">Photo library</span>
+            <span class="border border-gray-300 text-gray-700 text-xs px-3 py-1 rounded-full">Usage rights</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item border-b border-gray-200 py-5 cursor-pointer" onclick="toggleAccordion(this)">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 bg-[#CCFF00] rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-base">Paid Social</h3>
+              <p class="text-gray-500 text-sm">Amplify creator content with paid media promotion.</p>
+            </div>
+          </div>
+          <svg class="chevron w-5 h-5 text-gray-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-content mt-5 pl-14">
+          <p class="text-[#2222DD] text-xs font-bold uppercase mb-2">What's included</p>
+          <ul class="text-sm text-gray-700 space-y-1 mb-4">
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Ad account management</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Audience targeting</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> A/B testing</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Budget optimization</li>
+          </ul>
+          <p class="text-[#2222DD] text-xs font-bold uppercase mb-1">Best for</p>
+          <p class="text-gray-600 text-sm mb-4">Brands wanting to scale organic creator content with paid spend</p>
+          <p class="text-[#2222DD] text-xs font-bold uppercase mb-2">Deliverables</p>
+          <div class="flex gap-2 flex-wrap">
+            <span class="border border-gray-300 text-gray-700 text-xs px-3 py-1 rounded-full">Media plan</span>
+            <span class="border border-gray-300 text-gray-700 text-xs px-3 py-1 rounded-full">Weekly performance reports</span>
+            <span class="border border-gray-300 text-gray-700 text-xs px-3 py-1 rounded-full">Creative insights</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#2222DD] py-16">
+    <div class="max-w-6xl mx-auto px-8">
+      <h2 class="text-2xl font-black text-white mb-8">Typical</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div class="border border-blue-400 rounded-xl p-4 flex items-start gap-3"><svg class="w-4 h-4 text-[#CCFF00] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><p class="text-white text-xs">Strategy & planning documents</p></div>
+        <div class="border border-blue-400 rounded-xl p-4 flex items-start gap-3"><svg class="w-4 h-4 text-[#CCFF00] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><p class="text-white text-xs">Creator shortlists with data</p></div>
+        <div class="border border-blue-400 rounded-xl p-4 flex items-start gap-3"><svg class="w-4 h-4 text-[#CCFF00] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><p class="text-white text-xs">Content briefs & guidelines</p></div>
+        <div class="border border-blue-400 rounded-xl p-4 flex items-start gap-3"><svg class="w-4 h-4 text-[#CCFF00] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><p class="text-white text-xs">Review & approval workflow</p></div>
+        <div class="border border-blue-400 rounded-xl p-4 flex items-start gap-3"><svg class="w-4 h-4 text-[#CCFF00] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><p class="text-white text-xs">Campaign performance reports</p></div>
+        <div class="border border-blue-400 rounded-xl p-4 flex items-start gap-3"><svg class="w-4 h-4 text-[#CCFF00] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><p class="text-white text-xs">Monthly insights & recommendations</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 text-center">
+    <div class="max-w-6xl mx-auto px-8">
+      <h2 class="text-4xl font-black mb-6">Let's build something together</h2>
+      <a href="contact.html" class="bg-[#2222DD] text-white font-semibold px-8 py-3 rounded-full text-sm inline-block hover:bg-blue-700 transition-colors">Get in touch</a>
+    </div>
+  </section>
+
+  <footer class="bg-[#2222DD] text-white">
+    <div class="max-w-6xl mx-auto px-8 py-10">
+      <div class="flex flex-col md:flex-row justify-between gap-8 mb-6">
+        <div class="flex flex-wrap gap-6 text-sm text-blue-200">
+          <a href="about.html" class="hover:text-white">About</a>
+          <a href="services.html" class="hover:text-white">Services</a>
+          <a href="talents.html" class="hover:text-white">Talents</a>
+          <a href="cases.html" class="hover:text-white">Cases</a>
+          <a href="careers.html" class="hover:text-white">Careers</a>
+          <a href="contact.html" class="hover:text-white">Contact</a>
+        </div>
+        <div class="flex gap-6 text-sm text-blue-200">
+          <a href="#" class="hover:text-white">Instagram</a>
+          <a href="#" class="hover:text-white">TikTok</a>
+          <a href="#" class="hover:text-white">LinkedIn</a>
+        </div>
+      </div>
+      <div class="flex flex-col md:flex-row justify-between items-center border-t border-blue-500 pt-6 text-xs text-blue-300">
+        <p>© 2026 Buzzed Up. All rights reserved.</p>
+        <div class="flex gap-4 mt-2 md:mt-0"><a href="#" class="hover:text-white">Privacy</a><a href="#" class="hover:text-white">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>function toggleAccordion(item){item.classList.toggle('open');}</script>
+</body>
+</html>
