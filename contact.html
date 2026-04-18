@@ -88,10 +88,16 @@
         <div>
           <h2 class="font-black text-xl mb-4">Laten we praten</h2>
           <p class="text-gray-600 text-sm leading-relaxed mb-6">Of je nu een merk bent op zoek naar creators, of een creator op zoek naar vertegenwoordiging — we horen graag van je.</p>
-          <a href="mailto:info@buzzedupagency.com" class="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-[#2222DD] mb-8 transition-colors">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            info@buzzedupagency.com
-          </a>
+          <div class="mb-8">
+            <a href="mailto:info@buzzedupagency.com" class="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-[#2222DD] transition-colors mb-1">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              info@buzzedupagency.com
+            </a>
+            <button onclick="copyEmail('info@buzzedupagency.com', this)" class="text-xs text-gray-400 hover:text-[#2222DD] flex items-center gap-1 transition-colors ml-6">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span>Kopieer e-mailadres</span>
+            </button>
+          </div>
           <p class="font-bold text-sm mb-3">Volg ons</p>
           <div class="flex gap-4">
             <a href="https://www.instagram.com/buzzedupagency" target="_blank" rel="noopener" class="w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors">
@@ -236,6 +242,13 @@
   </footer>
 
   <script>
+    function copyEmail(email, btn) {
+      navigator.clipboard.writeText(email);
+      const span = btn.querySelector('span');
+      span.textContent = 'Gekopieerd!';
+      btn.classList.add('text-[#2222DD]');
+      setTimeout(() => { span.textContent = 'Kopieer e-mailadres'; btn.classList.remove('text-[#2222DD]'); }, 2000);
+    }
     function selectRole(btn) {
       document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
