@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Buzzed Up</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=League+Spartan:wght@700;800;900&display=swap" rel="stylesheet" />
   <style>body { font-family: 'Inter', sans-serif; }</style>
 </head>
 <body class="bg-white text-black">
@@ -13,16 +13,33 @@
   <!-- NAV -->
   <nav class="border-b border-gray-100">
     <div class="max-w-6xl mx-auto px-8 py-4 flex items-center justify-between">
-      <a href="index.html" class="text-[#2222DD] font-black text-xl leading-tight">Buzzed<br/>up.</a>
+      <a href="index.html" class="text-[#2222DD] leading-none" style="font-family: 'League Spartan', sans-serif; font-weight: 900; font-size: 1.25rem;">
+        <span class="block">Buzzed</span>
+        <span class="block text-right">up.</span>
+      </a>
       <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700">
-        <a href="about.html" class="hover:text-[#2222DD] transition-colors">About</a>
-        <a href="services.html" class="hover:text-[#2222DD] transition-colors">Services</a>
+        <a href="about.html" class="hover:text-[#2222DD] transition-colors">Over ons</a>
+        <a href="services.html" class="hover:text-[#2222DD] transition-colors">Diensten</a>
         <a href="talents.html" class="hover:text-[#2222DD] transition-colors">Talents</a>
-        <a href="careers.html" class="hover:text-[#2222DD] transition-colors">Careers</a>
+        <a href="careers.html" class="hover:text-[#2222DD] transition-colors">Vacatures</a>
         <a href="cases.html" class="hover:text-[#2222DD] transition-colors">Cases</a>
         <a href="contact.html" class="hover:text-[#2222DD] transition-colors">Contact</a>
       </div>
-      <a href="contact.html" class="bg-[#CCFF00] text-black font-bold text-sm px-5 py-2 rounded-full hover:bg-yellow-300 transition-colors">GET BUZZED UP</a>
+      <div class="flex items-center gap-3">
+        <a href="contact.html" class="hidden md:block bg-[#d1ff68] text-black font-bold text-sm px-5 py-2 rounded-full hover:opacity-90 transition-opacity">GET BUZZED UP</a>
+        <button onclick="toggleMenu()" class="md:hidden p-2">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 bg-white px-8 py-4 space-y-3">
+      <a href="about.html" class="block text-sm font-medium text-gray-700 hover:text-[#2222DD]">Over ons</a>
+      <a href="services.html" class="block text-sm font-medium text-gray-700 hover:text-[#2222DD]">Diensten</a>
+      <a href="talents.html" class="block text-sm font-medium text-gray-700 hover:text-[#2222DD]">Talents</a>
+      <a href="careers.html" class="block text-sm font-medium text-gray-700 hover:text-[#2222DD]">Vacatures</a>
+      <a href="cases.html" class="block text-sm font-medium text-gray-700 hover:text-[#2222DD]">Cases</a>
+      <a href="contact.html" class="block text-sm font-medium text-gray-700 hover:text-[#2222DD]">Contact</a>
+      <a href="contact.html" class="inline-block bg-[#d1ff68] text-black font-bold text-sm px-5 py-2 rounded-full mt-2">GET BUZZED UP</a>
     </div>
   </nav>
 
@@ -33,7 +50,7 @@
         <h1 class="font-black text-7xl leading-none mb-2">
           <span class="bg-[#2222DD] text-white px-3 py-1 inline-block">WHO'S</span>
         </h1>
-        <h1 class="font-black text-7xl leading-none text-[#CCFF00] mb-8">BUZZED</h1>
+        <h1 class="font-black text-7xl leading-none text-[#d1ff68] mb-8">BUZZED</h1>
         <p class="text-gray-700 text-base max-w-sm mb-8 leading-relaxed">We connect bold brands with creators who cut through the noise. No fluff. Just content that works.</p>
         <div class="flex gap-4">
           <a href="contact.html" class="bg-[#2222DD] text-white font-semibold px-6 py-3 rounded-full text-sm hover:bg-blue-700 transition-colors">Get in touch</a>
@@ -41,35 +58,35 @@
         </div>
       </div>
       <!-- Decorative lime block -->
-      <div class="absolute right-0 top-0 w-72 h-full bg-[#CCFF00] hidden lg:block"></div>
+      <div class="absolute right-0 top-0 w-72 h-full bg-[#d1ff68] hidden lg:block"></div>
     </div>
   </section>
 
   <!-- WHAT WE DO -->
   <section class="bg-white py-16">
     <div class="max-w-6xl mx-auto px-8">
-      <h2 class="text-2xl font-black mb-8">What we <span class="text-[#2222DD] underline">do</span></h2>
+      <h2 class="text-2xl font-black mb-8">Wat we <span class="text-[#2222DD] underline">doen</span></h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="bg-[#2222DD] text-white rounded-2xl p-6">
           <div class="w-8 h-8 mb-3 opacity-80">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-full h-full"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
           </div>
           <h3 class="font-bold text-sm mb-2">Talent</h3>
-          <p class="text-xs text-blue-200 leading-relaxed">Access our roster of creators who actually move the needle.</p>
+          <p class="text-xs text-blue-200 leading-relaxed">Toegang tot ons roster van creators die echt impact maken.</p>
         </div>
         <div class="bg-[#2222DD] text-white rounded-2xl p-6">
           <div class="w-8 h-8 mb-3 opacity-80">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-full h-full"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
           </div>
-          <h3 class="font-bold text-sm mb-2">Campaigns</h3>
-          <p class="text-xs text-blue-200 leading-relaxed">End-to-end campaign management that delivers results.</p>
+          <h3 class="font-bold text-sm mb-2">Campagnes</h3>
+          <p class="text-xs text-blue-200 leading-relaxed">Van A tot Z campagnebeheer dat resultaten levert.</p>
         </div>
         <div class="bg-[#2222DD] text-white rounded-2xl p-6">
           <div class="w-8 h-8 mb-3 opacity-80">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-full h-full"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M10 10l5 3-5 3V10z"/></svg>
           </div>
-          <h3 class="font-bold text-sm mb-2">Production</h3>
-          <p class="text-xs text-blue-200 leading-relaxed">Content that stops the scroll. Shot, edited, delivered.</p>
+          <h3 class="font-bold text-sm mb-2">Productie</h3>
+          <p class="text-xs text-blue-200 leading-relaxed">Content die stopt met scrollen. Gefilmd, gesneden, opgeleverd.</p>
         </div>
       </div>
     </div>
@@ -78,12 +95,12 @@
   <!-- FEATURED TALENTS -->
   <section class="bg-gray-50 py-16">
     <div class="max-w-6xl mx-auto px-8">
-      <h2 class="text-2xl font-black mb-8">Featured <span class="bg-[#CCFF00] px-1">Talents</span></h2>
+      <h2 class="text-2xl font-black mb-8">Uitgelichte <span class="bg-[#d1ff68] px-1">Talents</span></h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <a href="talents/bart.html" class="relative rounded-2xl overflow-hidden aspect-[3/4] bg-gray-300 block group">
           <img src="https://placehold.co/300x400/555555/ffffff?text=BART" alt="Bart" class="w-full h-full object-cover grayscale group-hover:scale-105 transition-transform duration-300" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-3">
-            <p class="text-white font-black text-xl leading-none">MEET <span class="text-[#CCFF00]">BART</span></p>
+            <p class="text-white font-black text-xl leading-none">MEET <span class="text-[#d1ff68]">BART</span></p>
             <div class="flex items-center gap-2 mt-2">
               <span class="bg-[#2222DD] text-white text-[10px] font-bold px-2 py-0.5 rounded">MEET</span>
               <span class="text-white text-xs font-bold">BART</span>
@@ -94,7 +111,7 @@
         <a href="talents.html" class="relative rounded-2xl overflow-hidden aspect-[3/4] bg-gray-400 block group">
           <img src="https://placehold.co/300x400/777777/ffffff?text=NIGEL" alt="Nigel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-3">
-            <p class="text-white font-black text-xl leading-none">MEET <span class="text-[#CCFF00]">NIGEL</span></p>
+            <p class="text-white font-black text-xl leading-none">MEET <span class="text-[#d1ff68]">NIGEL</span></p>
             <div class="flex items-center gap-2 mt-2">
               <span class="bg-[#2222DD] text-white text-[10px] font-bold px-2 py-0.5 rounded">MEET</span>
               <span class="text-white text-xs font-bold">NIGEL</span>
@@ -105,7 +122,7 @@
         <a href="talents.html" class="relative rounded-2xl overflow-hidden aspect-[3/4] bg-gray-400 block group">
           <img src="https://placehold.co/300x400/888888/ffffff?text=RICKY" alt="Ricky" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-3">
-            <p class="text-white font-black text-xl leading-none">MEET <span class="text-[#CCFF00]">RICKY</span></p>
+            <p class="text-white font-black text-xl leading-none">MEET <span class="text-[#d1ff68]">RICKY</span></p>
             <div class="flex items-center gap-2 mt-2">
               <span class="bg-[#2222DD] text-white text-[10px] font-bold px-2 py-0.5 rounded">MEET</span>
               <span class="text-white text-xs font-bold">RICKY</span>
@@ -116,7 +133,7 @@
         <a href="talents.html" class="relative rounded-2xl overflow-hidden aspect-[3/4] bg-gray-400 block group">
           <img src="https://placehold.co/300x400/999999/ffffff?text=JULIA" alt="Julia" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-3">
-            <p class="text-white font-black text-xl leading-none">MEET <span class="text-[#CCFF00]">JULIA</span></p>
+            <p class="text-white font-black text-xl leading-none">MEET <span class="text-[#d1ff68]">JULIA</span></p>
             <div class="flex items-center gap-2 mt-2">
               <span class="bg-[#2222DD] text-white text-[10px] font-bold px-2 py-0.5 rounded">MEET</span>
               <span class="text-white text-xs font-bold">JULIA</span>
@@ -126,7 +143,7 @@
         </a>
       </div>
       <div class="mt-8 flex justify-center">
-        <a href="talents.html" class="border border-gray-300 text-sm font-medium px-6 py-2 rounded-full hover:border-gray-500 transition-colors">View all talents</a>
+        <a href="talents.html" class="border border-gray-300 text-sm font-medium px-6 py-2 rounded-full hover:border-gray-500 transition-colors">Bekijk alle talents</a>
       </div>
     </div>
   </section>
@@ -134,7 +151,7 @@
   <!-- LATEST CASES -->
   <section class="py-16">
     <div class="max-w-6xl mx-auto px-8">
-      <h2 class="text-2xl font-black mb-8">Latest <span class="bg-[#CCFF00] px-1">Cases</span></h2>
+      <h2 class="text-2xl font-black mb-8">Recente <span class="bg-[#d1ff68] px-1">Cases</span></h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <a href="cases/streetwear-brand-launch.html" class="block group">
           <div class="rounded-2xl overflow-hidden aspect-video bg-gray-200 mb-3">
@@ -174,7 +191,7 @@
         </a>
       </div>
       <div class="mt-8 flex justify-center">
-        <a href="cases.html" class="border border-gray-300 text-sm font-medium px-6 py-2 rounded-full hover:border-gray-500 transition-colors">View all cases</a>
+        <a href="cases.html" class="border border-gray-300 text-sm font-medium px-6 py-2 rounded-full hover:border-gray-500 transition-colors">Bekijk alle cases</a>
       </div>
     </div>
   </section>
@@ -182,27 +199,27 @@
   <!-- HOW WE WORK -->
   <section class="bg-[#2222DD] py-16">
     <div class="max-w-6xl mx-auto px-8">
-      <h2 class="text-2xl font-black text-white mb-8">How we <span class="text-[#CCFF00]">work</span></h2>
+      <h2 class="text-2xl font-black text-white mb-8">Hoe we <span class="text-[#d1ff68]">werken</span></h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div class="border border-blue-400 rounded-2xl p-5">
-          <p class="text-[#CCFF00] font-black text-2xl mb-2">01</p>
-          <p class="text-white font-bold text-sm mb-1">Brief</p>
-          <p class="text-blue-200 text-xs">Tell us what you need</p>
+          <p class="text-[#d1ff68] font-black text-2xl mb-2">01</p>
+          <p class="text-white font-bold text-sm mb-1">Briefing</p>
+          <p class="text-blue-200 text-xs">Vertel ons wat je nodig hebt</p>
         </div>
         <div class="border border-blue-400 rounded-2xl p-5">
-          <p class="text-[#CCFF00] font-black text-2xl mb-2">02</p>
+          <p class="text-[#d1ff68] font-black text-2xl mb-2">02</p>
           <p class="text-white font-bold text-sm mb-1">Match</p>
-          <p class="text-blue-200 text-xs">We find the right creators</p>
+          <p class="text-blue-200 text-xs">Wij vinden de juiste creators</p>
         </div>
         <div class="border border-blue-400 rounded-2xl p-5">
-          <p class="text-[#CCFF00] font-black text-2xl mb-2">03</p>
-          <p class="text-white font-bold text-sm mb-1">Create</p>
-          <p class="text-blue-200 text-xs">Content gets made</p>
+          <p class="text-[#d1ff68] font-black text-2xl mb-2">03</p>
+          <p class="text-white font-bold text-sm mb-1">Creëren</p>
+          <p class="text-blue-200 text-xs">De content wordt gemaakt</p>
         </div>
         <div class="border border-blue-400 rounded-2xl p-5">
-          <p class="text-[#CCFF00] font-black text-2xl mb-2">04</p>
-          <p class="text-white font-bold text-sm mb-1">Launch</p>
-          <p class="text-blue-200 text-xs">Watch it perform</p>
+          <p class="text-[#d1ff68] font-black text-2xl mb-2">04</p>
+          <p class="text-white font-bold text-sm mb-1">Live</p>
+          <p class="text-blue-200 text-xs">En dan kijk je het performen</p>
         </div>
       </div>
     </div>
@@ -211,8 +228,8 @@
   <!-- CTA -->
   <section class="py-20 text-center">
     <div class="max-w-6xl mx-auto px-8">
-      <h2 class="text-4xl font-black mb-6">Ready to get Buzzed Up?</h2>
-      <a href="contact.html" class="bg-[#2222DD] text-white font-semibold px-8 py-3 rounded-full text-sm inline-block hover:bg-blue-700 transition-colors">Let's talk</a>
+      <h2 class="text-4xl font-black mb-6">Klaar om Buzzed Up te gaan?</h2>
+      <a href="contact.html" class="bg-[#2222DD] text-white font-semibold px-8 py-3 rounded-full text-sm inline-block hover:bg-blue-700 transition-colors">Neem contact op</a>
     </div>
   </section>
 
@@ -221,28 +238,29 @@
     <div class="max-w-6xl mx-auto px-8 py-10">
       <div class="flex flex-col md:flex-row justify-between gap-8 mb-6">
         <div class="flex flex-wrap gap-6 text-sm text-blue-200">
-          <a href="about.html" class="hover:text-white transition-colors">About</a>
-          <a href="services.html" class="hover:text-white transition-colors">Services</a>
+          <a href="about.html" class="hover:text-white transition-colors">Over ons</a>
+          <a href="services.html" class="hover:text-white transition-colors">Diensten</a>
           <a href="talents.html" class="hover:text-white transition-colors">Talents</a>
           <a href="cases.html" class="hover:text-white transition-colors">Cases</a>
-          <a href="careers.html" class="hover:text-white transition-colors">Careers</a>
+          <a href="careers.html" class="hover:text-white transition-colors">Vacatures</a>
           <a href="contact.html" class="hover:text-white transition-colors">Contact</a>
         </div>
         <div class="flex gap-6 text-sm text-blue-200">
-          <a href="#" class="hover:text-white transition-colors">Instagram</a>
-          <a href="#" class="hover:text-white transition-colors">TikTok</a>
-          <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
+          <a href="https://www.instagram.com/buzzedupagency" class="hover:text-white transition-colors">Instagram</a>
+          <a href="https://www.tiktok.com/@buzzedupagency" class="hover:text-white transition-colors">TikTok</a>
+          <a href="https://www.linkedin.com/company/buzzed-up-agency/" class="hover:text-white transition-colors">LinkedIn</a>
         </div>
       </div>
       <div class="flex flex-col md:flex-row justify-between items-center border-t border-blue-500 pt-6 text-xs text-blue-300">
-        <p>© 2026 Buzzed Up. All rights reserved.</p>
+        <p>© 2026 Buzzed Up. Alle rechten voorbehouden.</p>
         <div class="flex gap-4 mt-2 md:mt-0">
           <a href="#" class="hover:text-white transition-colors">Privacy</a>
-          <a href="#" class="hover:text-white transition-colors">Terms</a>
+          <a href="#" class="hover:text-white transition-colors">Voorwaarden</a>
         </div>
       </div>
     </div>
   </footer>
 
+  <script>function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('hidden');}</script>
 </body>
 </html>
