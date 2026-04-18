@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" href="logo.svg" type="image/svg+xml" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Services — Buzzed Up</title>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -13,6 +14,17 @@
     .accordion-item.open .chevron { transform: rotate(180deg); }
     .chevron { transition: transform 0.2s ease; }
   </style>
+  <!-- Google Analytics (loads only after cookie consent) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    if (localStorage.getItem('cookie-consent') === 'accepted') {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-3J9F01KWEY';
+      document.head.appendChild(s);
+      s.onload = function(){ gtag('js', new Date()); gtag('config', 'G-3J9F01KWEY'); };
+    }
+  </script>
 </head>
 <body class="bg-white text-black">
 

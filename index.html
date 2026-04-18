@@ -4,9 +4,50 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Buzzed Up</title>
+  <link rel="icon" href="logo.svg" type="image/svg+xml" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=League+Spartan:wght@700;800;900&display=swap" rel="stylesheet" />
-  <style>body { font-family: 'Inter', sans-serif; }</style>
+  <!-- Google Analytics (loads only after cookie consent) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    function loadGA() {
+      if (document.getElementById('ga-script')) return;
+      var s = document.createElement('script');
+      s.id = 'ga-script';
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-3J9F01KWEY';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-3J9F01KWEY');
+    }
+    if (localStorage.getItem('cookie-consent') === 'accepted') loadGA();
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+
+    /* Hero slide-up animation */
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-line-1 { opacity: 0; animation: slideUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.2s forwards; }
+    .hero-line-2 { opacity: 0; animation: slideUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.45s forwards; }
+    .hero-sub    { opacity: 0; animation: slideUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.65s forwards; }
+
+    /* Counter animation */
+    .counter { transition: all 0.3s; }
+
+    /* Talent slideshow */
+    .slide { display: none; }
+    .slide.active { display: block; }
+
+    /* Cookie banner */
+    #cookie-banner { transition: transform 0.4s ease; }
+
+    /* NL/EN toggle */
+    .lang-btn.active { background: #2222DD; color: white; }
+  </style>
 </head>
 <body class="bg-white text-black">
 
@@ -15,15 +56,19 @@
     <div class="max-w-6xl mx-auto px-8 py-4 flex items-center justify-between">
       <a href="index.html"><img src="logo.svg" alt="Buzzed Up" id="nav-logo" style="height: 96px; width: auto; filter: brightness(0) invert(1);" /></a>
       <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white" id="nav-links">
-        <a href="about.html" class="hover:text-[#d1ff68] transition-colors">About</a>
-        <a href="services.html" class="hover:text-[#d1ff68] transition-colors">Services</a>
-        <a href="talents.html" class="hover:text-[#d1ff68] transition-colors">Talents</a>
-        <a href="careers.html" class="hover:text-[#d1ff68] transition-colors">Careers</a>
-        <a href="cases.html" class="hover:text-[#d1ff68] transition-colors">Cases</a>
-        <a href="contact.html" class="hover:text-[#d1ff68] transition-colors">Contact</a>
+        <a href="about.html" class="hover:text-[#d1ff68] transition-colors" data-nl="About" data-en="About">About</a>
+        <a href="services.html" class="hover:text-[#d1ff68] transition-colors" data-nl="Services" data-en="Services">Services</a>
+        <a href="talents.html" class="hover:text-[#d1ff68] transition-colors" data-nl="Talents" data-en="Talents">Talents</a>
+        <a href="careers.html" class="hover:text-[#d1ff68] transition-colors" data-nl="Careers" data-en="Careers">Careers</a>
+        <a href="cases.html" class="hover:text-[#d1ff68] transition-colors" data-nl="Cases" data-en="Cases">Cases</a>
+        <a href="contact.html" class="hover:text-[#d1ff68] transition-colors" data-nl="Contact" data-en="Contact">Contact</a>
+        <div class="flex items-center gap-1 border border-white/30 rounded-full p-0.5">
+          <button onclick="setLang('nl')" id="btn-nl" class="lang-btn active text-xs font-bold px-2.5 py-1 rounded-full transition-colors">NL</button>
+          <button onclick="setLang('en')" id="btn-en" class="lang-btn text-xs font-bold px-2.5 py-1 rounded-full text-white/60 hover:text-white transition-colors">EN</button>
+        </div>
       </div>
       <div class="flex items-center gap-3">
-        <a href="contact.html" class="hidden md:block bg-[#d1ff68] text-black font-bold text-sm px-5 py-2 rounded-full hover:opacity-90 transition-opacity">GET BUZZED UP</a>
+        <a href="contact.html" class="hidden md:block bg-[#d1ff68] text-black font-bold text-sm px-5 py-2 rounded-full hover:opacity-90 transition-opacity" data-nl="GET BUZZED UP" data-en="GET BUZZED UP">GET BUZZED UP</a>
         <button onclick="toggleMenu()" class="md:hidden p-2" id="menu-btn">
           <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
@@ -45,15 +90,39 @@
     <img src="images/banner.jpg" alt="Buzzed Up Studio" class="absolute inset-0 w-full h-full object-cover" />
     <div class="absolute inset-0 bg-black/60"></div>
     <div class="relative h-full max-w-6xl mx-auto px-8 flex flex-col justify-end pb-16">
-      <h1 class="font-black leading-none mb-2" style="font-size: clamp(64px, 10vw, 120px);">
-        <span class="bg-[#2222DD] text-white px-3 py-1 inline-block">WHO'S</span>
+      <h1 class="hero-line-1 font-black leading-none mb-2" style="font-size: clamp(64px, 10vw, 120px);">
+        <span class="bg-[#2222DD] text-white px-3 py-1 inline-block" data-nl="WHO'S" data-en="WHO'S">WHO'S</span>
       </h1>
-      <h1 class="font-black leading-none text-[#d1ff68] mb-8" style="font-size: clamp(64px, 10vw, 120px);">BUZZED</h1>
-      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-        <p class="text-white/80 text-base max-w-sm leading-relaxed">We connect bold brands with creators who cut through the noise. No fluff. Just content that works.</p>
+      <h1 class="hero-line-2 font-black leading-none text-[#d1ff68] mb-8" style="font-size: clamp(64px, 10vw, 120px);" data-nl="BUZZED" data-en="BUZZED">BUZZED</h1>
+      <div class="hero-sub flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+        <p class="text-white/80 text-base max-w-sm leading-relaxed" data-nl="We connect bold brands with creators who cut through the noise. No fluff. Just content that works." data-en="We connect bold brands with creators who cut through the noise. No fluff. Just content that works.">We connect bold brands with creators who cut through the noise. No fluff. Just content that works.</p>
         <div class="flex gap-4">
-          <a href="contact.html" class="bg-[#d1ff68] text-black font-bold px-6 py-3 rounded-full text-sm hover:opacity-90 transition-opacity">Get in touch</a>
-          <a href="talents.html" class="border-2 border-white text-white font-semibold px-6 py-3 rounded-full text-sm hover:bg-white/10 transition-colors">Meet talents</a>
+          <a href="contact.html" class="bg-[#d1ff68] text-black font-bold px-6 py-3 rounded-full text-sm hover:opacity-90 transition-opacity" data-nl="Get in touch" data-en="Get in touch">Get in touch</a>
+          <a href="talents.html" class="border-2 border-white text-white font-semibold px-6 py-3 rounded-full text-sm hover:bg-white/10 transition-colors" data-nl="Meet talents" data-en="Meet talents">Meet talents</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANIMATED STATS -->
+  <section class="bg-[#2222DD] py-12">
+    <div class="max-w-6xl mx-auto px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <p class="text-[#d1ff68] font-black text-4xl mb-1 counter" data-target="225" data-suffix="K+">0</p>
+          <p class="text-blue-200 text-xs font-medium" data-nl="Gecombineerde Followers" data-en="Combined Followers">Gecombineerde Followers</p>
+        </div>
+        <div>
+          <p class="text-[#d1ff68] font-black text-4xl mb-1 counter" data-target="50" data-suffix="+">0</p>
+          <p class="text-blue-200 text-xs font-medium" data-nl="Campagnes" data-en="Campaigns">Campagnes</p>
+        </div>
+        <div>
+          <p class="text-[#d1ff68] font-black text-4xl mb-1 counter" data-target="30" data-suffix="+">0</p>
+          <p class="text-blue-200 text-xs font-medium" data-nl="Merken" data-en="Brands">Merken</p>
+        </div>
+        <div>
+          <p class="text-[#d1ff68] font-black text-4xl mb-1 counter" data-target="4" data-suffix="">0</p>
+          <p class="text-blue-200 text-xs font-medium" data-nl="Top Creators" data-en="Top Creators">Top Creators</p>
         </div>
       </div>
     </div>
@@ -62,77 +131,167 @@
   <!-- WHAT WE DO -->
   <section class="bg-white py-16">
     <div class="max-w-6xl mx-auto px-8">
-      <h2 class="text-2xl font-black mb-8">Wat we <span class="text-[#2222DD] underline">doen</span></h2>
+      <h2 class="text-2xl font-black mb-8" data-nl="Wat we <span class='text-[#2222DD] underline'>doen</span>" data-en="What we <span class='text-[#2222DD] underline'>do</span>">Wat we <span class="text-[#2222DD] underline">doen</span></h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="bg-[#2222DD] text-white rounded-2xl p-6">
           <div class="w-8 h-8 mb-3 opacity-80">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-full h-full"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
           </div>
-          <h3 class="font-bold text-sm mb-2">Talent</h3>
-          <p class="text-xs text-blue-200 leading-relaxed">Toegang tot ons roster van creators die echt impact maken.</p>
+          <h3 class="font-bold text-sm mb-2" data-nl="Talent" data-en="Talent">Talent</h3>
+          <p class="text-xs text-blue-200 leading-relaxed" data-nl="Toegang tot ons roster van creators die echt impact maken." data-en="Access to our roster of creators who make real impact.">Toegang tot ons roster van creators die echt impact maken.</p>
         </div>
         <div class="bg-[#2222DD] text-white rounded-2xl p-6">
           <div class="w-8 h-8 mb-3 opacity-80">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-full h-full"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
           </div>
-          <h3 class="font-bold text-sm mb-2">Campagnes</h3>
-          <p class="text-xs text-blue-200 leading-relaxed">Van A tot Z campagnebeheer dat resultaten levert.</p>
+          <h3 class="font-bold text-sm mb-2" data-nl="Campagnes" data-en="Campaigns">Campagnes</h3>
+          <p class="text-xs text-blue-200 leading-relaxed" data-nl="Van A tot Z campagnebeheer dat resultaten levert." data-en="End-to-end campaign management that delivers results.">Van A tot Z campagnebeheer dat resultaten levert.</p>
         </div>
         <div class="bg-[#2222DD] text-white rounded-2xl p-6">
           <div class="w-8 h-8 mb-3 opacity-80">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-full h-full"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M10 10l5 3-5 3V10z"/></svg>
           </div>
-          <h3 class="font-bold text-sm mb-2">Productie</h3>
-          <p class="text-xs text-blue-200 leading-relaxed">Content die stopt met scrollen. Gefilmd, gesneden, opgeleverd.</p>
+          <h3 class="font-bold text-sm mb-2" data-nl="Productie" data-en="Production">Productie</h3>
+          <p class="text-xs text-blue-200 leading-relaxed" data-nl="Content die stopt met scrollen. Gefilmd, gesneden, opgeleverd." data-en="Scroll-stopping content. Filmed, cut, delivered.">Content die stopt met scrollen. Gefilmd, gesneden, opgeleverd.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FEATURED TALENTS -->
-  <section class="bg-gray-50 py-16">
+  <!-- PARTNER LOGOS -->
+  <section class="py-10 border-y border-gray-100">
     <div class="max-w-6xl mx-auto px-8">
-      <h2 class="text-2xl font-black mb-8">Uitgelichte <span class="bg-[#d1ff68] px-1">Talents</span></h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <a href="talents/bart.html" class="relative rounded-2xl overflow-hidden aspect-[3/4] bg-gray-900 block group">
-          <img src="images/talents/bart.jpg" alt="Bart" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-3">
-            <p class="text-white font-black text-xl leading-none mb-1">MEET <span class="text-[#d1ff68]">BART</span></p>
-            <p class="text-gray-300 text-[10px]">680K followers</p>
-          </div>
-        </a>
-        <a href="talents.html" class="relative rounded-2xl overflow-hidden aspect-[3/4] bg-gray-900 block group">
-          <img src="images/talents/nigel.jpg" alt="Nigel" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-3">
-            <p class="text-white font-black text-xl leading-none mb-1">MEET <span class="text-[#d1ff68]">NIGEL</span></p>
-            <p class="text-gray-300 text-[10px]">850K followers</p>
-          </div>
-        </a>
-        <a href="talents.html" class="relative rounded-2xl overflow-hidden aspect-[3/4] bg-gray-900 block group">
-          <img src="images/talents/ricky.jpg" alt="Ricky" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-3">
-            <p class="text-white font-black text-xl leading-none mb-1">MEET <span class="text-[#d1ff68]">RICKY</span></p>
-            <p class="text-gray-300 text-[10px]">1.2M followers</p>
-          </div>
-        </a>
-        <a href="talents.html" class="relative rounded-2xl overflow-hidden aspect-[3/4] bg-gray-900 block group">
-          <img src="images/talents/julia.jpg" alt="Julia" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-3">
-            <p class="text-white font-black text-xl leading-none mb-1">MEET <span class="text-[#d1ff68]">JULIA</span></p>
-            <p class="text-gray-300 text-[10px]">920K followers</p>
-          </div>
-        </a>
-      </div>
-      <div class="mt-8 flex justify-center">
-        <a href="talents.html" class="border border-gray-300 text-sm font-medium px-6 py-2 rounded-full hover:border-gray-500 transition-colors">Bekijk alle talents</a>
+      <p class="text-center text-xs font-semibold text-gray-400 uppercase tracking-widest mb-8" data-nl="Merken die we hebben geholpen" data-en="Brands we've worked with">Merken die we hebben geholpen</p>
+      <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-5">
+        <span class="text-xl font-black text-gray-300 tracking-tight hover:text-gray-400 transition-colors">G&amp;B Finance</span>
+        <span class="text-xl font-black text-gray-300 tracking-tight hover:text-gray-400 transition-colors">X2O Badkamers</span>
+        <span class="text-xl font-black text-gray-300 tracking-tight hover:text-gray-400 transition-colors">Huis Van Makers</span>
+        <span class="text-xl font-black text-gray-300 tracking-tight hover:text-gray-400 transition-colors">Twaalfde Man</span>
+        <span class="text-xl font-black text-gray-300 tracking-tight hover:text-gray-400 transition-colors">Lebara</span>
+        <span class="text-xl font-black text-gray-300 tracking-tight hover:text-gray-400 transition-colors">ALDI</span>
+        <span class="text-xl font-black text-gray-300 tracking-tight hover:text-gray-400 transition-colors">Kenwood</span>
+        <span class="text-xl font-black text-gray-300 tracking-tight hover:text-gray-400 transition-colors">Typhur</span>
+        <span class="text-xl font-black text-gray-300 tracking-tight hover:text-gray-400 transition-colors">B-Wyze</span>
+        <span class="text-xl font-black text-gray-300 tracking-tight hover:text-gray-400 transition-colors">HP</span>
       </div>
     </div>
   </section>
 
-  <!-- LATEST CASES -->
-  <section class="py-16">
+  <!-- FEATURED TALENTS SLIDESHOW -->
+  <section class="bg-gray-50 py-16">
     <div class="max-w-6xl mx-auto px-8">
-      <h2 class="text-2xl font-black mb-8">Recente <span class="bg-[#d1ff68] px-1">Cases</span></h2>
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-2xl font-black" data-nl="Uitgelichte <span class='bg-[#d1ff68] px-1'>Talents</span>" data-en="Featured <span class='bg-[#d1ff68] px-1'>Talents</span>">Uitgelichte <span class="bg-[#d1ff68] px-1">Talents</span></h2>
+        <a href="talents.html" class="text-sm font-medium text-gray-500 hover:text-black transition-colors" data-nl="Bekijk alle →" data-en="View all →">Bekijk alle →</a>
+      </div>
+
+      <!-- Slideshow -->
+      <div class="relative overflow-hidden rounded-2xl" style="height: 420px;">
+        <div class="slide active absolute inset-0">
+          <a href="talents/bart.html" class="block w-full h-full">
+            <img src="images/talents/bart.jpg" alt="Bart" class="w-full h-full object-cover object-top" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+              <p class="text-gray-300 text-sm mb-1">Lifestyle · Travel</p>
+              <p class="text-white font-black text-4xl leading-none mb-2">MEET <span class="text-[#d1ff68]">BART</span></p>
+              <p class="text-gray-300 text-sm">6K followers</p>
+            </div>
+          </a>
+        </div>
+        <div class="slide absolute inset-0">
+          <a href="talents/nigel.html" class="block w-full h-full">
+            <img src="images/talents/nigel.jpg" alt="Nigel" class="w-full h-full object-cover object-top" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+              <p class="text-gray-300 text-sm mb-1">Lifestyle · Food</p>
+              <p class="text-white font-black text-4xl leading-none mb-2">MEET <span class="text-[#d1ff68]">NIGEL</span></p>
+              <p class="text-gray-300 text-sm">131K followers</p>
+            </div>
+          </a>
+        </div>
+        <div class="slide absolute inset-0">
+          <a href="talents/ricky.html" class="block w-full h-full">
+            <img src="images/talents/ricky.jpg" alt="Ricky" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+              <p class="text-gray-300 text-sm mb-1">Fashion · Lifestyle</p>
+              <p class="text-white font-black text-4xl leading-none mb-2">MEET <span class="text-[#d1ff68]">RICKY</span></p>
+              <p class="text-gray-300 text-sm">19.4K followers</p>
+            </div>
+          </a>
+        </div>
+        <div class="slide absolute inset-0">
+          <a href="talents/julia.html" class="block w-full h-full">
+            <img src="images/talents/julia.jpg" alt="Julia" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+              <p class="text-gray-300 text-sm mb-1">Beauty · Lifestyle</p>
+              <p class="text-white font-black text-4xl leading-none mb-2">MEET <span class="text-[#d1ff68]">JULIA</span></p>
+              <p class="text-gray-300 text-sm">69.1K followers</p>
+            </div>
+          </a>
+        </div>
+        <!-- Arrow buttons -->
+        <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/40 hover:bg-black/60 rounded-full flex items-center justify-center text-white transition-colors z-10">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/40 hover:bg-black/60 rounded-full flex items-center justify-center text-white transition-colors z-10">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+      <!-- Dots -->
+      <div class="flex justify-center gap-2 mt-4" id="slide-dots">
+        <button onclick="goToSlide(0)" class="slide-dot w-2 h-2 rounded-full bg-[#2222DD] transition-all"></button>
+        <button onclick="goToSlide(1)" class="slide-dot w-2 h-2 rounded-full bg-gray-300 transition-all"></button>
+        <button onclick="goToSlide(2)" class="slide-dot w-2 h-2 rounded-full bg-gray-300 transition-all"></button>
+        <button onclick="goToSlide(3)" class="slide-dot w-2 h-2 rounded-full bg-gray-300 transition-all"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-8">
+      <h2 class="text-2xl font-black mb-10" data-nl="Wat merken <span class='bg-[#d1ff68] px-1'>zeggen</span>" data-en="What brands <span class='bg-[#d1ff68] px-1'>say</span>">Wat merken <span class="bg-[#d1ff68] px-1">zeggen</span></h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="border border-gray-100 rounded-2xl p-6">
+          <div class="flex gap-1 mb-4">
+            <svg class="w-4 h-4 text-[#d1ff68] fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="w-4 h-4 text-[#d1ff68] fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="w-4 h-4 text-[#d1ff68] fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="w-4 h-4 text-[#d1ff68] fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="w-4 h-4 text-[#d1ff68] fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="text-gray-700 text-sm leading-relaxed mb-4" data-nl='"Buzzed Up leverde precies wat we nodig hadden. De content was authentiek, het bereik enorm."' data-en='"Buzzed Up delivered exactly what we needed. Authentic content, massive reach."'>"Buzzed Up leverde precies wat we nodig hadden. De content was authentiek, het bereik enorm."</p>
+          <p class="font-bold text-xs">— Twaalfde Man</p>
+        </div>
+        <div class="border border-gray-100 rounded-2xl p-6">
+          <div class="flex gap-1 mb-4">
+            <svg class="w-4 h-4 text-[#d1ff68] fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="w-4 h-4 text-[#d1ff68] fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="w-4 h-4 text-[#d1ff68] fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="w-4 h-4 text-[#d1ff68] fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="w-4 h-4 text-[#d1ff68] fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="text-gray-700 text-sm leading-relaxed mb-4" data-nl='"De samenwerking verliep vlekkeloos. Van briefing tot live in recordtijd, met resultaten die spraken."' data-en='"Seamless collaboration. From brief to live in record time, with results that spoke for themselves."'>"De samenwerking verliep vlekkeloos. Van briefing tot live in recordtijd, met resultaten die spraken."</p>
+          <p class="font-bold text-xs">— Lebara</p>
+        </div>
+        <div class="border border-gray-100 rounded-2xl p-6">
+          <div class="flex gap-1 mb-4">
+            <svg class="w-4 h-4 text-[#d1ff68] fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="w-4 h-4 text-[#d1ff68] fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="w-4 h-4 text-[#d1ff68] fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="w-4 h-4 text-[#d1ff68] fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="w-4 h-4 text-[#d1ff68] fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="text-gray-700 text-sm leading-relaxed mb-4" data-nl='"Ze snappen echt hoe social werkt. De creators die ze matchen passen perfect bij onze doelgroep."' data-en='"They truly understand how social works. The creators they match are a perfect fit for our audience."'>"Ze snappen echt hoe social werkt. De creators die ze matchen passen perfect bij onze doelgroep."</p>
+          <p class="font-bold text-xs">— Typhur</p>
+        </div>
+      </div>
+      <p class="text-center text-xs text-gray-400 mt-6" data-nl="* Vervang deze quotes met echte testimonials van je klanten." data-en="* Replace these quotes with real testimonials from your clients.">* Vervang deze quotes met echte testimonials van je klanten.</p>
+    </div>
+  </section>
+
+  <!-- LATEST CASES -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-8">
+      <h2 class="text-2xl font-black mb-8" data-nl="Recente <span class='bg-[#d1ff68] px-1'>Cases</span>" data-en="Recent <span class='bg-[#d1ff68] px-1'>Cases</span>">Recente <span class="bg-[#d1ff68] px-1">Cases</span></h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <a href="cases/streetwear-brand-launch.html" class="block group">
           <div class="rounded-2xl overflow-hidden aspect-video bg-gray-200 mb-3">
@@ -143,8 +302,8 @@
             <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2 py-0.5 rounded-full">TikTok</span>
           </div>
           <h3 class="font-bold text-sm mb-1">Streetwear Brand Launch</h3>
-          <p class="text-gray-500 text-xs mb-2 leading-relaxed">Launched a new streetwear line with 12 creators generating massive organic reach and sold-out drops.</p>
-          <p class="text-[#2222DD] font-bold text-sm">4.2M <span class="text-gray-400 font-normal text-xs">Total Reach</span></p>
+          <p class="text-gray-500 text-xs mb-2 leading-relaxed">12 creators, massive organic reach en sold-out drops.</p>
+          <p class="text-[#2222DD] font-bold text-sm">4.2M <span class="text-gray-400 font-normal text-xs">Bereik</span></p>
         </a>
         <a href="cases.html" class="block group">
           <div class="rounded-2xl overflow-hidden aspect-video bg-orange-100 mb-3">
@@ -155,7 +314,7 @@
             <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2 py-0.5 rounded-full">TikTok</span>
           </div>
           <h3 class="font-bold text-sm mb-1">Fitness App User Acquisition</h3>
-          <p class="text-gray-500 text-xs mb-2 leading-relaxed">Drove 100K+ app downloads in 30 days through authentic creator partnerships.</p>
+          <p class="text-gray-500 text-xs mb-2 leading-relaxed">100K+ app downloads in 30 dagen via creator partnerships.</p>
           <p class="text-[#2222DD] font-bold text-sm">92K <span class="text-gray-400 font-normal text-xs">Downloads</span></p>
         </a>
         <a href="cases.html" class="block group">
@@ -167,12 +326,12 @@
             <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2 py-0.5 rounded-full">Instagram</span>
           </div>
           <h3 class="font-bold text-sm mb-1">Sustainable Beauty Campaign</h3>
-          <p class="text-gray-500 text-xs mb-2 leading-relaxed">Repositioned a beauty brand as the go-to for eco-conscious consumers.</p>
+          <p class="text-gray-500 text-xs mb-2 leading-relaxed">Beauty merk gepositioneerd voor eco-conscious doelgroep.</p>
           <p class="text-[#2222DD] font-bold text-sm">+380% <span class="text-gray-400 font-normal text-xs">Brand Mentions</span></p>
         </a>
       </div>
       <div class="mt-8 flex justify-center">
-        <a href="cases.html" class="border border-gray-300 text-sm font-medium px-6 py-2 rounded-full hover:border-gray-500 transition-colors">Bekijk alle cases</a>
+        <a href="cases.html" class="border border-gray-300 text-sm font-medium px-6 py-2 rounded-full hover:border-gray-500 transition-colors" data-nl="Bekijk alle cases" data-en="View all cases">Bekijk alle cases</a>
       </div>
     </div>
   </section>
@@ -180,27 +339,27 @@
   <!-- HOW WE WORK -->
   <section class="bg-[#2222DD] py-16">
     <div class="max-w-6xl mx-auto px-8">
-      <h2 class="text-2xl font-black text-white mb-8">Hoe we <span class="text-[#d1ff68]">werken</span></h2>
+      <h2 class="text-2xl font-black text-white mb-8" data-nl="Hoe we <span class='text-[#d1ff68]'>werken</span>" data-en="How we <span class='text-[#d1ff68]'>work</span>">Hoe we <span class="text-[#d1ff68]">werken</span></h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div class="border border-blue-400 rounded-2xl p-5">
           <p class="text-[#d1ff68] font-black text-2xl mb-2">01</p>
-          <p class="text-white font-bold text-sm mb-1">Briefing</p>
-          <p class="text-blue-200 text-xs">Vertel ons wat je nodig hebt</p>
+          <p class="text-white font-bold text-sm mb-1" data-nl="Briefing" data-en="Briefing">Briefing</p>
+          <p class="text-blue-200 text-xs" data-nl="Vertel ons wat je nodig hebt" data-en="Tell us what you need">Vertel ons wat je nodig hebt</p>
         </div>
         <div class="border border-blue-400 rounded-2xl p-5">
           <p class="text-[#d1ff68] font-black text-2xl mb-2">02</p>
-          <p class="text-white font-bold text-sm mb-1">Match</p>
-          <p class="text-blue-200 text-xs">Wij vinden de juiste creators</p>
+          <p class="text-white font-bold text-sm mb-1" data-nl="Match" data-en="Match">Match</p>
+          <p class="text-blue-200 text-xs" data-nl="Wij vinden de juiste creators" data-en="We find the right creators">Wij vinden de juiste creators</p>
         </div>
         <div class="border border-blue-400 rounded-2xl p-5">
           <p class="text-[#d1ff68] font-black text-2xl mb-2">03</p>
-          <p class="text-white font-bold text-sm mb-1">Creëren</p>
-          <p class="text-blue-200 text-xs">De content wordt gemaakt</p>
+          <p class="text-white font-bold text-sm mb-1" data-nl="Creëren" data-en="Create">Creëren</p>
+          <p class="text-blue-200 text-xs" data-nl="De content wordt gemaakt" data-en="The content gets made">De content wordt gemaakt</p>
         </div>
         <div class="border border-blue-400 rounded-2xl p-5">
           <p class="text-[#d1ff68] font-black text-2xl mb-2">04</p>
-          <p class="text-white font-bold text-sm mb-1">Live</p>
-          <p class="text-blue-200 text-xs">En dan kijk je het performen</p>
+          <p class="text-white font-bold text-sm mb-1" data-nl="Live" data-en="Live">Live</p>
+          <p class="text-blue-200 text-xs" data-nl="En dan kijk je het performen" data-en="And watch it perform">En dan kijk je het performen</p>
         </div>
       </div>
     </div>
@@ -209,8 +368,8 @@
   <!-- CTA -->
   <section class="py-20 text-center">
     <div class="max-w-6xl mx-auto px-8">
-      <h2 class="text-4xl font-black mb-6">Klaar om Buzzed Up te gaan?</h2>
-      <a href="contact.html" class="bg-[#2222DD] text-white font-semibold px-8 py-3 rounded-full text-sm inline-block hover:bg-blue-700 transition-colors">Neem contact op</a>
+      <h2 class="text-4xl font-black mb-6" data-nl="Klaar om Buzzed Up te gaan?" data-en="Ready to get Buzzed Up?">Klaar om Buzzed Up te gaan?</h2>
+      <a href="contact.html" class="bg-[#2222DD] text-white font-semibold px-8 py-3 rounded-full text-sm inline-block hover:bg-blue-700 transition-colors" data-nl="Neem contact op" data-en="Get in touch">Neem contact op</a>
     </div>
   </section>
 
@@ -242,7 +401,20 @@
     </div>
   </footer>
 
+  <!-- COOKIE BANNER -->
+  <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-lg px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="text-xs text-gray-600 max-w-lg">
+      We gebruiken cookies om het gebruik van onze website te analyseren via Google Analytics. Zo verbeteren we onze site continu.
+      <a href="#" class="underline hover:text-black">Meer info</a>
+    </p>
+    <div class="flex gap-3 shrink-0">
+      <button onclick="declineCookies()" class="text-xs text-gray-500 hover:text-black border border-gray-200 px-4 py-2 rounded-full transition-colors">Weigeren</button>
+      <button onclick="acceptCookies()" class="text-xs font-bold bg-[#2222DD] text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors">Accepteren</button>
+    </div>
+  </div>
+
   <script>
+    // ─── NAV scroll effect ───────────────────────────────────────
     function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('hidden');}
 
     const nav = document.getElementById('main-nav');
@@ -259,6 +431,10 @@
         navLogo.style.filter = 'none';
         menuBtn.classList.remove('text-white');
         menuBtn.classList.add('text-black');
+        document.querySelectorAll('.lang-btn').forEach(b => {
+          b.classList.remove('text-white/60');
+          if (!b.classList.contains('active')) b.classList.add('text-gray-400');
+        });
       } else {
         nav.classList.remove('bg-white', 'border-gray-100', 'shadow-sm');
         nav.classList.add('border-transparent');
@@ -269,6 +445,74 @@
         menuBtn.classList.remove('text-black');
       }
     });
+
+    // ─── Talent slideshow ────────────────────────────────────────
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.slide-dot');
+    let slideTimer = setInterval(nextSlide, 4000);
+
+    function goToSlide(n) {
+      slides[currentSlide].classList.remove('active');
+      dots[currentSlide].classList.replace('bg-[#2222DD]', 'bg-gray-300');
+      currentSlide = (n + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.replace('bg-gray-300', 'bg-[#2222DD]');
+      clearInterval(slideTimer);
+      slideTimer = setInterval(nextSlide, 4000);
+    }
+    function nextSlide() { goToSlide(currentSlide + 1); }
+    function prevSlide() { goToSlide(currentSlide - 1); }
+
+    // ─── Animated counters ───────────────────────────────────────
+    function animateCounters() {
+      document.querySelectorAll('.counter').forEach(el => {
+        const target = parseInt(el.dataset.target);
+        const suffix = el.dataset.suffix || '';
+        const divisor = parseFloat(el.dataset.divisor) || 1;
+        const duration = 1800;
+        const step = target / (duration / 16);
+        let current = 0;
+        const timer = setInterval(() => {
+          current = Math.min(current + step, target);
+          const display = divisor > 1 ? (current / divisor).toFixed(1) : Math.floor(current);
+          el.textContent = display + suffix;
+          if (current >= target) clearInterval(timer);
+        }, 16);
+      });
+    }
+
+    const statsSection = document.querySelector('.bg-\\[\\#2222DD\\]');
+    const observer = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) { animateCounters(); observer.disconnect(); }
+    }, { threshold: 0.3 });
+    observer.observe(document.querySelector('[data-target]').closest('section'));
+
+    // ─── NL / EN toggle ──────────────────────────────────────────
+    let currentLang = 'nl';
+    function setLang(lang) {
+      currentLang = lang;
+      document.getElementById('btn-nl').classList.toggle('active', lang === 'nl');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.querySelectorAll('[data-nl]').forEach(el => {
+        const val = el.dataset[lang];
+        if (val) el.innerHTML = val;
+      });
+    }
+
+    // ─── Cookie banner ───────────────────────────────────────────
+    const banner = document.getElementById('cookie-banner');
+    if (localStorage.getItem('cookie-consent')) banner.style.display = 'none';
+
+    function acceptCookies() {
+      localStorage.setItem('cookie-consent', 'accepted');
+      banner.style.display = 'none';
+      loadGA();
+    }
+    function declineCookies() {
+      localStorage.setItem('cookie-consent', 'declined');
+      banner.style.display = 'none';
+    }
   </script>
 </body>
 </html>

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" href="logo.svg" type="image/svg+xml" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact — Buzzed Up</title>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -14,6 +15,17 @@
     .faq-item.open .faq-chevron { transform: rotate(180deg); }
     .faq-chevron { transition: transform 0.2s ease; }
   </style>
+  <!-- Google Analytics (loads only after cookie consent) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    if (localStorage.getItem('cookie-consent') === 'accepted') {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-3J9F01KWEY';
+      document.head.appendChild(s);
+      s.onload = function(){ gtag('js', new Date()); gtag('config', 'G-3J9F01KWEY'); };
+    }
+  </script>
 </head>
 <body class="bg-white text-black">
 
@@ -81,14 +93,17 @@
 
         <!-- Right: Form -->
         <div>
-          <form onsubmit="handleSubmit(event)" class="space-y-4">
+          <form id="contact-form" action="https://formspree.io/f/xrerkgjv" method="POST" class="space-y-4">
+            <input type="hidden" name="_subject" value="Nieuw bericht via buzzedupagency.com" />
+            <input type="hidden" name="_to" value="info@buzzedupagency.com" />
+            <input type="hidden" id="role-input" name="rol" value="Merk" />
             <div>
               <label class="block text-xs font-semibold text-gray-500 mb-1">Naam</label>
-              <input type="text" placeholder="Jouw naam" class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2222DD] transition-colors" />
+              <input type="text" name="naam" required placeholder="Jouw naam" class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2222DD] transition-colors" />
             </div>
             <div>
               <label class="block text-xs font-semibold text-gray-500 mb-1">E-mail</label>
-              <input type="email" placeholder="your@email.com" class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2222DD] transition-colors" />
+              <input type="email" name="email" required placeholder="your@email.com" class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2222DD] transition-colors" />
             </div>
             <div>
               <label class="block text-xs font-semibold text-gray-500 mb-2">Ik ben een...</label>
@@ -101,10 +116,17 @@
             </div>
             <div>
               <label class="block text-xs font-semibold text-gray-500 mb-1">Bericht</label>
-              <textarea rows="4" placeholder="Vertel ons over je project of doelen..." class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2222DD] transition-colors resize-none"></textarea>
+              <textarea rows="4" name="bericht" required placeholder="Vertel ons over je project of doelen..." class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2222DD] transition-colors resize-none"></textarea>
             </div>
-            <button type="submit" class="w-full bg-[#2222DD] text-white font-bold py-3 rounded-xl text-sm hover:bg-blue-700 transition-colors">Verstuur bericht</button>
+            <button type="submit" id="submit-btn" class="w-full bg-[#2222DD] text-white font-bold py-3 rounded-xl text-sm hover:bg-blue-700 transition-colors">Verstuur bericht</button>
           </form>
+          <div id="form-success" class="hidden text-center py-8">
+            <div class="w-12 h-12 bg-[#d1ff68] rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <h3 class="font-black text-lg mb-2">Bericht verstuurd!</h3>
+            <p class="text-gray-500 text-sm">We nemen zo snel mogelijk contact op.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -172,15 +194,37 @@
     function selectRole(btn) {
       document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+      document.getElementById('role-input').value = btn.textContent.trim();
     }
     function toggleFaq(item) {
       item.classList.toggle('open');
     }
     function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('hidden');}
-    function handleSubmit(e) {
+
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const successMsg = document.getElementById('form-success');
+
+    form.addEventListener('submit', async function(e) {
       e.preventDefault();
-      alert('Bedankt! We nemen zo snel mogelijk contact op.');
-    }
+      submitBtn.textContent = 'Versturen...';
+      submitBtn.disabled = true;
+
+      const data = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        form.classList.add('hidden');
+        successMsg.classList.remove('hidden');
+      } else {
+        submitBtn.textContent = 'Probeer opnieuw';
+        submitBtn.disabled = false;
+      }
+    });
   </script>
 
 </body>
