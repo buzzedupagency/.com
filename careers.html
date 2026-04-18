@@ -8,7 +8,9 @@
   <title>Careers — Buzzed Up</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=League+Spartan:wght@700;800;900&display=swap" rel="stylesheet" />
-  <style>body { font-family: 'Inter', sans-serif; }</style>
+  <style>body { font-family: 'Inter', sans-serif; }
+    .site-logo { height: 4.5rem; width: auto; }
+    @media (min-width: 768px) { .site-logo { height: 6rem; width: auto; } }</style>
   <!-- Google Analytics (loads only after cookie consent) -->
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -36,7 +38,7 @@
 
   <nav class="border-b border-gray-100">
     <div class="max-w-6xl mx-auto px-8 py-4 flex items-center justify-between">
-      <a href="index.html"><img src="logo.svg" alt="Buzzed Up" class="h-28 md:h-44 w-auto" /></a>
+      <a href="index.html"><img src="logo.svg" alt="Buzzed Up" class="site-logo w-auto" /></a>
       <div class="hidden md:flex items-center gap-8 text-sm font-medium text-black">
         <a href="about.html" class="text-black hover:text-[#2222DD]">About</a>
         <a href="services.html" class="text-black hover:text-[#2222DD]">Services</a>
