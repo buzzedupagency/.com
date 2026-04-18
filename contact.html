@@ -260,14 +260,12 @@
     })();
   </script>
   <!-- COOKIE MODAL -->
-  <div id="cookie-banner" class="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4" style="background:rgba(0,0,0,0.55);">
-    <div class="bg-white rounded-2xl border-2 border-black p-6 w-full max-w-sm shadow-2xl">
-      <p class="font-black text-lg mb-2">Cookies 🍪</p>
-      <p class="text-gray-600 text-sm leading-relaxed mb-5">We gebruiken cookies om het gebruik van deze website te analyseren via Google Analytics. Zo verbeteren we de site continu. <a href="/privacy.html" class="text-[#2222DD] underline hover:opacity-80">Privacy policy</a></p>
-      <div class="flex gap-3">
-        <button onclick="acceptCookies()" class="flex-1 bg-[#2222DD] text-white font-bold text-sm py-3 rounded-full hover:bg-blue-700 transition-colors">Accepteren</button>
-        <button onclick="declineCookies()" class="flex-1 border-2 border-gray-200 text-gray-600 font-semibold text-sm py-3 rounded-full hover:border-gray-400 transition-colors">Weigeren</button>
-      </div>
+  <div id="cookie-banner" class="fixed bottom-4 right-4 z-50 w-80 bg-white rounded-2xl border-2 border-black p-5 shadow-2xl">
+    <p class="font-black text-base mb-1.5">Cookies 🍪</p>
+    <p class="text-gray-600 text-xs leading-relaxed mb-4">We gebruiken cookies om het gebruik van deze website te analyseren via Google Analytics. Zo verbeteren we de site continu. <a href="/privacy.html" class="text-[#2222DD] underline hover:opacity-80">Privacy policy</a></p>
+    <div class="flex gap-2">
+      <button onclick="acceptCookies()" class="flex-1 bg-[#2222DD] text-white font-bold text-xs py-2.5 rounded-full hover:bg-blue-700 transition-colors">Accepteren</button>
+      <button onclick="declineCookies()" class="flex-1 border-2 border-gray-200 text-gray-600 font-semibold text-xs py-2.5 rounded-full hover:border-gray-400 transition-colors">Weigeren</button>
     </div>
   </div>
 
