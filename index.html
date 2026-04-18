@@ -2,6 +2,7 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
+    <meta name="description" content="Buzzed Up is een creator agency in Amsterdam. Wij verbinden merken met authentieke creators voor campagnes die echt werken." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Buzzed Up</title>
   <link rel="icon" href="logo.svg" type="image/svg+xml" />
@@ -40,6 +41,14 @@
 
     /* NL/EN toggle */
     .lang-btn.active { background: #2222DD; color: white; }
+
+    /* Talent card hover effects */
+    .talent-card .card-overlay { transition: background 0.35s ease; }
+    .talent-card:hover .card-overlay { background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.25) 60%, transparent 100%); }
+    .talent-card .card-body { transform: translateY(8px); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); }
+    .talent-card:hover .card-body { transform: translateY(0); }
+    .talent-card .card-tag { opacity: 0; transform: translateY(4px); transition: opacity 0.25s ease 0.1s, transform 0.25s ease 0.1s; }
+    .talent-card:hover .card-tag { opacity: 1; transform: translateY(0); }
   </style>
   <!-- Open Graph / Social Preview -->
   <meta property="og:type" content="website" />
@@ -58,7 +67,7 @@
   <!-- NAV -->
   <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
     <div class="max-w-6xl mx-auto px-8 py-4 flex items-center justify-between">
-      <a href="index.html"><img src="logo.svg" alt="Buzzed Up" id="nav-logo" class="h-14 md:h-20 w-auto" style="filter: brightness(0) invert(1);" /></a>
+      <a href="index.html"><img src="logo.svg" alt="Buzzed Up" id="nav-logo" class="h-16 md:h-24 w-auto" style="filter: brightness(0) invert(1);" /></a>
       <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white" id="nav-links">
         <a href="about.html" class="hover:text-[#d1ff68] transition-colors" data-nl="About" data-en="About">About</a>
         <a href="services.html" class="hover:text-[#d1ff68] transition-colors" data-nl="Services" data-en="Services">Services</a>
@@ -90,14 +99,15 @@
   </nav>
 
   <!-- HERO -->
-  <section class="relative overflow-hidden" style="height: 580px;">
-    <img src="images/banner.jpg" alt="Buzzed Up Studio" class="absolute inset-0 w-full h-full object-cover" />
+  <section class="relative overflow-hidden" style="height: 760px;">
+    <img src="images/banner.jpg" alt="Buzzed Up Studio" class="absolute inset-0 w-full h-full object-cover"  loading="lazy"/>
     <div class="absolute inset-0 bg-black/60"></div>
     <div class="relative h-full max-w-6xl mx-auto px-8 flex flex-col justify-end pb-16">
-      <h1 class="font-black leading-none mb-2" style="font-size: clamp(64px, 10vw, 120px);">
-        <span class="bg-[#2222DD] text-white px-3 py-1 inline-block" data-nl="WHO'S" data-en="WHO'S">WHO'S</span>
-      </h1>
-      <h1 class="font-black leading-none text-[#d1ff68] mb-8" style="font-size: clamp(64px, 10vw, 120px);" data-nl="BUZZED" data-en="BUZZED">BUZZED</h1>
+      <div class="mb-8" style="line-height: 0.86;">
+        <div class="font-black text-white/40" style="font-size: clamp(28px, 4vw, 54px);" data-nl="WHO'S" data-en="WHO'S">WHO'S</div>
+        <div class="font-black text-[#d1ff68]" style="font-size: clamp(96px, 15vw, 190px);" data-nl="BUZZED" data-en="BUZZED">BUZZED</div>
+        <div class="font-black" style="font-size: clamp(96px, 15vw, 190px);"><span class="bg-[#2222DD] text-white px-4 inline-block" style="line-height: 1.05;" data-nl="UP" data-en="UP">UP</span></div>
+      </div>
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
         <p class="text-white/80 text-base max-w-sm leading-relaxed" data-nl="We connect bold brands with creators who cut through the noise. No fluff. Just content that works." data-en="We connect bold brands with creators who cut through the noise. No fluff. Just content that works.">We connect bold brands with creators who cut through the noise. No fluff. Just content that works.</p>
         <div class="flex gap-4">
@@ -204,36 +214,44 @@
       <!-- Talent grid with page-based dots (scales when more creators are added) -->
       <div id="talent-roster">
         <div class="talent-page grid grid-cols-2 md:grid-cols-4 gap-4">
-          <a href="talents/bart.html" class="relative rounded-2xl overflow-hidden bg-gray-900 block group" style="aspect-ratio:3/4;">
+          <a href="talents/bart.html" class="talent-card relative rounded-2xl overflow-hidden bg-gray-900 block group" style="aspect-ratio:3/4;">
             <img src="images/talents/bart.jpg" alt="Bart" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
-              <p class="text-gray-300 text-[10px] mb-0.5">Lifestyle · Travel</p>
-              <p class="text-white font-black text-lg leading-none mb-0.5">MEET <span class="text-[#d1ff68]">BART</span></p>
-              <p class="text-gray-300 text-[10px]">6K followers</p>
+            <div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
+              <div class="card-body">
+                <p class="card-tag text-gray-300 text-[10px] mb-0.5">Lifestyle · Travel</p>
+                <p class="text-white font-black text-lg leading-none mb-0.5">MEET <span class="text-[#d1ff68]">BART</span></p>
+                <p class="card-tag text-gray-300 text-[10px]">6K followers</p>
+              </div>
             </div>
           </a>
-          <a href="talents/nigel.html" class="relative rounded-2xl overflow-hidden bg-gray-900 block group" style="aspect-ratio:3/4;">
+          <a href="talents/nigel.html" class="talent-card relative rounded-2xl overflow-hidden bg-gray-900 block group" style="aspect-ratio:3/4;">
             <img src="images/talents/nigel.jpg" alt="Nigel" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
-              <p class="text-gray-300 text-[10px] mb-0.5">Lifestyle · Food</p>
-              <p class="text-white font-black text-lg leading-none mb-0.5">MEET <span class="text-[#d1ff68]">NIGEL</span></p>
-              <p class="text-gray-300 text-[10px]">131K followers</p>
+            <div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
+              <div class="card-body">
+                <p class="card-tag text-gray-300 text-[10px] mb-0.5">Lifestyle · Food</p>
+                <p class="text-white font-black text-lg leading-none mb-0.5">MEET <span class="text-[#d1ff68]">NIGEL</span></p>
+                <p class="card-tag text-gray-300 text-[10px]">131K followers</p>
+              </div>
             </div>
           </a>
-          <a href="talents/ricky.html" class="relative rounded-2xl overflow-hidden bg-gray-900 block group" style="aspect-ratio:3/4;">
+          <a href="talents/ricky.html" class="talent-card relative rounded-2xl overflow-hidden bg-gray-900 block group" style="aspect-ratio:3/4;">
             <img src="images/talents/ricky.jpg" alt="Ricky" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
-              <p class="text-gray-300 text-[10px] mb-0.5">Fashion · Lifestyle</p>
-              <p class="text-white font-black text-lg leading-none mb-0.5">MEET <span class="text-[#d1ff68]">RICKY</span></p>
-              <p class="text-gray-300 text-[10px]">19.4K followers</p>
+            <div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
+              <div class="card-body">
+                <p class="card-tag text-gray-300 text-[10px] mb-0.5">Fashion · Lifestyle</p>
+                <p class="text-white font-black text-lg leading-none mb-0.5">MEET <span class="text-[#d1ff68]">RICKY</span></p>
+                <p class="card-tag text-gray-300 text-[10px]">19.4K followers</p>
+              </div>
             </div>
           </a>
-          <a href="talents/julia.html" class="relative rounded-2xl overflow-hidden bg-gray-900 block group" style="aspect-ratio:3/4;">
+          <a href="talents/julia.html" class="talent-card relative rounded-2xl overflow-hidden bg-gray-900 block group" style="aspect-ratio:3/4;">
             <img src="images/talents/julia.jpg" alt="Julia" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
-              <p class="text-gray-300 text-[10px] mb-0.5">Beauty · Lifestyle</p>
-              <p class="text-white font-black text-lg leading-none mb-0.5">MEET <span class="text-[#d1ff68]">JULIA</span></p>
-              <p class="text-gray-300 text-[10px]">69.1K followers</p>
+            <div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
+              <div class="card-body">
+                <p class="card-tag text-gray-300 text-[10px] mb-0.5">Beauty · Lifestyle</p>
+                <p class="text-white font-black text-lg leading-none mb-0.5">MEET <span class="text-[#d1ff68]">JULIA</span></p>
+                <p class="card-tag text-gray-300 text-[10px]">69.1K followers</p>
+              </div>
             </div>
           </a>
         </div>
@@ -293,7 +311,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <a href="cases/streetwear-brand-launch.html" class="block group">
           <div class="rounded-2xl overflow-hidden aspect-video bg-gray-200 mb-3">
-            <img src="https://placehold.co/400x225/555555/ffffff?text=Streetwear" alt="Streetwear" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+            <img src="https://placehold.co/400x225/555555/ffffff?text=Streetwear" alt="Streetwear" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"  loading="lazy"/>
           </div>
           <div class="flex gap-2 mb-2">
             <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2 py-0.5 rounded-full">Fashion</span>
@@ -305,7 +323,7 @@
         </a>
         <a href="cases.html" class="block group">
           <div class="rounded-2xl overflow-hidden aspect-video bg-orange-100 mb-3">
-            <img src="https://placehold.co/400x225/f97316/ffffff?text=Fitness+App" alt="Fitness" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+            <img src="https://placehold.co/400x225/f97316/ffffff?text=Fitness+App" alt="Fitness" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"  loading="lazy"/>
           </div>
           <div class="flex gap-2 mb-2">
             <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2 py-0.5 rounded-full">Health & Fitness</span>
@@ -317,7 +335,7 @@
         </a>
         <a href="cases.html" class="block group">
           <div class="rounded-2xl overflow-hidden aspect-video bg-green-100 mb-3">
-            <img src="https://placehold.co/400x225/86efac/555555?text=Beauty" alt="Beauty" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+            <img src="https://placehold.co/400x225/86efac/555555?text=Beauty" alt="Beauty" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"  loading="lazy"/>
           </div>
           <div class="flex gap-2 mb-2">
             <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2 py-0.5 rounded-full">Beauty</span>
@@ -363,11 +381,14 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-20 text-center">
-    <div class="max-w-6xl mx-auto px-8">
-      <h2 class="text-4xl font-black mb-6" data-nl="Klaar om Buzzed Up te gaan?" data-en="Ready to get Buzzed Up?">Klaar om Buzzed Up te gaan?</h2>
-      <a href="contact.html" class="bg-[#2222DD] text-white font-semibold px-8 py-3 rounded-full text-sm inline-block hover:bg-blue-700 transition-colors" data-nl="Neem contact op" data-en="Get in touch">Neem contact op</a>
+  <!-- PRE-FOOTER CTA -->
+  <section class="bg-black py-16">
+    <div class="max-w-6xl mx-auto px-8 flex flex-col md:flex-row items-center justify-between gap-8">
+      <div>
+        <p class="text-[#d1ff68] text-xs font-bold uppercase tracking-widest mb-3">LATEN WE PRATEN</p>
+        <h2 class="font-black text-3xl md:text-4xl text-white leading-tight">Klaar om Buzzed Up<br>te gaan?</h2>
+      </div>
+      <a href="contact.html" class="bg-[#d1ff68] text-black font-bold px-8 py-4 rounded-full text-sm hover:opacity-90 transition-opacity whitespace-nowrap shrink-0">Neem contact op →</a>
     </div>
   </section>
 
@@ -392,8 +413,8 @@
       <div class="flex flex-col md:flex-row justify-between items-center border-t border-blue-500 pt-6 text-xs text-blue-300">
         <p>© 2026 Buzzed Up. Alle rechten voorbehouden.</p>
         <div class="flex gap-4 mt-2 md:mt-0">
-          <a href="#" class="hover:text-white transition-colors">Privacy</a>
-          <a href="#" class="hover:text-white transition-colors">Voorwaarden</a>
+          <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
+          <a href="voorwaarden.html" class="hover:text-white transition-colors">Voorwaarden</a>
         </div>
       </div>
     </div>

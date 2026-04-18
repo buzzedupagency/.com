@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" href="logo.svg" type="image/svg+xml" />
+    <meta name="description" content="Leer het verhaal achter Buzzed Up en founder Bart Wiendels. Van freelance talent manager tot creator agency in Amsterdam." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About — Buzzed Up</title>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -35,7 +36,7 @@
 
   <nav class="border-b border-gray-100">
     <div class="max-w-6xl mx-auto px-8 py-4 flex items-center justify-between">
-      <a href="index.html"><img src="logo.svg" alt="Buzzed Up" class="h-14 md:h-20 w-auto" /></a>
+      <a href="index.html"><img src="logo.svg" alt="Buzzed Up" class="h-16 md:h-24 w-auto" /></a>
       <div class="hidden md:flex items-center gap-8 text-sm font-medium text-black">
         <a href="about.html" class="text-[#2222DD] border-b-2 border-[#2222DD]">About</a>
         <a href="services.html" class="text-black hover:text-[#2222DD]">Services</a>
@@ -65,7 +66,7 @@
 
   <!-- HERO BANNER -->
   <section class="relative overflow-hidden" style="height: clamp(240px, 45vw, 420px);">
-    <img src="images/banner.jpg" alt="Buzzed Up" class="w-full h-full object-cover" />
+    <img src="images/banner.jpg" alt="Buzzed Up" class="w-full h-full object-cover"  loading="lazy"/>
     <div class="absolute inset-0 bg-black/50 flex items-end">
       <div class="max-w-6xl mx-auto px-8 pb-10 w-full">
         <span class="bg-[#2222DD] text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">OVER ONS</span>
@@ -88,7 +89,7 @@
         </div>
         <div class="flex flex-col items-center md:items-start">
           <div class="rounded-2xl overflow-hidden w-full bg-gray-100">
-            <img src="images/bart-about.jpg" alt="Bart Wiendels" class="w-full h-auto block" />
+            <img src="images/bart-about.jpg" alt="Bart Wiendels" class="w-full h-auto block"  loading="lazy"/>
           </div>
           <p class="text-sm font-bold mt-3">Bart Wiendels</p>
           <p class="text-xs text-gray-500">Founder — Buzzed Up</p>
@@ -159,7 +160,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-full h-full"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14l-4-4 1.41-1.41L11 13.17l6.59-6.59L19 8l-8 8z"/></svg>
           </div>
           <h3 class="text-white font-bold text-sm mb-2">Lol hebben</h3>
-          <p class="text-blue-200 text-xs leading-relaxed">We staan aan een safe, blij project, vraagt om durf en creativiteit die opvalt.</p>
+          <p class="text-blue-200 text-xs leading-relaxed">We geloven dat de beste content ontstaat als er lol is in het proces. Goede energie maakt goede dingen.</p>
         </div>
         <div class="bg-blue-600 rounded-2xl p-6">
           <div class="w-8 h-8 mb-3 text-[#d1ff68]">
@@ -194,6 +195,16 @@
     </div>
   </section>
 
+    <!-- PRE-FOOTER CTA -->
+  <section class="bg-black py-16">
+    <div class="max-w-6xl mx-auto px-8 flex flex-col md:flex-row items-center justify-between gap-8">
+      <div>
+        <p class="text-[#d1ff68] text-xs font-bold uppercase tracking-widest mb-3">WERK MET ONS</p>
+        <h2 class="font-black text-3xl md:text-4xl text-white leading-tight">Wil je weten<br>wat wij voor jou doen?</h2>
+      </div>
+      <a href="services.html" class="bg-[#d1ff68] text-black font-bold px-8 py-4 rounded-full text-sm hover:opacity-90 transition-opacity whitespace-nowrap shrink-0">Bekijk onze services →</a>
+    </div>
+  </section>
   <footer class="bg-[#2222DD] text-white">
     <div class="max-w-6xl mx-auto px-8 py-10">
       <div class="flex flex-col md:flex-row justify-between gap-8 mb-6">
@@ -215,7 +226,7 @@
         <p>© 2026 Buzzed Up. Alle rechten voorbehouden.</p>
         <div class="flex gap-4 mt-2 md:mt-0">
           <a href="/privacy.html" class="hover:text-white">Privacy</a>
-          <a href="#" class="hover:text-white">Voorwaarden</a>
+          <a href="/voorwaarden.html" class="hover:text-white">Voorwaarden</a>
         </div>
       </div>
     </div>
