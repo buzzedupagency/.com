@@ -131,5 +131,25 @@
   </footer>
 
   <script>function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('hidden');}</script>
+
+  <script>
+    // Sitewide NL/EN language toggle
+    function setLang(lang) {
+      localStorage.setItem('lang', lang);
+      var nb = document.getElementById('btn-nl'), eb = document.getElementById('btn-en');
+      if (nb) nb.style.cssText = lang === 'nl' ? 'background:#2222DD;color:#fff;' : '';
+      if (eb) eb.style.cssText = lang === 'en' ? 'background:#2222DD;color:#fff;' : '';
+      document.querySelectorAll('[data-nl]').forEach(function(el) {
+        var val = el.dataset[lang];
+        if (val !== undefined) el.innerHTML = val;
+      });
+    }
+    (function() {
+      var lang = localStorage.getItem('lang') || 'nl';
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function(){ setLang(lang); });
+      } else { setLang(lang); }
+    })();
+  </script>
 </body>
 </html>
