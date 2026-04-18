@@ -65,7 +65,7 @@
 <body class="bg-white text-black">
 
   <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
-    <div class="max-w-6xl mx-auto px-8 py-4 flex items-center justify-between">
+    <div class="max-w-6xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
       <a href="index.html"><img src="logo.svg" alt="Buzzed Up" id="nav-logo" style="height:70px;width:auto;filter:brightness(0) invert(1);" /></a>
       <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white" id="nav-links">
         <a href="about.html" class="hover:text-[#d1ff68] transition-colors text-white">About</a>
@@ -95,7 +95,7 @@
   </nav>
 
   <section class="bg-[#2222DD] pt-32 pb-16">
-    <div class="max-w-6xl mx-auto px-8">
+    <div class="max-w-6xl mx-auto px-4 md:px-8">
       <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-4">ONS ROSTER</span>
       <h1 class="font-black text-6xl mb-4 text-white">Talents</h1>
       <p class="text-blue-200 text-base leading-relaxed max-w-sm">Creators die door de ruis heen breken. Authentieke stemmen, echte betrokkenheid, bewezen resultaten.</p>
@@ -103,10 +103,10 @@
   </section>
 
   <section class="pt-14 pb-20">
-    <div class="max-w-6xl mx-auto px-8">
+    <div class="max-w-6xl mx-auto px-4 md:px-8">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <a href="talents/bart.html" class="talent-card relative rounded-2xl overflow-hidden aspect-[3/4] bg-gray-900 block group" style="aspect-ratio:3/4;">
-          <img src="images/talents/bart.jpg" alt="Bart" fetchpriority="high" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+          <img width="600" height="800" src="images/talents/bart.jpg" alt="Bart" fetchpriority="high" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
           <div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
             <div class="card-body">
               <p class="text-white font-black text-xl leading-none mb-1">MEET <span class="text-[#d1ff68]">BART</span></p>
@@ -115,7 +115,7 @@
           </div>
         </a>
         <a href="talents/nigel.html" class="talent-card relative rounded-2xl overflow-hidden aspect-[3/4] bg-gray-900 block group" style="aspect-ratio:3/4;">
-          <img src="images/talents/nigel.jpg" alt="Nigel" fetchpriority="high" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" />
+          <img width="600" height="800" src="images/talents/nigel.jpg" alt="Nigel" fetchpriority="high" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" />
           <div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
             <div class="card-body">
               <p class="text-white font-black text-xl leading-none mb-1">MEET <span class="text-[#d1ff68]">NIGEL</span></p>
@@ -124,7 +124,7 @@
           </div>
         </a>
         <a href="talents/ricky.html" class="talent-card relative rounded-2xl overflow-hidden aspect-[3/4] bg-gray-900 block group" style="aspect-ratio:3/4;">
-          <img src="images/talents/ricky.jpg" alt="Ricky" fetchpriority="high" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+          <img width="600" height="800" src="images/talents/ricky.jpg" alt="Ricky" fetchpriority="high" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
           <div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
             <div class="card-body">
               <p class="text-white font-black text-xl leading-none mb-1">MEET <span class="text-[#d1ff68]">RICKY</span></p>
@@ -133,7 +133,7 @@
           </div>
         </a>
         <a href="talents/julia.html" class="talent-card relative rounded-2xl overflow-hidden aspect-[3/4] bg-gray-900 block group" style="aspect-ratio:3/4;">
-          <img src="images/talents/julia.jpg" alt="Julia" fetchpriority="high" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+          <img width="600" height="800" src="images/talents/julia.jpg" alt="Julia" fetchpriority="high" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
           <div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
             <div class="card-body">
               <p class="text-white font-black text-xl leading-none mb-1">MEET <span class="text-[#d1ff68]">JULIA</span></p>
@@ -145,7 +145,7 @@
     </div>
   </section>
     <footer class="bg-[#2222DD] text-white">
-    <div class="max-w-6xl mx-auto px-8 pt-16 pb-10">
+    <div class="max-w-6xl mx-auto px-4 md:px-8 pt-16 pb-10">
 
       <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-14">
 
@@ -220,7 +220,7 @@
     })();
   </script>
   <!-- COOKIE MODAL -->
-  <div id="cookie-banner" class="fixed bottom-4 right-4 z-50 w-80 bg-white rounded-2xl border-2 border-black p-5 shadow-2xl">
+  <div id="cookie-banner" class="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-4 sm:w-80 z-50 bg-white rounded-2xl border-2 border-black p-5 shadow-2xl">
     <p class="font-black text-base mb-1.5">Cookies 🍪</p>
     <p class="text-gray-600 text-xs leading-relaxed mb-4">We gebruiken cookies om het gebruik van deze website te analyseren via Google Analytics. Zo verbeteren we de site continu. <a href="/privacy.html" class="text-[#2222DD] underline hover:opacity-80">Privacy policy</a></p>
     <div class="flex gap-2">
