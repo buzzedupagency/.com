@@ -11,31 +11,31 @@
 <body class="bg-white text-black">
 
   <!-- NAV -->
-  <nav class="border-b border-gray-100">
+  <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
     <div class="max-w-6xl mx-auto px-8 py-4 flex items-center justify-between">
-      <a href="index.html"><img src="logo.svg" alt="Buzzed Up" style="height: 96px; width: auto;" /></a>
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-black">
-        <a href="about.html" class="hover:text-[#2222DD] transition-colors">About</a>
-        <a href="services.html" class="hover:text-[#2222DD] transition-colors">Services</a>
-        <a href="talents.html" class="hover:text-[#2222DD] transition-colors">Talents</a>
-        <a href="careers.html" class="hover:text-[#2222DD] transition-colors">Careers</a>
-        <a href="cases.html" class="hover:text-[#2222DD] transition-colors">Cases</a>
-        <a href="contact.html" class="hover:text-[#2222DD] transition-colors">Contact</a>
+      <a href="index.html"><img src="logo.svg" alt="Buzzed Up" id="nav-logo" style="height: 96px; width: auto; filter: brightness(0) invert(1);" /></a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white" id="nav-links">
+        <a href="about.html" class="hover:text-[#d1ff68] transition-colors">About</a>
+        <a href="services.html" class="hover:text-[#d1ff68] transition-colors">Services</a>
+        <a href="talents.html" class="hover:text-[#d1ff68] transition-colors">Talents</a>
+        <a href="careers.html" class="hover:text-[#d1ff68] transition-colors">Careers</a>
+        <a href="cases.html" class="hover:text-[#d1ff68] transition-colors">Cases</a>
+        <a href="contact.html" class="hover:text-[#d1ff68] transition-colors">Contact</a>
       </div>
       <div class="flex items-center gap-3">
         <a href="contact.html" class="hidden md:block bg-[#d1ff68] text-black font-bold text-sm px-5 py-2 rounded-full hover:opacity-90 transition-opacity">GET BUZZED UP</a>
-        <button onclick="toggleMenu()" class="md:hidden p-2">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <button onclick="toggleMenu()" class="md:hidden p-2" id="menu-btn">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
       </div>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 bg-white px-8 py-4 space-y-3">
-      <a href="about.html" class="block text-sm font-medium text-black hover:text-[#2222DD]">About</a>
-      <a href="services.html" class="block text-sm font-medium text-black hover:text-[#2222DD]">Services</a>
-      <a href="talents.html" class="block text-sm font-medium text-black hover:text-[#2222DD]">Talents</a>
-      <a href="careers.html" class="block text-sm font-medium text-black hover:text-[#2222DD]">Careers</a>
-      <a href="cases.html" class="block text-sm font-medium text-black hover:text-[#2222DD]">Cases</a>
-      <a href="contact.html" class="block text-sm font-medium text-black hover:text-[#2222DD]">Contact</a>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-white/20 bg-black/80 px-8 py-4 space-y-3">
+      <a href="about.html" class="block text-sm font-medium text-white hover:text-[#d1ff68]">About</a>
+      <a href="services.html" class="block text-sm font-medium text-white hover:text-[#d1ff68]">Services</a>
+      <a href="talents.html" class="block text-sm font-medium text-white hover:text-[#d1ff68]">Talents</a>
+      <a href="careers.html" class="block text-sm font-medium text-white hover:text-[#d1ff68]">Careers</a>
+      <a href="cases.html" class="block text-sm font-medium text-white hover:text-[#d1ff68]">Cases</a>
+      <a href="contact.html" class="block text-sm font-medium text-white hover:text-[#d1ff68]">Contact</a>
       <a href="contact.html" class="inline-block bg-[#d1ff68] text-black font-bold text-sm px-5 py-2 rounded-full mt-2">GET BUZZED UP</a>
     </div>
   </nav>
@@ -258,6 +258,33 @@
     </div>
   </footer>
 
-  <script>function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('hidden');}</script>
+  <script>
+    function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('hidden');}
+
+    const nav = document.getElementById('main-nav');
+    const navLinks = document.getElementById('nav-links');
+    const navLogo = document.getElementById('nav-logo');
+    const menuBtn = document.getElementById('menu-btn').querySelector('svg');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        nav.classList.add('bg-white', 'border-gray-100', 'shadow-sm');
+        nav.classList.remove('border-transparent');
+        navLinks.classList.remove('text-white');
+        navLinks.classList.add('text-black');
+        navLogo.style.filter = 'none';
+        menuBtn.classList.remove('text-white');
+        menuBtn.classList.add('text-black');
+      } else {
+        nav.classList.remove('bg-white', 'border-gray-100', 'shadow-sm');
+        nav.classList.add('border-transparent');
+        navLinks.classList.add('text-white');
+        navLinks.classList.remove('text-black');
+        navLogo.style.filter = 'brightness(0) invert(1)';
+        menuBtn.classList.add('text-white');
+        menuBtn.classList.remove('text-black');
+      }
+    });
+  </script>
 </body>
 </html>
