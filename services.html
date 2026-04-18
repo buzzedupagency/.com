@@ -25,12 +25,23 @@
       s.onload = function(){ gtag('js', new Date()); gtag('config', 'G-3J9F01KWEY'); };
     }
   </script>
+  <!-- Open Graph / Social Preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Buzzed Up" />
+  <meta property="og:title" content="Services — Buzzed Up" />
+  <meta property="og:description" content="Creator marketing, talent management en campagne strategie door Buzzed Up." />
+  <meta property="og:url" content="https://buzzedupagency.com/services.html" />
+  <meta property="og:image" content="https://buzzedupagency.com/images/banner.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Services — Buzzed Up" />
+  <meta name="twitter:description" content="Creator marketing, talent management en campagne strategie door Buzzed Up." />
+  <meta name="twitter:image" content="https://buzzedupagency.com/images/banner.jpg" />
 </head>
 <body class="bg-white text-black">
 
   <nav class="border-b border-gray-100">
     <div class="max-w-6xl mx-auto px-8 py-4 flex items-center justify-between">
-      <a href="index.html"><img src="logo.svg" alt="Buzzed Up" style="height: 96px; width: auto;" /></a>
+      <a href="index.html"><img src="logo.svg" alt="Buzzed Up" class="h-14 md:h-20 w-auto" /></a>
       <div class="hidden md:flex items-center gap-8 text-sm font-medium text-black">
         <a href="about.html" class="text-black hover:text-[#2222DD]">About</a>
         <a href="services.html" class="text-[#2222DD] border-b-2 border-[#2222DD]">Services</a>
@@ -271,7 +282,7 @@
       </div>
       <div class="flex flex-col md:flex-row justify-between items-center border-t border-blue-500 pt-6 text-xs text-blue-300">
         <p>© 2026 Buzzed Up. Alle rechten voorbehouden.</p>
-        <div class="flex gap-4 mt-2 md:mt-0"><a href="#" class="hover:text-white">Privacy</a><a href="#" class="hover:text-white">Voorwaarden</a></div>
+        <div class="flex gap-4 mt-2 md:mt-0"><a href="/privacy.html" class="hover:text-white">Privacy</a><a href="#" class="hover:text-white">Voorwaarden</a></div>
       </div>
     </div>
   </footer>
@@ -299,6 +310,41 @@
         document.addEventListener('DOMContentLoaded', function(){ setLang(lang); });
       } else { setLang(lang); }
     })();
+  </script>
+  <!-- COOKIE MODAL -->
+  <div id="cookie-banner" class="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4" style="background:rgba(0,0,0,0.55);">
+    <div class="bg-white rounded-2xl border-2 border-black p-6 w-full max-w-sm shadow-2xl">
+      <p class="font-black text-lg mb-2">Cookies 🍪</p>
+      <p class="text-gray-600 text-sm leading-relaxed mb-5">We gebruiken cookies om het gebruik van deze website te analyseren via Google Analytics. Zo verbeteren we de site continu. <a href="/privacy.html" class="text-[#2222DD] underline hover:opacity-80">Privacy policy</a></p>
+      <div class="flex gap-3">
+        <button onclick="acceptCookies()" class="flex-1 bg-[#2222DD] text-white font-bold text-sm py-3 rounded-full hover:bg-blue-700 transition-colors">Accepteren</button>
+        <button onclick="declineCookies()" class="flex-1 border-2 border-gray-200 text-gray-600 font-semibold text-sm py-3 rounded-full hover:border-gray-400 transition-colors">Weigeren</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var b = document.getElementById('cookie-banner');
+      if (!b) return;
+      if (localStorage.getItem('cookie-consent')) { b.style.display = 'none'; return; }
+      b.style.display = '';
+    })();
+    function acceptCookies() {
+      localStorage.setItem('cookie-consent', 'accepted');
+      document.getElementById('cookie-banner').style.display = 'none';
+      if (typeof loadGA === 'function') loadGA();
+      else {
+        var s = document.createElement('script'); s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-3J9F01KWEY';
+        document.head.appendChild(s);
+        s.onload = function(){ window.dataLayer=window.dataLayer||[]; function gtag(){dataLayer.push(arguments);} gtag('js',new Date()); gtag('config','G-3J9F01KWEY'); };
+      }
+    }
+    function declineCookies() {
+      localStorage.setItem('cookie-consent', 'declined');
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
   </script>
 </body>
 </html>

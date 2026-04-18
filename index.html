@@ -41,13 +41,24 @@
     /* NL/EN toggle */
     .lang-btn.active { background: #2222DD; color: white; }
   </style>
+  <!-- Open Graph / Social Preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Buzzed Up" />
+  <meta property="og:title" content="Buzzed Up — Creator Agency" />
+  <meta property="og:description" content="We connect bold brands with creators who cut through the noise. Amsterdam-based creator agency." />
+  <meta property="og:url" content="https://buzzedupagency.com/" />
+  <meta property="og:image" content="https://buzzedupagency.com/images/banner.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Buzzed Up — Creator Agency" />
+  <meta name="twitter:description" content="We connect bold brands with creators who cut through the noise. Amsterdam-based creator agency." />
+  <meta name="twitter:image" content="https://buzzedupagency.com/images/banner.jpg" />
 </head>
 <body class="bg-white text-black">
 
   <!-- NAV -->
   <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
     <div class="max-w-6xl mx-auto px-8 py-4 flex items-center justify-between">
-      <a href="index.html"><img src="logo.svg" alt="Buzzed Up" id="nav-logo" style="height: 96px; width: auto; filter: brightness(0) invert(1);" /></a>
+      <a href="index.html"><img src="logo.svg" alt="Buzzed Up" id="nav-logo" class="h-14 md:h-20 w-auto" style="filter: brightness(0) invert(1);" /></a>
       <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white" id="nav-links">
         <a href="about.html" class="hover:text-[#d1ff68] transition-colors" data-nl="About" data-en="About">About</a>
         <a href="services.html" class="hover:text-[#d1ff68] transition-colors" data-nl="Services" data-en="Services">Services</a>
@@ -388,15 +399,15 @@
     </div>
   </footer>
 
-  <!-- COOKIE BANNER -->
-  <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-lg px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-    <p class="text-xs text-gray-600 max-w-lg">
-      We gebruiken cookies om het gebruik van onze website te analyseren via Google Analytics. Zo verbeteren we onze site continu.
-      <a href="#" class="underline hover:text-black">Meer info</a>
-    </p>
-    <div class="flex gap-3 shrink-0">
-      <button onclick="declineCookies()" class="text-xs text-gray-500 hover:text-black border border-gray-200 px-4 py-2 rounded-full transition-colors">Weigeren</button>
-      <button onclick="acceptCookies()" class="text-xs font-bold bg-[#2222DD] text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors">Accepteren</button>
+  <!-- COOKIE MODAL -->
+  <div id="cookie-banner" class="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4" style="background:rgba(0,0,0,0.55);">
+    <div class="bg-white rounded-2xl border-2 border-black p-6 w-full max-w-sm shadow-2xl">
+      <p class="font-black text-lg mb-2">Cookies 🍪</p>
+      <p class="text-gray-600 text-sm leading-relaxed mb-5">We gebruiken cookies om het gebruik van deze website te analyseren via Google Analytics. Zo verbeteren we de site continu. <a href="privacy.html" class="text-[#2222DD] underline hover:opacity-80">Privacy policy</a></p>
+      <div class="flex gap-3">
+        <button onclick="acceptCookies()" class="flex-1 bg-[#2222DD] text-white font-bold text-sm py-3 rounded-full hover:bg-blue-700 transition-colors">Accepteren</button>
+        <button onclick="declineCookies()" class="flex-1 border-2 border-gray-200 text-gray-600 font-semibold text-sm py-3 rounded-full hover:border-gray-400 transition-colors">Weigeren</button>
+      </div>
     </div>
   </div>
 
