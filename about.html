@@ -33,6 +33,7 @@
   <meta name="twitter:title" content="About — Buzzed Up" />
   <meta name="twitter:description" content="Ontdek het verhaal achter Buzzed Up en founder Bart Wiendels." />
   <meta name="twitter:image" content="https://buzzedupagency.com/images/banner.jpg" />
+  <link rel="preload" as="image" href="images/bart-about.jpg" />
 </head>
 <body class="bg-white text-black">
 
@@ -87,7 +88,7 @@
         </div>
         <div class="flex flex-col items-center md:items-start">
           <div class="rounded-2xl overflow-hidden w-full bg-gray-100">
-            <img src="images/bart-about.jpg" alt="Bart Wiendels" class="w-full h-auto block"  loading="lazy"/>
+            <img src="images/bart-about.jpg" alt="Bart Wiendels" fetchpriority="high" class="w-full h-auto block"/>
           </div>
           <p class="text-sm font-bold mt-3">Bart Wiendels</p>
           <p class="text-xs text-gray-500">Founder — Buzzed Up</p>
