@@ -114,12 +114,9 @@
     <img src="images/banner.jpg" alt="Buzzed Up Studio" class="absolute inset-0 w-full h-full object-cover" />
     <div class="absolute inset-0 bg-black/60"></div>
     <div class="relative h-full max-w-6xl mx-auto px-8 flex flex-col justify-end pb-16">
-      <div class="mb-8">
-        <div class="font-black text-white/40" style="font-size: clamp(20px, 3vw, 40px); margin-bottom: 6px;" data-nl="WHO'S" data-en="WHO'S">WHO'S</div>
-        <div style="line-height: 0.85; overflow: visible; margin-bottom: -0.04em;">
-          <span class="font-black text-[#d1ff68]" style="font-size: clamp(80px, 14vw, 185px); display: inline-block; transform: rotate(-5deg); transform-origin: left bottom;" data-nl="BUZZED" data-en="BUZZED">BUZZED</span>
-        </div>
-        <div class="font-black" style="font-size: clamp(80px, 14vw, 185px); line-height: 1.05;"><span class="bg-[#2222DD] text-white px-4 inline-block" style="line-height: 1.05;" data-nl="UP" data-en="UP">UP</span></div>
+      <div class="mb-8" style="line-height: 0.9;">
+        <h1 class="font-black leading-none mb-2" style="font-size: clamp(64px, 10vw, 120px);" data-nl="WHO'S" data-en="WHO'S"><span class="bg-[#2222DD] text-white px-3 py-1 inline-block">WHO'S</span></h1>
+        <h1 class="font-black leading-none text-[#d1ff68]" style="font-size: clamp(64px, 10vw, 120px);" data-nl="BUZZED" data-en="BUZZED">BUZZED</h1>
       </div>
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
         <p class="text-white/80 text-base max-w-sm leading-relaxed" data-nl="We connect bold brands with creators who cut through the noise. No fluff. Just content that works." data-en="We connect bold brands with creators who cut through the noise. No fluff. Just content that works.">We connect bold brands with creators who cut through the noise. No fluff. Just content that works.</p>
@@ -395,7 +392,7 @@
   </section>
 
   <!-- PRE-FOOTER CTA -->
-  <section class="bg-black py-16">
+  <section class="py-16" style="background: linear-gradient(to bottom, #0d0d2b 0%, #1a1a4a 100%);">
     <div class="max-w-6xl mx-auto px-8 flex flex-col md:flex-row items-center justify-between gap-8">
       <div>
         <p class="text-[#d1ff68] text-xs font-bold uppercase tracking-widest mb-3">LATEN WE PRATEN</p>
@@ -454,7 +451,11 @@
 
     window.addEventListener('scroll', () => {
       if (window.scrollY > 60) {
-        nav.classList.add('bg-white', 'border-gray-100', 'shadow-sm');
+        nav.style.background = 'rgba(255,255,255,0.82)';
+        nav.style.backdropFilter = 'blur(14px)';
+        nav.style.webkitBackdropFilter = 'blur(14px)';
+        nav.style.borderColor = 'rgba(0,0,0,0.08)';
+        nav.style.boxShadow = '0 1px 12px rgba(0,0,0,0.07)';
         nav.classList.remove('border-transparent');
         navLinks.classList.remove('text-white');
         navLinks.classList.add('text-black');
@@ -466,7 +467,11 @@
           if (!b.classList.contains('active')) b.classList.add('text-gray-400');
         });
       } else {
-        nav.classList.remove('bg-white', 'border-gray-100', 'shadow-sm');
+        nav.style.background = '';
+        nav.style.backdropFilter = '';
+        nav.style.webkitBackdropFilter = '';
+        nav.style.borderColor = '';
+        nav.style.boxShadow = '';
         nav.classList.add('border-transparent');
         navLinks.classList.add('text-white');
         navLinks.classList.remove('text-black');
