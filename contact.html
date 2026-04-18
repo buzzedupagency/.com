@@ -43,37 +43,37 @@
 </head>
 <body class="bg-white text-black">
 
-  <nav class="border-b border-gray-100">
+  <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
     <div class="max-w-6xl mx-auto px-8 py-4 flex items-center justify-between">
-      <a href="index.html"><img src="logo.svg" alt="Buzzed Up" style="height:70px;width:auto;" /></a>
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-black">
-        <a href="about.html" class="text-black hover:text-[#2222DD]">About</a>
-        <a href="services.html" class="text-black hover:text-[#2222DD]">Services</a>
-        <a href="talents.html" class="text-black hover:text-[#2222DD]">Talents</a>
-        <a href="careers.html" class="text-black hover:text-[#2222DD]">Careers</a>
-        <a href="cases.html" class="text-black hover:text-[#2222DD]">Cases</a>
-        <a href="contact.html" class="text-[#2222DD] border-b-2 border-[#2222DD]">Contact</a>
+      <a href="index.html"><img src="logo.svg" alt="Buzzed Up" id="nav-logo" style="height:70px;width:auto;filter:brightness(0) invert(1);" /></a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white" id="nav-links">
+        <a href="about.html" class="hover:text-[#d1ff68] transition-colors text-white">About</a>
+        <a href="services.html" class="hover:text-[#d1ff68] transition-colors text-white">Services</a>
+        <a href="talents.html" class="hover:text-[#d1ff68] transition-colors text-white">Talents</a>
+        <a href="careers.html" class="hover:text-[#d1ff68] transition-colors text-white">Careers</a>
+        <a href="cases.html" class="hover:text-[#d1ff68] transition-colors text-white">Cases</a>
+        <a href="contact.html" class="text-white border-b-2 border-white/60">Contact</a>
       </div>
       <div class="flex items-center gap-3">
         <a href="contact.html" class="hidden md:block bg-[#d1ff68] text-black font-bold text-sm px-5 py-2 rounded-full hover:opacity-90 transition-opacity">GET BUZZED UP</a>
         
-        <button onclick="toggleMenu()" class="md:hidden p-2">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <button onclick="toggleMenu()" class="md:hidden p-2" id="menu-btn">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
       </div>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 bg-white px-8 py-4 space-y-3">
-      <a href="about.html" class="block text-sm font-medium text-black hover:text-[#2222DD]">About</a>
-      <a href="services.html" class="block text-sm font-medium text-black hover:text-[#2222DD]">Services</a>
-      <a href="talents.html" class="block text-sm font-medium text-black hover:text-[#2222DD]">Talents</a>
-      <a href="careers.html" class="block text-sm font-medium text-black hover:text-[#2222DD]">Careers</a>
-      <a href="cases.html" class="block text-sm font-medium text-black hover:text-[#2222DD]">Cases</a>
-      <a href="contact.html" class="block text-sm font-medium text-black hover:text-[#2222DD]">Contact</a>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-white/20 bg-black/80 px-8 py-4 space-y-3">
+      <a href="about.html" class="block text-sm font-medium text-white hover:text-[#d1ff68]">About</a>
+      <a href="services.html" class="block text-sm font-medium text-white hover:text-[#d1ff68]">Services</a>
+      <a href="talents.html" class="block text-sm font-medium text-white hover:text-[#d1ff68]">Talents</a>
+      <a href="careers.html" class="block text-sm font-medium text-white hover:text-[#d1ff68]">Careers</a>
+      <a href="cases.html" class="block text-sm font-medium text-white hover:text-[#d1ff68]">Cases</a>
+      <a href="contact.html" class="block text-sm font-medium text-white hover:text-[#d1ff68]">Contact</a>
       <a href="contact.html" class="inline-block bg-[#d1ff68] text-black font-bold text-sm px-5 py-2 rounded-full mt-2">GET BUZZED UP</a>
     </div>
   </nav>
 
-  <section class="bg-[#2222DD] pt-20 pb-16">
+  <section class="bg-[#2222DD] pt-32 pb-16">
     <div class="max-w-6xl mx-auto px-8">
       <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-4">NEEM CONTACT OP</span>
       <h1 class="font-black text-6xl mb-3 text-white">Contact</h1>
@@ -337,6 +337,34 @@
       localStorage.setItem('cookie-consent', 'declined');
       document.getElementById('cookie-banner').style.display = 'none';
     }
+  </script>
+
+  <script>
+    (function(){
+      var nav=document.getElementById('main-nav');
+      var nl=document.getElementById('nav-links');
+      var logo=document.getElementById('nav-logo');
+      var mb=document.getElementById('menu-btn');
+      var mbSvg=mb?mb.querySelector('svg'):null;
+      window.addEventListener('scroll',function(){
+        if(window.scrollY>60){
+          nav.style.background='rgba(255,255,255,0.82)';
+          nav.style.backdropFilter='blur(14px)';
+          nav.style.webkitBackdropFilter='blur(14px)';
+          nav.style.borderColor='rgba(0,0,0,0.08)';
+          nav.style.boxShadow='0 1px 12px rgba(0,0,0,0.07)';
+          if(nl){nl.classList.remove('text-white');nl.classList.add('text-black');}
+          if(logo)logo.style.filter='none';
+          if(mbSvg){mbSvg.classList.remove('text-white');mbSvg.classList.add('text-black');}
+        } else {
+          nav.style.background='';nav.style.backdropFilter='';
+          nav.style.webkitBackdropFilter='';nav.style.borderColor='';nav.style.boxShadow='';
+          if(nl){nl.classList.add('text-white');nl.classList.remove('text-black');}
+          if(logo)logo.style.filter='brightness(0) invert(1)';
+          if(mbSvg){mbSvg.classList.add('text-white');mbSvg.classList.remove('text-black');}
+        }
+      });
+    })();
   </script>
 </body>
 </html>
