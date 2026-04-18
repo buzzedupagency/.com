@@ -93,9 +93,8 @@
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               info@buzzedupagency.com
             </a>
-            <button onclick="copyEmail('info@buzzedupagency.com', this)" class="text-xs text-gray-400 hover:text-[#2222DD] flex items-center gap-1 transition-colors ml-6">
+            <button onclick="copyEmail('info@buzzedupagency.com', this)" title="Kopieer e-mailadres" class="text-gray-400 hover:text-[#2222DD] flex items-center transition-colors ml-6">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <span>Kopieer e-mailadres</span>
             </button>
           </div>
           <p class="font-bold text-sm mb-3">Volg ons</p>
@@ -245,9 +244,8 @@
     function copyEmail(email, btn) {
       navigator.clipboard.writeText(email);
       const span = btn.querySelector('span');
-      span.textContent = 'Gekopieerd!';
       btn.classList.add('text-[#2222DD]');
-      setTimeout(() => { span.textContent = 'Kopieer e-mailadres'; btn.classList.remove('text-[#2222DD]'); }, 2000);
+      setTimeout(() => { btn.classList.remove('text-[#2222DD]'); }, 2000);
     }
     function selectRole(btn) {
       document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
