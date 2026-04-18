@@ -115,21 +115,21 @@
           <img src="../images/talents/nigel.jpg" alt="Nigel" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
             <p class="text-white font-black text-xl mb-1">MEET <span class="text-[#d1ff68]">NIGEL</span></p>
-            <p class="text-gray-300 text-xs">850K followers</p>
+            <p class="text-gray-300 text-xs">131K followers</p>
           </div>
         </a>
         <a href="ricky.html" class="relative rounded-2xl overflow-hidden aspect-[3/4] bg-gray-900 block group" style="font-size:0.8em">
           <img src="../images/talents/ricky.jpg" alt="Ricky" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
             <p class="text-white font-black text-xl mb-1">MEET <span class="text-[#d1ff68]">RICKY</span></p>
-            <p class="text-gray-300 text-xs">1.2M followers</p>
+            <p class="text-gray-300 text-xs">19.4K followers</p>
           </div>
         </a>
         <a href="julia.html" class="relative rounded-2xl overflow-hidden aspect-[3/4] bg-gray-900 block group" style="font-size:0.8em">
           <img src="../images/talents/julia.jpg" alt="Julia" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
             <p class="text-white font-black text-xl mb-1">MEET <span class="text-[#d1ff68]">JULIA</span></p>
-            <p class="text-gray-300 text-xs">920K followers</p>
+            <p class="text-gray-300 text-xs">69.1K followers</p>
           </div>
         </a>
       </div>
@@ -169,6 +169,25 @@
       btn.classList.add('text-[#2222DD]');
       setTimeout(() => { span.textContent = email; btn.classList.remove('text-[#2222DD]'); }, 2000);
     }
+  </script>
+
+  <script>
+    // ─── Sitewide NL/EN language toggle ────────────────────────
+    function setLang(lang) {
+      localStorage.setItem('lang', lang);
+      document.getElementById('btn-nl').style.cssText = lang === 'nl' ? 'background:#2222DD;color:#fff;' : '';
+      document.getElementById('btn-en').style.cssText = lang === 'en' ? 'background:#2222DD;color:#fff;' : '';
+      document.querySelectorAll('[data-nl]').forEach(el => {
+        const val = el.dataset[lang];
+        if (val !== undefined) el.innerHTML = val;
+      });
+    }
+    (function() {
+      var lang = localStorage.getItem('lang') || 'nl';
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function(){ setLang(lang); });
+      } else { setLang(lang); }
+    })();
   </script>
 </body>
 </html>

@@ -35,6 +35,10 @@
       </div>
       <div class="flex items-center gap-3">
         <a href="contact.html" class="hidden md:block bg-[#d1ff68] text-black font-bold text-sm px-5 py-2 rounded-full hover:opacity-90 transition-opacity">GET BUZZED UP</a>
+        <div class="hidden md:flex items-center gap-1 border border-gray-200 rounded-full p-0.5 ml-2">
+          <button onclick="setLang('nl')" id="btn-nl" class="lang-btn text-xs font-bold px-2.5 py-1 rounded-full transition-colors">NL</button>
+          <button onclick="setLang('en')" id="btn-en" class="lang-btn text-xs font-bold px-2.5 py-1 rounded-full transition-colors">EN</button>
+        </div>
         <button onclick="toggleMenu()" class="md:hidden p-2">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
@@ -51,21 +55,89 @@
     </div>
   </nav>
 
-  <section class="py-12">
-    <div class="max-w-6xl mx-auto px-8">
-      <h1 class="font-black text-6xl text-[#d1ff68] mb-6">About</h1>
-      <p class="text-gray-700 text-base max-w-md leading-relaxed">Buzzed Up is een creator agency voor merken die willen opvallen.<br/>Gevestigd in Amsterdam.</p>
+  <!-- HERO BANNER -->
+  <section class="relative overflow-hidden" style="height: 420px;">
+    <img src="images/banner.jpg" alt="Buzzed Up" class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-black/50 flex items-end">
+      <div class="max-w-6xl mx-auto px-8 pb-10 w-full">
+        <span class="bg-[#2222DD] text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">OVER ONS</span>
+        <h1 class="font-black text-5xl md:text-6xl text-white leading-none">Buzzed Up</h1>
+        <p class="text-gray-300 text-base mt-2">Creator agency. Gevestigd in Amsterdam.</p>
+      </div>
     </div>
   </section>
 
-  <section class="pb-16">
+  <!-- FOUNDER SECTION -->
+  <section class="py-16">
     <div class="max-w-6xl mx-auto px-8">
-      <h2 class="text-xl font-black mb-4">
-        Het <span class="bg-[#2222DD] text-white px-2 py-0.5">ontstaan</span>
-      </h2>
-      <div class="max-w-xl">
-        <p class="text-gray-700 text-sm leading-relaxed mb-4">Buzzed Up is ontstaan uit een simpele observatie: de creator economy groeit explosief, maar de meeste samenwerkingen tussen merken en creators voelen geforceerd. Standaard briefings, saaie content, nul authenticiteit.</p>
-        <p class="text-gray-700 text-sm leading-relaxed">Wij geloven dat het anders kan. Door creators de vrijheid te geven om te creëren wat zij het beste kunnen, ontstaat content die echt resoneert. Geen scripts, geen micromanagement — gewoon goede matches en vertrouwen in talent.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+        <div>
+          <span class="bg-[#d1ff68] text-black text-xs font-bold px-3 py-1 rounded-full inline-block mb-5">DE FOUNDER</span>
+          <h2 class="font-black text-3xl mb-4">Het verhaal achter Buzzed Up</h2>
+          <p class="text-gray-700 text-sm leading-relaxed mb-4">Buzzed Up is ontstaan uit een simpele observatie: de creator economy groeit explosief, maar de meeste samenwerkingen tussen merken en creators voelen geforceerd. Standaard briefings, saaie content, nul authenticiteit.</p>
+          <p class="text-gray-700 text-sm leading-relaxed mb-4">Wij geloven dat het anders kan. Door creators de vrijheid te geven om te creëren wat zij het beste kunnen, ontstaat content die echt resoneert. Geen scripts, geen micromanagement — gewoon goede matches en vertrouwen in talent.</p>
+          <p class="text-gray-700 text-sm leading-relaxed">Ik ben Bart Wiendels, founder van Buzzed Up. Met jarenlange ervaring in de creator wereld bouw ik dagelijks aan een agency dat creators en merken samenbrengt op een manier die echt werkt.</p>
+        </div>
+        <div class="flex flex-col items-center md:items-start">
+          <div class="relative rounded-2xl overflow-hidden w-full max-w-xs aspect-[3/4] bg-gray-100">
+            <img src="images/bart-about.jpg" alt="Bart Wiendels" class="w-full h-full object-cover object-top" />
+          </div>
+          <p class="text-sm font-bold mt-3">Bart Wiendels</p>
+          <p class="text-xs text-gray-500">Founder — Buzzed Up</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-3xl mx-auto px-8">
+      <span class="bg-[#2222DD] text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-6">HOE HET BEGON</span>
+      <h2 class="font-black text-3xl mb-10">Van idee naar agency</h2>
+      <div class="relative">
+        <div class="absolute left-4 top-2 bottom-2 w-0.5 bg-gray-200"></div>
+        <div class="space-y-10">
+          <div class="flex gap-6 items-start">
+            <div class="w-8 h-8 rounded-full bg-[#2222DD] flex items-center justify-center flex-shrink-0 z-10">
+              <div class="w-2.5 h-2.5 rounded-full bg-white"></div>
+            </div>
+            <div>
+              <p class="text-[#2222DD] text-xs font-bold uppercase mb-1">2022</p>
+              <h3 class="font-bold text-sm mb-1">De eerste stap</h3>
+              <p class="text-gray-500 text-xs leading-relaxed">Begonnen als freelance talent manager. Eerste deals gesloten tussen creators en merken vanuit een slaapkamer in Amsterdam.</p>
+            </div>
+          </div>
+          <div class="flex gap-6 items-start">
+            <div class="w-8 h-8 rounded-full bg-[#2222DD] flex items-center justify-center flex-shrink-0 z-10">
+              <div class="w-2.5 h-2.5 rounded-full bg-white"></div>
+            </div>
+            <div>
+              <p class="text-[#2222DD] text-xs font-bold uppercase mb-1">2023</p>
+              <h3 class="font-bold text-sm mb-1">Buzzed Up officieel gelanceerd</h3>
+              <p class="text-gray-500 text-xs leading-relaxed">Het bureau krijgt een naam en een gezicht. De eerste vaste creators tekenen bij het roster. Campagnes voor Nederlandse A-merken.</p>
+            </div>
+          </div>
+          <div class="flex gap-6 items-start">
+            <div class="w-8 h-8 rounded-full bg-[#2222DD] flex items-center justify-center flex-shrink-0 z-10">
+              <div class="w-2.5 h-2.5 rounded-full bg-white"></div>
+            </div>
+            <div>
+              <p class="text-[#2222DD] text-xs font-bold uppercase mb-1">2024</p>
+              <h3 class="font-bold text-sm mb-1">Het roster groeit</h3>
+              <p class="text-gray-500 text-xs leading-relaxed">Vier vaste creators, meer dan 225.000 gecombineerde volgers, en campagnes die aantoonbaar resultaat leveren. Buzzed Up is er echt.</p>
+            </div>
+          </div>
+          <div class="flex gap-6 items-start">
+            <div class="w-8 h-8 rounded-full bg-[#d1ff68] flex items-center justify-center flex-shrink-0 z-10">
+              <div class="w-2.5 h-2.5 rounded-full bg-black"></div>
+            </div>
+            <div>
+              <p class="text-xs font-bold uppercase mb-1" style="color:#b8e000;">NU</p>
+              <h3 class="font-bold text-sm mb-1">Bouwen aan de toekomst</h3>
+              <p class="text-gray-500 text-xs leading-relaxed">We groeien het roster verder, bouwen aan nieuwe diensten en zoeken de beste merken om mee samen te werken. Buzzed Up is nog maar net begonnen.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

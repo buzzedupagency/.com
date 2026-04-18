@@ -146,5 +146,24 @@
     </div>
   </footer>
 
+
+  <script>
+    // ─── Sitewide NL/EN language toggle ────────────────────────
+    function setLang(lang) {
+      localStorage.setItem('lang', lang);
+      document.getElementById('btn-nl').style.cssText = lang === 'nl' ? 'background:#2222DD;color:#fff;' : '';
+      document.getElementById('btn-en').style.cssText = lang === 'en' ? 'background:#2222DD;color:#fff;' : '';
+      document.querySelectorAll('[data-nl]').forEach(el => {
+        const val = el.dataset[lang];
+        if (val !== undefined) el.innerHTML = val;
+      });
+    }
+    (function() {
+      var lang = localStorage.getItem('lang') || 'nl';
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function(){ setLang(lang); });
+      } else { setLang(lang); }
+    })();
+  </script>
 </body>
 </html>

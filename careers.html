@@ -35,6 +35,10 @@
       </div>
       <div class="flex items-center gap-3">
         <a href="contact.html" class="hidden md:block bg-[#d1ff68] text-black font-bold text-sm px-5 py-2 rounded-full hover:opacity-90 transition-opacity">GET BUZZED UP</a>
+        <div class="hidden md:flex items-center gap-1 border border-gray-200 rounded-full p-0.5 ml-2">
+          <button onclick="setLang('nl')" id="btn-nl" class="lang-btn text-xs font-bold px-2.5 py-1 rounded-full transition-colors">NL</button>
+          <button onclick="setLang('en')" id="btn-en" class="lang-btn text-xs font-bold px-2.5 py-1 rounded-full transition-colors">EN</button>
+        </div>
         <button onclick="toggleMenu()" class="md:hidden p-2">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
@@ -102,6 +106,57 @@
         </div>
         <a href="#" class="bg-[#d1ff68] text-black font-semibold text-sm px-4 py-2 rounded-full hover:bg-yellow-300 transition-colors whitespace-nowrap">Bekijk rol →</a>
       </div>
+    </div>
+  </section>
+
+  <!-- PAST JIJ BIJ BUZZED UP? -->
+  <section class="py-16 bg-[#2222DD]">
+    <div class="max-w-3xl mx-auto px-8">
+      <span class="bg-[#d1ff68] text-black text-xs font-bold px-3 py-1 rounded-full inline-block mb-6">VOOR CREATORS & TALENT</span>
+      <h2 class="font-black text-3xl text-white mb-4">Denk jij dat je past bij Buzzed Up?</h2>
+      <p class="text-blue-200 text-sm leading-relaxed mb-8 max-w-lg">We zoeken geen perfecte cv's. We zoeken mensen met lef. Mensen die durven, die energie brengen, en die het anders willen doen.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+        <div class="bg-blue-700/40 rounded-2xl p-5 flex gap-3 items-start">
+          <span class="text-[#d1ff68] text-xl mt-0.5">✦</span>
+          <div>
+            <p class="text-white font-bold text-sm mb-1">Lef en energie</p>
+            <p class="text-blue-200 text-xs leading-relaxed">Je durft keuzes te maken, spreekt mensen aan en brengt altijd energie mee.</p>
+          </div>
+        </div>
+        <div class="bg-blue-700/40 rounded-2xl p-5 flex gap-3 items-start">
+          <span class="text-[#d1ff68] text-xl mt-0.5">✦</span>
+          <div>
+            <p class="text-white font-bold text-sm mb-1">Een tikkie rebels</p>
+            <p class="text-blue-200 text-xs leading-relaxed">Je volgt niet blind de regels en durft tegen de stroom in te gaan als je iets beters ziet.</p>
+          </div>
+        </div>
+        <div class="bg-blue-700/40 rounded-2xl p-5 flex gap-3 items-start">
+          <span class="text-[#d1ff68] text-xl mt-0.5">✦</span>
+          <div>
+            <p class="text-white font-bold text-sm mb-1">Leergierig & gepassioneerd</p>
+            <p class="text-blue-200 text-xs leading-relaxed">Passie en leergierigheid wegen zwaarder dan welk diploma dan ook.</p>
+          </div>
+        </div>
+        <div class="bg-blue-700/40 rounded-2xl p-5 flex gap-3 items-start">
+          <span class="text-[#d1ff68] text-xl mt-0.5">✦</span>
+          <div>
+            <p class="text-white font-bold text-sm mb-1">Eigen visie</p>
+            <p class="text-blue-200 text-xs leading-relaxed">Kun jij iets laten zien van je werk of vertellen wat jouw visie is? Dat telt meer dan een mooie brief.</p>
+          </div>
+        </div>
+      </div>
+      <a href="mailto:info@buzzedupagency.com?subject=Open sollicitatie" class="bg-[#d1ff68] text-black font-bold px-6 py-3 rounded-full text-sm inline-block hover:opacity-90 transition-opacity">Stuur een open sollicitatie →</a>
+    </div>
+  </section>
+
+  <!-- GEEN VACATURE DIE PAST -->
+  <section class="py-12 bg-gray-50">
+    <div class="max-w-3xl mx-auto px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <h3 class="font-black text-xl mb-1">Geen vacature die bij je past?</h3>
+        <p class="text-gray-500 text-sm">Stuur een open sollicitatie. We zijn altijd op zoek naar goed talent.</p>
+      </div>
+      <a href="mailto:info@buzzedupagency.com?subject=Open sollicitatie" class="bg-[#2222DD] text-white font-bold px-6 py-3 rounded-full text-sm whitespace-nowrap hover:bg-blue-700 transition-colors">Stuur open sollicitatie</a>
     </div>
   </section>
 

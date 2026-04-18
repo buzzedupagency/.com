@@ -26,14 +26,10 @@
   <style>
     body { font-family: 'Inter', sans-serif; }
 
-    /* Hero slide-up animation */
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .hero-line-1 { opacity: 0; animation: slideUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.2s forwards; }
-    .hero-line-2 { opacity: 0; animation: slideUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.45s forwards; }
-    .hero-sub    { opacity: 0; animation: slideUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.65s forwards; }
+    /* Marquee */
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .marquee-track { display: flex; width: max-content; animation: marquee 22s linear infinite; }
+    .marquee-track:hover { animation-play-state: paused; }
 
     /* Counter animation */
     .counter { transition: all 0.3s; }
@@ -90,11 +86,11 @@
     <img src="images/banner.jpg" alt="Buzzed Up Studio" class="absolute inset-0 w-full h-full object-cover" />
     <div class="absolute inset-0 bg-black/60"></div>
     <div class="relative h-full max-w-6xl mx-auto px-8 flex flex-col justify-end pb-16">
-      <h1 class="hero-line-1 font-black leading-none mb-2" style="font-size: clamp(64px, 10vw, 120px);">
+      <h1 class="font-black leading-none mb-2" style="font-size: clamp(64px, 10vw, 120px);">
         <span class="bg-[#2222DD] text-white px-3 py-1 inline-block" data-nl="WHO'S" data-en="WHO'S">WHO'S</span>
       </h1>
-      <h1 class="hero-line-2 font-black leading-none text-[#d1ff68] mb-8" style="font-size: clamp(64px, 10vw, 120px);" data-nl="BUZZED" data-en="BUZZED">BUZZED</h1>
-      <div class="hero-sub flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+      <h1 class="font-black leading-none text-[#d1ff68] mb-8" style="font-size: clamp(64px, 10vw, 120px);" data-nl="BUZZED" data-en="BUZZED">BUZZED</h1>
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
         <p class="text-white/80 text-base max-w-sm leading-relaxed" data-nl="We connect bold brands with creators who cut through the noise. No fluff. Just content that works." data-en="We connect bold brands with creators who cut through the noise. No fluff. Just content that works.">We connect bold brands with creators who cut through the noise. No fluff. Just content that works.</p>
         <div class="flex gap-4">
           <a href="contact.html" class="bg-[#d1ff68] text-black font-bold px-6 py-3 rounded-full text-sm hover:opacity-90 transition-opacity" data-nl="Get in touch" data-en="Get in touch">Get in touch</a>
@@ -158,21 +154,33 @@
     </div>
   </section>
 
-  <!-- PARTNER LOGOS -->
-  <section class="py-10 border-y border-gray-100">
-    <div class="max-w-6xl mx-auto px-8">
-      <p class="text-center text-xs font-semibold text-gray-400 uppercase tracking-widest mb-8" data-nl="Merken die we hebben geholpen" data-en="Brands we've worked with">Merken die we hebben geholpen</p>
-      <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-5">
-        <span class="text-xl font-black text-gray-300 tracking-tight hover:text-gray-400 transition-colors">G&amp;B Finance</span>
-        <span class="text-xl font-black text-gray-300 tracking-tight hover:text-gray-400 transition-colors">X2O Badkamers</span>
-        <span class="text-xl font-black text-gray-300 tracking-tight hover:text-gray-400 transition-colors">Huis Van Makers</span>
-        <span class="text-xl font-black text-gray-300 tracking-tight hover:text-gray-400 transition-colors">Twaalfde Man</span>
-        <span class="text-xl font-black text-gray-300 tracking-tight hover:text-gray-400 transition-colors">Lebara</span>
-        <span class="text-xl font-black text-gray-300 tracking-tight hover:text-gray-400 transition-colors">ALDI</span>
-        <span class="text-xl font-black text-gray-300 tracking-tight hover:text-gray-400 transition-colors">Kenwood</span>
-        <span class="text-xl font-black text-gray-300 tracking-tight hover:text-gray-400 transition-colors">Typhur</span>
-        <span class="text-xl font-black text-gray-300 tracking-tight hover:text-gray-400 transition-colors">B-Wyze</span>
-        <span class="text-xl font-black text-gray-300 tracking-tight hover:text-gray-400 transition-colors">HP</span>
+  <!-- PARTNER LOGOS MARQUEE -->
+  <section class="py-10 border-y border-gray-100 overflow-hidden">
+    <p class="text-center text-xs font-semibold text-gray-400 uppercase tracking-widest mb-8" data-nl="Merken die we hebben geholpen" data-en="Brands we've worked with">Merken die we hebben geholpen</p>
+    <div class="overflow-hidden">
+      <div class="marquee-track">
+        <!-- Set 1 -->
+        <span class="text-xl font-black text-gray-300 tracking-tight px-10">G&amp;B Finance</span>
+        <span class="text-xl font-black text-gray-300 tracking-tight px-10">X2O Badkamers</span>
+        <span class="text-xl font-black text-gray-300 tracking-tight px-10">Huis Van Makers</span>
+        <span class="text-xl font-black text-gray-300 tracking-tight px-10">Twaalfde Man</span>
+        <span class="text-xl font-black text-gray-300 tracking-tight px-10">Lebara</span>
+        <span class="text-xl font-black text-gray-300 tracking-tight px-10">ALDI</span>
+        <span class="text-xl font-black text-gray-300 tracking-tight px-10">Kenwood</span>
+        <span class="text-xl font-black text-gray-300 tracking-tight px-10">Typhur</span>
+        <span class="text-xl font-black text-gray-300 tracking-tight px-10">B-Wyze</span>
+        <span class="text-xl font-black text-gray-300 tracking-tight px-10">HP</span>
+        <!-- Set 2 (duplicate for seamless loop) -->
+        <span class="text-xl font-black text-gray-300 tracking-tight px-10">G&amp;B Finance</span>
+        <span class="text-xl font-black text-gray-300 tracking-tight px-10">X2O Badkamers</span>
+        <span class="text-xl font-black text-gray-300 tracking-tight px-10">Huis Van Makers</span>
+        <span class="text-xl font-black text-gray-300 tracking-tight px-10">Twaalfde Man</span>
+        <span class="text-xl font-black text-gray-300 tracking-tight px-10">Lebara</span>
+        <span class="text-xl font-black text-gray-300 tracking-tight px-10">ALDI</span>
+        <span class="text-xl font-black text-gray-300 tracking-tight px-10">Kenwood</span>
+        <span class="text-xl font-black text-gray-300 tracking-tight px-10">Typhur</span>
+        <span class="text-xl font-black text-gray-300 tracking-tight px-10">B-Wyze</span>
+        <span class="text-xl font-black text-gray-300 tracking-tight px-10">HP</span>
       </div>
     </div>
   </section>
@@ -185,58 +193,60 @@
         <a href="talents.html" class="text-sm font-medium text-gray-500 hover:text-black transition-colors" data-nl="Bekijk alle →" data-en="View all →">Bekijk alle →</a>
       </div>
 
-      <!-- Slideshow -->
-      <div class="relative overflow-hidden rounded-2xl" style="height: 420px;">
-        <div class="slide active absolute inset-0">
-          <a href="talents/bart.html" class="block w-full h-full">
-            <img src="images/talents/bart.jpg" alt="Bart" class="w-full h-full object-cover object-top" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
-              <p class="text-gray-300 text-sm mb-1">Lifestyle · Travel</p>
-              <p class="text-white font-black text-4xl leading-none mb-2">MEET <span class="text-[#d1ff68]">BART</span></p>
-              <p class="text-gray-300 text-sm">6K followers</p>
-            </div>
-          </a>
-        </div>
-        <div class="slide absolute inset-0">
-          <a href="talents/nigel.html" class="block w-full h-full">
-            <img src="images/talents/nigel.jpg" alt="Nigel" class="w-full h-full object-cover object-top" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
-              <p class="text-gray-300 text-sm mb-1">Lifestyle · Food</p>
-              <p class="text-white font-black text-4xl leading-none mb-2">MEET <span class="text-[#d1ff68]">NIGEL</span></p>
-              <p class="text-gray-300 text-sm">131K followers</p>
-            </div>
-          </a>
-        </div>
-        <div class="slide absolute inset-0">
-          <a href="talents/ricky.html" class="block w-full h-full">
-            <img src="images/talents/ricky.jpg" alt="Ricky" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
-              <p class="text-gray-300 text-sm mb-1">Fashion · Lifestyle</p>
-              <p class="text-white font-black text-4xl leading-none mb-2">MEET <span class="text-[#d1ff68]">RICKY</span></p>
-              <p class="text-gray-300 text-sm">19.4K followers</p>
-            </div>
-          </a>
-        </div>
-        <div class="slide absolute inset-0">
-          <a href="talents/julia.html" class="block w-full h-full">
-            <img src="images/talents/julia.jpg" alt="Julia" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
-              <p class="text-gray-300 text-sm mb-1">Beauty · Lifestyle</p>
-              <p class="text-white font-black text-4xl leading-none mb-2">MEET <span class="text-[#d1ff68]">JULIA</span></p>
-              <p class="text-gray-300 text-sm">69.1K followers</p>
-            </div>
-          </a>
+      <!-- Slideshow: 4 portrait slides, 1 talent per slide -->
+      <div class="relative">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="slide active col-span-1">
+            <a href="talents/bart.html" class="relative rounded-2xl overflow-hidden aspect-[3/4] bg-gray-900 block group">
+              <img src="images/talents/bart.jpg" alt="Bart" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
+                <p class="text-gray-300 text-[10px] mb-0.5">Lifestyle · Travel</p>
+                <p class="text-white font-black text-lg leading-none mb-0.5">MEET <span class="text-[#d1ff68]">BART</span></p>
+                <p class="text-gray-300 text-[10px]">6K followers</p>
+              </div>
+            </a>
+          </div>
+          <div class="slide col-span-1" style="display:none;">
+            <a href="talents/nigel.html" class="relative rounded-2xl overflow-hidden aspect-[3/4] bg-gray-900 block group">
+              <img src="images/talents/nigel.jpg" alt="Nigel" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
+                <p class="text-gray-300 text-[10px] mb-0.5">Lifestyle · Food</p>
+                <p class="text-white font-black text-lg leading-none mb-0.5">MEET <span class="text-[#d1ff68]">NIGEL</span></p>
+                <p class="text-gray-300 text-[10px]">131K followers</p>
+              </div>
+            </a>
+          </div>
+          <div class="slide col-span-1" style="display:none;">
+            <a href="talents/ricky.html" class="relative rounded-2xl overflow-hidden aspect-[3/4] bg-gray-900 block group">
+              <img src="images/talents/ricky.jpg" alt="Ricky" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
+                <p class="text-gray-300 text-[10px] mb-0.5">Fashion · Lifestyle</p>
+                <p class="text-white font-black text-lg leading-none mb-0.5">MEET <span class="text-[#d1ff68]">RICKY</span></p>
+                <p class="text-gray-300 text-[10px]">19.4K followers</p>
+              </div>
+            </a>
+          </div>
+          <div class="slide col-span-1" style="display:none;">
+            <a href="talents/julia.html" class="relative rounded-2xl overflow-hidden aspect-[3/4] bg-gray-900 block group">
+              <img src="images/talents/julia.jpg" alt="Julia" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
+                <p class="text-gray-300 text-[10px] mb-0.5">Beauty · Lifestyle</p>
+                <p class="text-white font-black text-lg leading-none mb-0.5">MEET <span class="text-[#d1ff68]">JULIA</span></p>
+                <p class="text-gray-300 text-[10px]">69.1K followers</p>
+              </div>
+            </a>
+          </div>
         </div>
         <!-- Arrow buttons -->
-        <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/40 hover:bg-black/60 rounded-full flex items-center justify-center text-white transition-colors z-10">
+        <button onclick="prevSlide()" class="absolute -left-5 top-1/2 -translate-y-1/2 w-10 h-10 bg-white shadow-md hover:shadow-lg rounded-full flex items-center justify-center text-black transition-all z-10">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
         </button>
-        <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/40 hover:bg-black/60 rounded-full flex items-center justify-center text-white transition-colors z-10">
+        <button onclick="nextSlide()" class="absolute -right-5 top-1/2 -translate-y-1/2 w-10 h-10 bg-white shadow-md hover:shadow-lg rounded-full flex items-center justify-center text-black transition-all z-10">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
         </button>
       </div>
       <!-- Dots -->
-      <div class="flex justify-center gap-2 mt-4" id="slide-dots">
+      <div class="flex justify-center gap-2 mt-5" id="slide-dots">
         <button onclick="goToSlide(0)" class="slide-dot w-2 h-2 rounded-full bg-[#2222DD] transition-all"></button>
         <button onclick="goToSlide(1)" class="slide-dot w-2 h-2 rounded-full bg-gray-300 transition-all"></button>
         <button onclick="goToSlide(2)" class="slide-dot w-2 h-2 rounded-full bg-gray-300 transition-all"></button>
@@ -448,18 +458,20 @@
 
     // ─── Talent slideshow ────────────────────────────────────────
     let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.slide-dot');
-    let slideTimer = setInterval(nextSlide, 4000);
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const dots = Array.from(document.querySelectorAll('.slide-dot'));
+    let slideTimer = setInterval(nextSlide, 5000);
 
     function goToSlide(n) {
+      slides[currentSlide].style.display = 'none';
       slides[currentSlide].classList.remove('active');
-      dots[currentSlide].classList.replace('bg-[#2222DD]', 'bg-gray-300');
+      dots[currentSlide].style.background = '#d1d5db';
       currentSlide = (n + slides.length) % slides.length;
+      slides[currentSlide].style.display = 'block';
       slides[currentSlide].classList.add('active');
-      dots[currentSlide].classList.replace('bg-gray-300', 'bg-[#2222DD]');
+      dots[currentSlide].style.background = '#2222DD';
       clearInterval(slideTimer);
-      slideTimer = setInterval(nextSlide, 4000);
+      slideTimer = setInterval(nextSlide, 5000);
     }
     function nextSlide() { goToSlide(currentSlide + 1); }
     function prevSlide() { goToSlide(currentSlide - 1); }
