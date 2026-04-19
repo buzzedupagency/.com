@@ -378,8 +378,9 @@
       var logo=document.getElementById('nav-logo');
       var mb=document.getElementById('menu-btn');
       var mbSvg=mb?mb.querySelector('svg'):null;
+      var _hero=document.querySelector('section');var _threshold=_hero?_hero.offsetTop+_hero.offsetHeight:60;
       window.addEventListener('scroll',function(){
-        if(window.scrollY>60){
+        if(window.scrollY>_threshold){
           nav.style.background='rgba(255,255,255,0.1)';
           nav.style.backdropFilter='blur(20px)';
           nav.style.webkitBackdropFilter='blur(20px)';

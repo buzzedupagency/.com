@@ -482,8 +482,11 @@
     const navLogo = document.getElementById('nav-logo');
     const menuBtn = document.getElementById('menu-btn').querySelector('svg');
 
+    const heroSection = document.querySelector('section');
+    const scrollThreshold = heroSection ? heroSection.offsetTop + heroSection.offsetHeight : 60;
+
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 60) {
+      if (window.scrollY > scrollThreshold) {
         nav.style.background = 'rgba(255,255,255,0.1)';
         nav.style.backdropFilter = 'blur(14px)';
         nav.style.webkitBackdropFilter = 'blur(14px)';
