@@ -12,9 +12,9 @@
     .site-logo { height: 5rem; width: auto; }
     @media (min-width: 768px) { .site-logo { height: 7rem; width: auto; } }
     .lang-btn { transition: background 0.2s ease, color 0.2s ease; cursor: pointer; }
-    .lang-btn.active { background: #2222DD; color: #fff; }
+    .lang-btn.active { background: #d1ff68; color: #000; }
     .lang-btn:not(.active) { background: transparent; opacity: 0.55; }
-    .lang-btn:hover { background: #d1ff68 !important; color: #000 !important; opacity: 1 !important; }</style>
+    .lang-btn:hover { background: #000 !important; color: #fff !important; opacity: 1 !important; }</style>
   <!-- Google Analytics (loads only after cookie consent) -->
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -236,7 +236,7 @@
         if(mbSvg){mbSvg.classList.remove('text-white');mbSvg.classList.add('text-black');}
         if(activeLink){activeLink.style.color='#000';activeLink.style.borderBottomColor='#2222DD';}
         if(langWrap)langWrap.style.borderColor='rgba(0,0,0,0.15)';
-        document.querySelectorAll('#nav-links .lang-btn.active').forEach(function(b){b.style.background='#2222DD';b.style.color='#fff';});
+        document.querySelectorAll('#nav-links .lang-btn.active').forEach(function(b){b.style.background='#d1ff68';b.style.color='#000';});
       }
       function setDark(){
         nav.style.background='rgba(0,0,0,0.45)';nav.style.backdropFilter='blur(8px)';
@@ -247,7 +247,7 @@
         if(mbSvg){mbSvg.classList.add('text-white');mbSvg.classList.remove('text-black');}
         if(activeLink){activeLink.style.color='#fff';activeLink.style.borderBottomColor='#d1ff68';}
         if(langWrap)langWrap.style.borderColor='rgba(255,255,255,0.3)';
-        document.querySelectorAll('#nav-links .lang-btn.active').forEach(function(b){b.style.background='rgba(0,0,0,0.85)';b.style.color='#fff';});
+        document.querySelectorAll('#nav-links .lang-btn.active').forEach(function(b){b.style.background='#d1ff68';b.style.color='#000';});
       }
       function setTransparent(){
         nav.style.background='rgba(0,0,0,0)';nav.style.backdropFilter='';
@@ -258,7 +258,7 @@
         if(mbSvg){mbSvg.classList.add('text-white');mbSvg.classList.remove('text-black');}
         if(activeLink){activeLink.style.color='#fff';activeLink.style.borderBottomColor='#d1ff68';}
         if(langWrap)langWrap.style.borderColor='rgba(255,255,255,0.3)';
-        document.querySelectorAll('#nav-links .lang-btn.active').forEach(function(b){b.style.background='rgba(0,0,0,0.85)';b.style.color='#fff';});
+        document.querySelectorAll('#nav-links .lang-btn.active').forEach(function(b){b.style.background='#d1ff68';b.style.color='#000';});
       }
       function updateNav(){
         var s=window.scrollY;
