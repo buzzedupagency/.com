@@ -187,6 +187,11 @@
 
   <script>
     function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('hidden');}
+    document.addEventListener('DOMContentLoaded', function(){
+      var menu=document.getElementById('mobile-menu');
+      menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.add('hidden');});});
+      document.addEventListener('click',function(e){var btn=document.getElementById('menu-btn');if(!menu.classList.contains('hidden')&&!menu.contains(e.target)&&btn&&!btn.contains(e.target)){menu.classList.add('hidden');}});
+    });
 
     // Cookie consent
     (function(){
