@@ -270,5 +270,50 @@
       updateNav();
     })();
   </script>
+
+  <script>
+    function setLang(lang) {
+      localStorage.setItem('lang', lang);
+      ['nl','en'].forEach(function(l){
+        ['btn-','mob-btn-'].forEach(function(pfx){
+          var b=document.getElementById(pfx+l);
+          if(b) b.classList.toggle('active', l===lang);
+        });
+      });
+      document.querySelectorAll('[data-nl]').forEach(function(el){
+        var val = el.dataset[lang];
+        if(val !== undefined) el.innerHTML = val;
+      });
+    }
+    (function(){
+      var lang = localStorage.getItem('lang') || 'nl';
+      if(document.readyState === 'loading'){
+        document.addEventListener('DOMContentLoaded', function(){ setLang(lang); });
+      } else { setLang(lang); }
+    })();
+  </script>
+
+  <script>
+  (function(){
+    function toggleMenu(){
+      var m=document.getElementById('mobile-menu');
+      if(m) m.classList.toggle('hidden');
+    }
+    window.toggleMenu=toggleMenu;
+    document.addEventListener('DOMContentLoaded',function(){
+      var menu=document.getElementById('mobile-menu');
+      var btn=document.getElementById('menu-btn');
+      if(!menu) return;
+      menu.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click',function(){menu.classList.add('hidden');});
+      });
+      document.addEventListener('click',function(e){
+        if(!menu.classList.contains('hidden')&&!menu.contains(e.target)&&btn&&!btn.contains(e.target)){
+          menu.classList.add('hidden');
+        }
+      });
+    });
+  })();
+  </script>
 </body>
 </html>
