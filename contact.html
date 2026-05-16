@@ -12,6 +12,7 @@
     body { font-family: 'Inter', sans-serif; }
     .site-logo { height: 5rem; width: auto; }
     @media (min-width: 768px) { .site-logo { height: 7rem; width: auto; } }
+    .role-btn:hover { background: #2222DD; color: white; border-color: #2222DD; }
     .role-btn.active { background: #2222DD; color: #fff; border-color: #2222DD; }
     .lang-btn.active { background: #2222DD; color: white; }
     .lang-btn:hover { background: #d1ff68; color: black; } .lang-btn.active:hover { background: black; color: white; }
@@ -396,7 +397,7 @@
       var _hero=document.querySelector('section');var _threshold=_hero?_hero.offsetTop+_hero.offsetHeight:60;
       window.addEventListener('scroll',function(){
         if(window.scrollY>_threshold){
-          nav.style.background='rgba(255,255,255,0.1)';
+          nav.style.background='rgba(255,255,255,0.97)';
           nav.style.backdropFilter='blur(20px)';
           nav.style.webkitBackdropFilter='blur(20px)';
           nav.style.borderColor='rgba(0,0,0,0.08)';
