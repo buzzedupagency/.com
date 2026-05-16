@@ -10,7 +10,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=League+Spartan:wght@700;800;900&display=swap" rel="stylesheet" />
   <style>body { font-family: 'Inter', sans-serif; }
     .site-logo { height: 5rem; width: auto; }
-    @media (min-width: 768px) { .site-logo { height: 7rem; width: auto; } }</style>
+    @media (min-width: 768px) { .site-logo { height: 7rem; width: auto; } }
+    .lang-btn.active { background: #2222DD; color: white; }
+    .lang-btn:not(.active):hover { background: rgba(255,255,255,0.2); color: white; }</style>
   <!-- Google Analytics (loads only after cookie consent) -->
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -36,6 +38,10 @@
         <a href="../careers.html" class="hover:text-[#d1ff68] transition-colors">Careers</a>
         <a href="../cases.html" class="hover:text-[#d1ff68] transition-colors">Cases</a>
         <a href="../contact.html" class="hover:text-[#d1ff68] transition-colors">Contact</a>
+        <div class="flex items-center gap-1 border border-white/30 rounded-full p-0.5">
+          <button onclick="setLang('nl')" id="btn-nl" class="lang-btn active text-xs font-bold px-2.5 py-1 rounded-full transition-colors">NL</button>
+          <button onclick="setLang('en')" id="btn-en" class="lang-btn text-xs font-bold px-2.5 py-1 rounded-full text-white/60 hover:text-white transition-colors">EN</button>
+        </div>
       </div>
       <div class="flex items-center gap-3">
         <a href="../contact.html" class="hidden md:block bg-[#d1ff68] text-black font-bold text-sm px-5 py-2 rounded-full hover:bg-black hover:text-[#d1ff68] transition-colors">GET BUZZED UP</a>
@@ -108,6 +114,21 @@
             <span>julia@buzzedupagency.com</span>
           </button>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TALENT STORY -->
+  <section class="bg-gray-50 py-14">
+    <div class="max-w-6xl mx-auto px-4 md:px-8">
+      <div class="max-w-2xl">
+        <span class="bg-[#2222DD] text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-6">NEW BUZZ INCOMING</span>
+        <p class="text-gray-700 text-sm leading-relaxed mb-4"
+           data-nl="Julia (@julia.vandermeer_, 17) straalt zodra ze in beeld komt. Nuchter, energiek en gewoon zichzelf — of ze nu onderweg haar make-up probeert te fixen voor school of outfits bedenkt ter plekke, je krijgt altijd de echte Julia. Met ruim 65.000 volgers inspireert ze jongeren die bezig zijn met mode, school en het dagelijks leven. Geen filter, wel echtheid. En juist dat maakt haar herkenbaar."
+           data-en="Julia (@julia.vandermeer_, 17) lights up the moment she's on screen. Grounded, energetic, completely herself — whether she's rushing to school trying to do her makeup on the go or throwing together outfits on the spot, you always get the real Julia. 65,000+ followers who tune in for fashion, school life and the everyday. No filter, just authenticity — and that's exactly why she connects.">Julia (@julia.vandermeer_, 17) straalt zodra ze in beeld komt. Nuchter, energiek en gewoon zichzelf — of ze nu onderweg haar make-up probeert te fixen voor school of outfits bedenkt ter plekke, je krijgt altijd de echte Julia. Met ruim 65.000 volgers inspireert ze jongeren die bezig zijn met mode, school en het dagelijks leven. Geen filter, wel echtheid. En juist dat maakt haar herkenbaar.</p>
+        <p class="text-gray-700 text-sm leading-relaxed"
+           data-nl="Dat past bij Buzzed Up. We houden van creators die echt zijn, energie hebben en niet bang zijn voor hun eigen stem. Samen werken we aan haar strategie en stijl, zodat ze nog meer jongeren kan bereiken met haar content."
+           data-en="At Buzzed Up, we love creators who are genuine, full of energy and confident in their own voice. We're working with Julia to sharpen her strategy and style so she can reach even more of the people she inspires.">Dat past bij Buzzed Up. We houden van creators die echt zijn, energie hebben en niet bang zijn voor hun eigen stem. Samen werken we aan haar strategie en stijl, zodat ze nog meer jongeren kan bereiken met haar content.</p>
       </div>
     </div>
   </section>
