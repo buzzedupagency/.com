@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" href="../logo.svg" type="image/svg+xml" />
@@ -9,7 +9,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>body { font-family: 'Inter', sans-serif; }
     .site-logo { height: 5rem; width: auto; }
-    @media (min-width: 768px) { .site-logo { height: 7rem; width: auto; } }</style>
+    @media (min-width: 768px) { .site-logo { height: 7rem; width: auto; } }
+    .lang-btn.active { background: #2222DD; color: white; }
+    .lang-btn:hover { background: #d1ff68; color: black; }
+    .lang-btn.active:hover { background: black; color: white; }</style>
   <!-- Google Analytics (loads only after cookie consent) -->
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -24,22 +27,40 @@
 </head>
 <body class="bg-white text-black">
 
-  <nav class="border-b border-gray-100">
+  <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
     <div class="max-w-6xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
-      <a href="../index.html" class="text-[#2222DD] font-black text-xl leading-tight">Buzzed<br/>up.</a>
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700">
-        <a href="../about.html" class="hover:text-[#d1ff68]">About</a>
-        <a href="../services.html" class="hover:text-[#d1ff68]">Services</a>
-        <a href="../talents.html" class="hover:text-[#d1ff68]">Talents</a>
-        <a href="../careers.html" class="hover:text-[#d1ff68]">Careers</a>
-        <a href="../cases.html" class="text-[#2222DD] border-b-2 border-[#2222DD]">Cases</a>
-        <a href="../contact.html" class="hover:text-[#d1ff68]">Contact</a>
+      <a href="../index.html"><img src="../logo.svg" alt="Buzzed Up" id="nav-logo" style="height:70px;width:auto;filter:brightness(0) invert(1);" /></a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white" id="nav-links">
+        <a href="../about.html" class="hover:text-[#d1ff68] transition-colors">About</a>
+        <a href="../services.html" class="hover:text-[#d1ff68] transition-colors">Services</a>
+        <a href="../talents.html" class="hover:text-[#d1ff68] transition-colors">Talents</a>
+        <a href="../careers.html" class="hover:text-[#d1ff68] transition-colors">Careers</a>
+        <a href="../cases.html" class="hover:text-[#d1ff68] transition-colors">Cases</a>
+        <a href="../contact.html" class="hover:text-[#d1ff68] transition-colors">Contact</a>
+        <div class="flex items-center gap-1 border border-white/30 rounded-full p-0.5">
+          <button onclick="setLang('nl')" id="btn-nl" class="lang-btn active text-xs font-bold px-2.5 py-1 rounded-full transition-colors">NL</button>
+          <button onclick="setLang('en')" id="btn-en" class="lang-btn text-xs font-bold px-2.5 py-1 rounded-full text-white/60 transition-colors">EN</button>
+        </div>
       </div>
-      <a href="../contact.html" class="bg-[#CCFF00] text-black font-bold text-sm px-5 py-2 rounded-full">GET BUZZED UP</a>
+      <div class="flex items-center gap-3">
+        <a href="../contact.html" class="hidden md:block bg-[#d1ff68] text-black font-bold text-sm px-5 py-2 rounded-full hover:bg-black hover:text-[#d1ff68] transition-colors">GET BUZZED UP</a>
+        <button onclick="toggleMenu()" class="md:hidden p-2" id="menu-btn">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-white/20 bg-black/80 px-8 py-4 space-y-3">
+      <a href="../about.html" class="block text-sm font-medium text-white hover:text-[#d1ff68]">About</a>
+      <a href="../services.html" class="block text-sm font-medium text-white hover:text-[#d1ff68]">Services</a>
+      <a href="../talents.html" class="block text-sm font-medium text-white hover:text-[#d1ff68]">Talents</a>
+      <a href="../careers.html" class="block text-sm font-medium text-white hover:text-[#d1ff68]">Careers</a>
+      <a href="../cases.html" class="block text-sm font-medium text-white hover:text-[#d1ff68]">Cases</a>
+      <a href="../contact.html" class="block text-sm font-medium text-white hover:text-[#d1ff68]">Contact</a>
+      <a href="../contact.html" class="inline-block bg-[#d1ff68] text-black font-bold text-sm px-5 py-2 rounded-full mt-2">GET BUZZED UP</a>
     </div>
   </nav>
 
-  <div class="w-full h-72 md:h-96 bg-gray-800 overflow-hidden">
+  <div class="w-full h-72 md:h-96 bg-gray-800 overflow-hidden pt-24">
     <img src="https://placehold.co/1400x500/333333/ffffff?text=Streetwear+Brand+Launch" alt="Streetwear" class="w-full h-full object-cover" />
   </div>
 
@@ -52,9 +73,9 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
         <div class="md:col-span-2">
           <div class="flex gap-2 mb-4">
-            <span class="bg-[#CCFF00] text-black text-xs font-semibold px-3 py-1 rounded-full">Fashion</span>
-            <span class="bg-[#CCFF00] text-black text-xs font-semibold px-3 py-1 rounded-full">TikTok</span>
-            <span class="bg-[#CCFF00] text-black text-xs font-semibold px-3 py-1 rounded-full">Instagram</span>
+            <span class="bg-[#d1ff68] text-black text-xs font-semibold px-3 py-1 rounded-full">Fashion</span>
+            <span class="bg-[#d1ff68] text-black text-xs font-semibold px-3 py-1 rounded-full">TikTok</span>
+            <span class="bg-[#d1ff68] text-black text-xs font-semibold px-3 py-1 rounded-full">Instagram</span>
           </div>
           <h1 class="font-black text-4xl mb-3">Streetwear Brand Launch</h1>
           <p class="text-gray-600 text-base leading-relaxed mb-10">Launched a new streetwear line with 12 creators generating massive organic reach and sold-out drops.</p>
@@ -77,7 +98,7 @@
           </div>
 
           <div class="border border-gray-200 rounded-2xl p-6 mb-10">
-            <div class="w-8 h-8 bg-[#CCFF00] rounded-lg flex items-center justify-center mb-4">
+            <div class="w-8 h-8 bg-[#d1ff68] rounded-lg flex items-center justify-center mb-4">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
             </div>
             <blockquote class="text-gray-800 font-semibold text-base leading-relaxed mb-4">"Buzzed Up understood our brand from day one. The creator selection was spot-on."</blockquote>
@@ -86,7 +107,7 @@
           </div>
 
           <div class="mb-10">
-            <h2 class="font-black text-lg mb-4">Campaign <span class="text-[#CCFF00] bg-[#2222DD] px-1">Content</span></h2>
+            <h2 class="font-black text-lg mb-4">Campaign <span class="text-[#d1ff68] bg-[#2222DD] px-1">Content</span></h2>
             <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
               <div class="aspect-square bg-gray-100 rounded-xl relative overflow-hidden cursor-pointer group"><img src="https://placehold.co/300x300/eeeeee/aaaaaa?text=1" alt="" class="w-full h-full object-cover" /><div class="absolute inset-0 flex items-center justify-center"><div class="w-10 h-10 bg-white/80 rounded-full flex items-center justify-center"><svg class="w-4 h-4 text-[#2222DD] ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div></div>
               <div class="aspect-square bg-gray-100 rounded-xl relative overflow-hidden cursor-pointer group"><img src="https://placehold.co/300x300/eeeeee/aaaaaa?text=2" alt="" class="w-full h-full object-cover" /><div class="absolute inset-0 flex items-center justify-center"><div class="w-10 h-10 bg-white/80 rounded-full flex items-center justify-center"><svg class="w-4 h-4 text-[#2222DD] ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div></div>
@@ -98,7 +119,7 @@
           </div>
 
           <div class="flex justify-end">
-            <a href="../cases.html" class="flex items-center gap-2 text-sm font-semibold hover:text-[#2222DD] transition-colors">
+            <a href="../cases.html" class="flex items-center gap-2 text-sm font-semibold hover:text-[#d1ff68] transition-colors">
               Next: Fitness App User Acquisition
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
             </a>
@@ -178,15 +199,40 @@
     </div>
   </footer>
 
+  <div id="cookie-banner" class="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-4 sm:w-80 z-50 bg-white rounded-2xl border-2 border-black p-5 shadow-2xl">
+    <p class="font-black text-base mb-1.5">Cookies 🍪</p>
+    <p class="text-gray-600 text-xs leading-relaxed mb-4">We gebruiken cookies om het gebruik van deze website te analyseren via Google Analytics. Zo verbeteren we de site continu. <a href="/privacy.html" class="text-[#2222DD] underline hover:opacity-80">Privacy policy</a></p>
+    <div class="flex gap-2">
+      <button onclick="acceptCookies()" class="flex-1 bg-[#2222DD] text-white font-bold text-xs py-2.5 rounded-full hover:bg-blue-700 transition-colors">Accepteren</button>
+      <button onclick="declineCookies()" class="flex-1 border-2 border-gray-200 text-gray-600 font-semibold text-xs py-2.5 rounded-full hover:border-gray-400 transition-colors">Weigeren</button>
+    </div>
+  </div>
+  <script>
+    (function() {
+      var b = document.getElementById('cookie-banner');
+      if (!b) return;
+      if (localStorage.getItem('cookie-consent')) { b.style.display = 'none'; return; }
+      b.style.display = '';
+    })();
+    function acceptCookies() {
+      localStorage.setItem('cookie-consent', 'accepted');
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+    function declineCookies() {
+      localStorage.setItem('cookie-consent', 'declined');
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+  </script>
 
   <script>
-    // ─── Sitewide NL/EN language toggle ────────────────────────
+    function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('hidden');}
     function setLang(lang) {
       localStorage.setItem('lang', lang);
-      document.getElementById('btn-nl').style.cssText = lang === 'nl' ? 'background:#2222DD;color:#fff;' : '';
-      document.getElementById('btn-en').style.cssText = lang === 'en' ? 'background:#2222DD;color:#fff;' : '';
-      document.querySelectorAll('[data-nl]').forEach(el => {
-        const val = el.dataset[lang];
+      var nb = document.getElementById('btn-nl'), eb = document.getElementById('btn-en');
+      if (nb) nb.style.cssText = lang === 'nl' ? 'background:#2222DD;color:#fff;' : '';
+      if (eb) eb.style.cssText = lang === 'en' ? 'background:#2222DD;color:#fff;' : '';
+      document.querySelectorAll('[data-nl]').forEach(function(el) {
+        var val = el.dataset[lang];
         if (val !== undefined) el.innerHTML = val;
       });
     }
@@ -195,6 +241,35 @@
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function(){ setLang(lang); });
       } else { setLang(lang); }
+    })();
+  </script>
+
+  <script>
+    (function(){
+      var nav=document.getElementById('main-nav');
+      var nl=document.getElementById('nav-links');
+      var logo=document.getElementById('nav-logo');
+      var mb=document.getElementById('menu-btn');
+      var mbSvg=mb?mb.querySelector('svg'):null;
+      var _hero=document.querySelector('section');var _threshold=_hero?_hero.offsetTop+_hero.offsetHeight:60;
+      window.addEventListener('scroll',function(){
+        if(window.scrollY>_threshold){
+          nav.style.background='rgba(255,255,255,0.1)';
+          nav.style.backdropFilter='blur(20px)';
+          nav.style.webkitBackdropFilter='blur(20px)';
+          nav.style.borderColor='rgba(0,0,0,0.08)';
+          nav.style.boxShadow='0 1px 12px rgba(0,0,0,0.07)';
+          if(nl){nl.classList.remove('text-white');nl.classList.add('text-black');}
+          if(logo)logo.style.filter='none';
+          if(mbSvg){mbSvg.classList.remove('text-white');mbSvg.classList.add('text-black');}
+        } else {
+          nav.style.background='';nav.style.backdropFilter='';
+          nav.style.webkitBackdropFilter='';nav.style.borderColor='';nav.style.boxShadow='';
+          if(nl){nl.classList.add('text-white');nl.classList.remove('text-black');}
+          if(logo)logo.style.filter='brightness(0) invert(1)';
+          if(mbSvg){mbSvg.classList.add('text-white');mbSvg.classList.remove('text-black');}
+        }
+      });
     })();
   </script>
 </body>
