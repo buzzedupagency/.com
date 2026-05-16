@@ -421,7 +421,7 @@
     const heroSection = document.querySelector('section');
     const scrollThreshold = heroSection ? heroSection.offsetTop + heroSection.offsetHeight : 60;
 
-    window.addEventListener('scroll', () => {
+    function updateNav() {
       if (window.scrollY > scrollThreshold) {
         nav.style.background = 'rgba(255,255,255,0.97)';
         nav.style.backdropFilter = 'blur(14px)';
@@ -439,10 +439,10 @@
           if (!b.classList.contains('active')) b.classList.add('text-gray-400');
         });
       } else {
-        nav.style.background = '';
-        nav.style.backdropFilter = '';
-        nav.style.webkitBackdropFilter = '';
-        nav.style.borderColor = '';
+        nav.style.background = 'rgba(0,0,0,0.45)';
+        nav.style.backdropFilter = 'blur(8px)';
+        nav.style.webkitBackdropFilter = 'blur(8px)';
+        nav.style.borderColor = 'transparent';
         nav.style.boxShadow = '';
         nav.classList.add('border-transparent');
         navLinks.classList.add('text-white');
@@ -451,7 +451,9 @@
         menuBtn.classList.add('text-white');
         menuBtn.classList.remove('text-black');
       }
-    });
+    }
+    window.addEventListener('scroll', updateNav);
+    updateNav();
 
     // ─── Talent roster page dots ─────────────────────────────────
     // Groups all .talent-page divs into pages (4 cards each).
