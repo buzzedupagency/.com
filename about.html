@@ -10,7 +10,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=League+Spartan:wght@700;800;900&display=swap" rel="stylesheet" />
   <style>body { font-family: 'Inter', sans-serif; }
     .site-logo { height: 5rem; width: auto; }
-    @media (min-width: 768px) { .site-logo { height: 7rem; width: auto; } }</style>
+    @media (min-width: 768px) { .site-logo { height: 7rem; width: auto; } }
+    .lang-btn.active { background: #2222DD; color: white; }
+    .lang-btn:not(.active):hover { background: rgba(255,255,255,0.2); color: white; }</style>
   <!-- Google Analytics (loads only after cookie consent) -->
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -47,6 +49,10 @@
         <a href="careers.html" class="hover:text-[#d1ff68] transition-colors">Careers</a>
         <a href="cases.html" class="hover:text-[#d1ff68] transition-colors">Cases</a>
         <a href="contact.html" class="hover:text-[#d1ff68] transition-colors">Contact</a>
+        <div class="flex items-center gap-1 border border-white/30 rounded-full p-0.5">
+          <button onclick="setLang('nl')" id="btn-nl" class="lang-btn active text-xs font-bold px-2.5 py-1 rounded-full transition-colors">NL</button>
+          <button onclick="setLang('en')" id="btn-en" class="lang-btn text-xs font-bold px-2.5 py-1 rounded-full text-white/60 hover:text-white transition-colors">EN</button>
+        </div>
       </div>
       <div class="flex items-center gap-3">
         <a href="contact.html" class="hidden md:block bg-[#d1ff68] text-black font-bold text-sm px-5 py-2 rounded-full hover:bg-black hover:text-[#d1ff68] transition-colors">GET BUZZED UP</a>
@@ -69,9 +75,9 @@
 
   <section class="bg-[#2222DD] pt-44 pb-16">
     <div class="max-w-6xl mx-auto px-4 md:px-8">
-      <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-4">OVER ONS</span>
+      <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-4" data-nl="OVER ONS" data-en="ABOUT US">OVER ONS</span>
       <h1 class="font-black text-6xl text-white mb-4">About</h1>
-      <p class="text-blue-200 text-base leading-relaxed max-w-sm">Door creators, voor creators, merken &amp; founders.</p>
+      <p class="text-blue-200 text-base leading-relaxed max-w-sm" data-nl="Door creators, voor creators, merken &amp; founders." data-en="By creators, for creators, brands &amp; founders.">Door creators, voor creators, merken &amp; founders.</p>
     </div>
   </section>
 
@@ -81,10 +87,10 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
         <div>
           <span class="bg-[#d1ff68] text-black text-xs font-bold px-3 py-1 rounded-full inline-block mb-5">DE FOUNDER</span>
-          <h2 class="font-black text-3xl mb-4">Het verhaal achter Buzzed Up</h2>
-          <p class="text-gray-700 text-sm leading-relaxed mb-4">Buzzed Up begon niet als traditioneel bureau, maar vanuit de wereld van content en creatie zelf. Als creator zag Bart hoe veel influencer marketing steeds meer draaide om perfecte plaatjes, lege trends en creators zonder eigen identiteit.</p>
-          <p class="text-gray-700 text-sm leading-relaxed mb-4">Veel creators bouwden wel bereik op, maar geen echt merk rondom zichzelf. En veel agencies stonden eigenlijk nergens écht voor.</p>
-          <p class="text-gray-700 text-sm leading-relaxed">Buzzed Up is gebouwd voor mensen met energie, persoonlijkheid en potentie. Mensen die meer willen zijn dan alleen 'een creator' of 'een merk'. Wij geloven dat er altijd méér zit achter content — een eigen product, een community, een bedrijf, een verhaal, een carrière. Daarom bouwen we niet alleen aan views, maar aan merken die blijven hangen.</p>
+          <h2 class="font-black text-3xl mb-4" data-nl="Het verhaal achter Buzzed Up" data-en="The story behind Buzzed Up">Het verhaal achter Buzzed Up</h2>
+          <p class="text-gray-700 text-sm leading-relaxed mb-4" data-nl="Buzzed Up begon niet als traditioneel bureau, maar vanuit de wereld van content en creatie zelf. Als creator zag Bart hoe veel influencer marketing steeds meer draaide om perfecte plaatjes, lege trends en creators zonder eigen identiteit." data-en="Buzzed Up didn't start as a traditional agency — it started from within the world of content and creation itself.">Buzzed Up begon niet als traditioneel bureau, maar vanuit de wereld van content en creatie zelf. Als creator zag Bart hoe veel influencer marketing steeds meer draaide om perfecte plaatjes, lege trends en creators zonder eigen identiteit.</p>
+          <p class="text-gray-700 text-sm leading-relaxed mb-4" data-nl="Veel creators bouwden wel bereik op, maar geen echt merk rondom zichzelf. En veel agencies stonden eigenlijk nergens écht voor." data-en="As a creator, Bart saw how influencer marketing kept revolving around perfect images, empty trends and creators without their own identity.">Veel creators bouwden wel bereik op, maar geen echt merk rondom zichzelf. En veel agencies stonden eigenlijk nergens écht voor.</p>
+          <p class="text-gray-700 text-sm leading-relaxed" data-nl="Buzzed Up is gebouwd voor mensen met energie, persoonlijkheid en potentie. Mensen die meer willen zijn dan alleen 'een creator' of 'een merk'. Wij geloven dat er altijd méér zit achter content — een eigen product, een community, een bedrijf, een verhaal, een carrière. Daarom bouwen we niet alleen aan views, maar aan merken die blijven hangen." data-en="Many creators built reach, but no real brand around themselves. And many agencies didn't truly stand for anything. Buzzed Up is built for people with energy, personality and potential. People who want to be more than just 'a creator' or 'a brand'. We believe there's always more behind content. A product. A community. A company. A story. A career. That's why we build brands that stick — not just views.">Buzzed Up is gebouwd voor mensen met energie, persoonlijkheid en potentie. Mensen die meer willen zijn dan alleen 'een creator' of 'een merk'. Wij geloven dat er altijd méér zit achter content — een eigen product, een community, een bedrijf, een verhaal, een carrière. Daarom bouwen we niet alleen aan views, maar aan merken die blijven hangen.</p>
         </div>
         <div class="flex flex-col items-center md:items-start">
           <div class="rounded-2xl overflow-hidden w-full bg-gray-100">
@@ -100,8 +106,8 @@
   <!-- TIMELINE -->
   <section class="py-16 bg-gray-50">
     <div class="max-w-6xl mx-auto px-4 md:px-8">
-      <span class="bg-[#2222DD] text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-6">HOE HET BEGON</span>
-      <h2 class="font-black text-3xl mb-10">Van idee naar agency</h2>
+      <span class="bg-[#2222DD] text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-6" data-nl="HOE HET BEGON" data-en="HOW IT STARTED">HOE HET BEGON</span>
+      <h2 class="font-black text-3xl mb-10" data-nl="Van idee naar agency" data-en="From idea to agency">Van idee naar agency</h2>
       <div class="max-w-lg">
       <div class="relative">
         <div class="absolute left-4 top-2 bottom-2 w-0.5 bg-gray-200"></div>
@@ -112,8 +118,8 @@
             </div>
             <div>
               <p class="text-[#2222DD] text-xs font-bold uppercase mb-1">2022</p>
-              <h3 class="font-bold text-sm mb-1">De eerste stap</h3>
-              <p class="text-gray-500 text-xs leading-relaxed">Begonnen als freelance talent manager. Eerste deals gesloten tussen creators en merken vanuit een slaapkamer in Amsterdam.</p>
+              <h3 class="font-bold text-sm mb-1" data-nl="De eerste stap" data-en="The first step">De eerste stap</h3>
+              <p class="text-gray-500 text-xs leading-relaxed" data-nl="Begonnen als freelance talent manager. Eerste deals gesloten tussen creators en merken vanuit een slaapkamer in Amsterdam." data-en="Started as a freelance talent manager. First deals closed between creators and brands from a bedroom in Amsterdam.">Begonnen als freelance talent manager. Eerste deals gesloten tussen creators en merken vanuit een slaapkamer in Amsterdam.</p>
             </div>
           </div>
           <div class="flex gap-6 items-start">
@@ -122,8 +128,8 @@
             </div>
             <div>
               <p class="text-[#2222DD] text-xs font-bold uppercase mb-1">2023</p>
-              <h3 class="font-bold text-sm mb-1">Buzzed Up officieel gelanceerd</h3>
-              <p class="text-gray-500 text-xs leading-relaxed">Het bureau krijgt een naam en een gezicht. De eerste vaste creators tekenen bij het roster. Campagnes voor Nederlandse A-merken.</p>
+              <h3 class="font-bold text-sm mb-1" data-nl="Buzzed Up officieel gelanceerd" data-en="Buzzed Up officially launched">Buzzed Up officieel gelanceerd</h3>
+              <p class="text-gray-500 text-xs leading-relaxed" data-nl="Het bureau krijgt een naam en een gezicht. De eerste vaste creators tekenen bij het roster. Campagnes voor Nederlandse A-merken." data-en="The agency gets a name and a face. The first dedicated creators sign with the roster. Campaigns for major Dutch brands.">Het bureau krijgt een naam en een gezicht. De eerste vaste creators tekenen bij het roster. Campagnes voor Nederlandse A-merken.</p>
             </div>
           </div>
           <div class="flex gap-6 items-start">
@@ -132,8 +138,8 @@
             </div>
             <div>
               <p class="text-[#2222DD] text-xs font-bold uppercase mb-1">2024</p>
-              <h3 class="font-bold text-sm mb-1">Het roster groeit</h3>
-              <p class="text-gray-500 text-xs leading-relaxed">Vier vaste creators, meer dan 225.000 gecombineerde volgers, en campagnes die aantoonbaar resultaat leveren. Buzzed Up is er echt.</p>
+              <h3 class="font-bold text-sm mb-1" data-nl="Het roster groeit" data-en="The roster grows">Het roster groeit</h3>
+              <p class="text-gray-500 text-xs leading-relaxed" data-nl="Vier vaste creators, meer dan 225.000 gecombineerde volgers, en campagnes die aantoonbaar resultaat leveren. Buzzed Up is er echt." data-en="Four dedicated creators, more than 225,000 combined followers, and campaigns that demonstrably deliver results. Buzzed Up is real.">Vier vaste creators, meer dan 225.000 gecombineerde volgers, en campagnes die aantoonbaar resultaat leveren. Buzzed Up is er echt.</p>
             </div>
           </div>
           <div class="flex gap-6 items-start">
@@ -142,8 +148,8 @@
             </div>
             <div>
               <p class="text-xs font-bold uppercase mb-1" style="color:#b8e000;">NU</p>
-              <h3 class="font-bold text-sm mb-1">Bouwen aan de toekomst</h3>
-              <p class="text-gray-500 text-xs leading-relaxed">We groeien het roster verder, bouwen aan nieuwe diensten en zoeken de beste merken om mee samen te werken. Buzzed Up is nog maar net begonnen.</p>
+              <h3 class="font-bold text-sm mb-1" data-nl="Bouwen aan de toekomst" data-en="Building the future">Bouwen aan de toekomst</h3>
+              <p class="text-gray-500 text-xs leading-relaxed" data-nl="We groeien het roster verder, bouwen aan nieuwe diensten en zoeken de beste merken om mee samen te werken. Buzzed Up is nog maar net begonnen." data-en="We continue to grow the roster, build new services and look for the best brands to work with. Buzzed Up is only just getting started.">We groeien het roster verder, bouwen aan nieuwe diensten en zoeken de beste merken om mee samen te werken. Buzzed Up is nog maar net begonnen.</p>
             </div>
           </div>
         </div>
@@ -154,28 +160,28 @@
 
   <section class="bg-[#2222DD] py-16">
     <div class="max-w-6xl mx-auto px-4 md:px-8">
-      <h2 class="text-2xl font-black text-white mb-8">Waar Buzzed Up voor staat</h2>
+      <h2 class="text-2xl font-black text-white mb-8" data-nl="Waar Buzzed Up voor staat" data-en="What Buzzed Up stands for">Waar Buzzed Up voor staat</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
         <div class="bg-blue-600 rounded-2xl p-6">
           <div class="w-8 h-8 mb-3 text-[#d1ff68]">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-full h-full"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14l-4-4 1.41-1.41L11 13.17l6.59-6.59L19 8l-8 8z"/></svg>
           </div>
-          <h3 class="text-white font-bold text-sm mb-2">Energie</h3>
-          <p class="text-blue-200 text-xs leading-relaxed">We werken met mensen die iets brengen. Op camera, online en in het echte leven.</p>
+          <h3 class="text-white font-bold text-sm mb-2" data-nl="Energie" data-en="Energy">Energie</h3>
+          <p class="text-blue-200 text-xs leading-relaxed" data-nl="We werken met mensen die iets brengen. Op camera, online en in het echte leven." data-en="We work with people who bring something into a room, on camera and online.">We werken met mensen die iets brengen. Op camera, online en in het echte leven.</p>
         </div>
         <div class="bg-blue-600 rounded-2xl p-6">
           <div class="w-8 h-8 mb-3 text-[#d1ff68]">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-full h-full"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
           </div>
-          <h3 class="text-white font-bold text-sm mb-2">Lef</h3>
-          <p class="text-blue-200 text-xs leading-relaxed">We respecteren creators en merken die een eigen stem durven te hebben, risico's nemen en ergens voor staan.</p>
+          <h3 class="text-white font-bold text-sm mb-2" data-nl="Lef" data-en="Courage">Lef</h3>
+          <p class="text-blue-200 text-xs leading-relaxed" data-nl="We respecteren creators en merken die een eigen stem durven te hebben, risico's nemen en ergens voor staan." data-en="We respect creators and brands who dare to have a voice, take risks and stand for something.">We respecteren creators en merken die een eigen stem durven te hebben, risico's nemen en ergens voor staan.</p>
         </div>
         <div class="bg-blue-600 rounded-2xl p-6">
           <div class="w-8 h-8 mb-3 text-[#d1ff68]">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-full h-full"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z"/></svg>
           </div>
-          <h3 class="text-white font-bold text-sm mb-2">Rebelsheid</h3>
-          <p class="text-blue-200 text-xs leading-relaxed">Niet rebels voor aandacht. Maar het lef hebben om dingen anders te doen in plaats van iedereen achterna te lopen.</p>
+          <h3 class="text-white font-bold text-sm mb-2" data-nl="Rebelsheid" data-en="Rebelliousness">Rebelsheid</h3>
+          <p class="text-blue-200 text-xs leading-relaxed" data-nl="Niet rebels voor aandacht. Maar het lef hebben om dingen anders te doen in plaats van iedereen achterna te lopen." data-en="Not rebellion for attention. But the courage to think differently, move differently and create differently.">Niet rebels voor aandacht. Maar het lef hebben om dingen anders te doen in plaats van iedereen achterna te lopen.</p>
         </div>
       </div>
     </div>
@@ -185,12 +191,12 @@
     <div class="max-w-6xl mx-auto px-4 md:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
         <div class="border border-gray-200 rounded-2xl p-6">
-          <p class="text-[#2222DD] text-xs font-bold uppercase mb-3">MISSIE</p>
-          <p class="text-gray-700 text-sm leading-relaxed">Merken verbinden met creators die echt impact maken. Geen halfbakken samenwerkingen, maar partnerships die voor beide partijen werken.</p>
+          <p class="text-[#2222DD] text-xs font-bold uppercase mb-3" data-nl="MISSIE" data-en="MISSION">MISSIE</p>
+          <p class="text-gray-700 text-sm leading-relaxed" data-nl="Merken verbinden met creators die echt impact maken. Geen halfbakken samenwerkingen, maar partnerships die voor beide partijen werken." data-en="Connecting brands with creators who make real impact. No half-baked collaborations, but partnerships that work for both sides.">Merken verbinden met creators die echt impact maken. Geen halfbakken samenwerkingen, maar partnerships die voor beide partijen werken.</p>
         </div>
         <div class="border border-gray-200 rounded-2xl p-6">
-          <p class="text-[#2222DD] text-xs font-bold uppercase mb-3">VISIE</p>
-          <p class="text-gray-700 text-sm leading-relaxed">De go-to agency worden voor merken die begrijpen dat authentieke content de enige manier is om door de ruis heen te breken.</p>
+          <p class="text-[#2222DD] text-xs font-bold uppercase mb-3" data-nl="VISIE" data-en="VISION">VISIE</p>
+          <p class="text-gray-700 text-sm leading-relaxed" data-nl="De go-to agency worden voor merken die begrijpen dat authentieke content de enige manier is om door de ruis heen te breken." data-en="To become the go-to agency for brands that understand authentic content is the only way to cut through the noise.">De go-to agency worden voor merken die begrijpen dat authentieke content de enige manier is om door de ruis heen te breken.</p>
         </div>
       </div>
     </div>
@@ -233,7 +239,7 @@
             <p><a href="mailto:info@buzzedupagency.com" class="hover:text-white transition-colors">info@buzzedupagency.com</a></p>
             <p>Amsterdam, Nederland</p>
           </div>
-          <a href="contact.html" class="inline-block bg-[#d1ff68] text-black font-bold text-sm px-6 py-3 rounded-full hover:bg-black hover:text-[#d1ff68] transition-colors">Neem contact op →</a>
+          <a href="contact.html" class="inline-block bg-[#d1ff68] text-black font-bold text-sm px-6 py-3 rounded-full hover:bg-black hover:text-[#d1ff68] transition-colors" data-nl="Neem contact op →" data-en="Get in touch →">Neem contact op →</a>
         </div>
 
       </div>

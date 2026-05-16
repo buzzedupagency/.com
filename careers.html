@@ -10,7 +10,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=League+Spartan:wght@700;800;900&display=swap" rel="stylesheet" />
   <style>body { font-family: 'Inter', sans-serif; }
     .site-logo { height: 5rem; width: auto; }
-    @media (min-width: 768px) { .site-logo { height: 7rem; width: auto; } }</style>
+    @media (min-width: 768px) { .site-logo { height: 7rem; width: auto; } }
+    .lang-btn.active { background: #2222DD; color: white; }
+    .lang-btn:not(.active):hover { background: rgba(255,255,255,0.2); color: white; }</style>
   <!-- Google Analytics (loads only after cookie consent) -->
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -46,10 +48,14 @@
         <a href="careers.html" class="border-b-2 border-white/60">Careers</a>
         <a href="cases.html" class="hover:text-[#d1ff68] transition-colors">Cases</a>
         <a href="contact.html" class="hover:text-[#d1ff68] transition-colors">Contact</a>
+        <div class="flex items-center gap-1 border border-white/30 rounded-full p-0.5">
+          <button onclick="setLang('nl')" id="btn-nl" class="lang-btn active text-xs font-bold px-2.5 py-1 rounded-full transition-colors">NL</button>
+          <button onclick="setLang('en')" id="btn-en" class="lang-btn text-xs font-bold px-2.5 py-1 rounded-full text-white/60 hover:text-white transition-colors">EN</button>
+        </div>
       </div>
       <div class="flex items-center gap-3">
         <a href="contact.html" class="hidden md:block bg-[#d1ff68] text-black font-bold text-sm px-5 py-2 rounded-full hover:bg-black hover:text-[#d1ff68] transition-colors">GET BUZZED UP</a>
-        
+
         <button onclick="toggleMenu()" class="md:hidden p-2" id="menu-btn">
           <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
@@ -68,15 +74,15 @@
 
   <section class="bg-[#2222DD] pt-44 pb-16">
     <div class="max-w-6xl mx-auto px-4 md:px-8">
-      <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-4">WERKEN BIJ</span>
+      <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-4" data-nl="WERKEN BIJ" data-en="JOIN US">WERKEN BIJ</span>
       <h1 class="font-black text-6xl mb-4 text-white">Careers</h1>
-      <p class="text-blue-200 text-base leading-relaxed max-w-sm">Denk jij dat je bij Buzzed Up past?</p>
+      <p class="text-blue-200 text-base leading-relaxed max-w-sm" data-nl="Denk jij dat je bij Buzzed Up past?" data-en="Think you fit the energy?">Denk jij dat je bij Buzzed Up past?</p>
     </div>
   </section>
 
   <section class="pt-14 pb-20">
     <div class="max-w-6xl mx-auto px-4 md:px-8">
-      <h2 class="font-black text-2xl mb-6">Openstaande functies</h2>
+      <h2 class="font-black text-2xl mb-6" data-nl="Openstaande functies" data-en="Open positions">Openstaande functies</h2>
       <div class="flex items-center justify-between py-5 border-b border-gray-200">
         <div>
           <h3 class="font-bold text-base mb-1">Talent Manager</h3>
@@ -85,7 +91,7 @@
             <span class="flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Full-time</span>
           </div>
         </div>
-        <a href="careers/talent-manager.html" class="bg-[#d1ff68] text-black font-semibold text-sm px-4 py-2 rounded-full hover:bg-yellow-300 transition-colors whitespace-nowrap">Bekijk rol →</a>
+        <a href="careers/talent-manager.html" class="bg-[#d1ff68] text-black font-semibold text-sm px-4 py-2 rounded-full hover:bg-yellow-300 transition-colors whitespace-nowrap" data-nl="Bekijk rol →" data-en="View role →">Bekijk rol →</a>
       </div>
       <div class="flex items-center justify-between py-5 border-b border-gray-200">
         <div>
@@ -95,7 +101,7 @@
             <span class="flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Full-time</span>
           </div>
         </div>
-        <a href="#" class="bg-[#d1ff68] text-black font-semibold text-sm px-4 py-2 rounded-full hover:bg-yellow-300 transition-colors whitespace-nowrap">Bekijk rol →</a>
+        <a href="#" class="bg-[#d1ff68] text-black font-semibold text-sm px-4 py-2 rounded-full hover:bg-yellow-300 transition-colors whitespace-nowrap" data-nl="Bekijk rol →" data-en="View role →">Bekijk rol →</a>
       </div>
       <div class="flex items-center justify-between py-5 border-b border-gray-200">
         <div>
@@ -105,17 +111,17 @@
             <span class="flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Full-time</span>
           </div>
         </div>
-        <a href="#" class="bg-[#d1ff68] text-black font-semibold text-sm px-4 py-2 rounded-full hover:bg-yellow-300 transition-colors whitespace-nowrap">Bekijk rol →</a>
+        <a href="#" class="bg-[#d1ff68] text-black font-semibold text-sm px-4 py-2 rounded-full hover:bg-yellow-300 transition-colors whitespace-nowrap" data-nl="Bekijk rol →" data-en="View role →">Bekijk rol →</a>
       </div>
       <div class="flex items-center justify-between py-5 border-b border-gray-200">
         <div>
-          <h3 class="font-bold text-base mb-1">Talent Team Intern</h3>
+          <h3 class="font-bold text-base mb-1" data-nl="Talent Team Intern" data-en="Talent Team Intern">Talent Team Intern</h3>
           <div class="flex items-center gap-4 text-gray-500 text-xs">
             <span class="flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Amsterdam</span>
-            <span class="flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Internship</span>
+            <span class="flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span data-nl="Internship" data-en="Internship">Internship</span></span>
           </div>
         </div>
-        <a href="#" class="bg-[#d1ff68] text-black font-semibold text-sm px-4 py-2 rounded-full hover:bg-yellow-300 transition-colors whitespace-nowrap">Bekijk rol →</a>
+        <a href="#" class="bg-[#d1ff68] text-black font-semibold text-sm px-4 py-2 rounded-full hover:bg-yellow-300 transition-colors whitespace-nowrap" data-nl="Bekijk rol →" data-en="View role →">Bekijk rol →</a>
       </div>
     </div>
   </section>
@@ -123,40 +129,40 @@
   <!-- PAST JIJ BIJ BUZZED UP? -->
   <section class="py-16 bg-[#2222DD]">
     <div class="max-w-6xl mx-auto px-4 md:px-8">
-      <span class="bg-[#d1ff68] text-black text-xs font-bold px-3 py-1 rounded-full inline-block mb-6">VOOR CREATORS & TALENT</span>
+      <span class="bg-[#d1ff68] text-black text-xs font-bold px-3 py-1 rounded-full inline-block mb-6" data-nl="VOOR CREATORS &amp; TALENT" data-en="FOR CREATORS &amp; TALENT">VOOR CREATORS &amp; TALENT</span>
       <h2 class="font-black text-3xl text-white mb-4">Think you fit the energy?</h2>
-      <p class="text-blue-200 text-sm leading-relaxed mb-8 max-w-lg">Wij zoeken geen perfecte cv's of corporate persoonlijkheden. We zoeken creators, denkers en ambitieuze mensen met energie, ideeën en het lef om dingen anders te doen. Geen vacature die bij je past? Pitch jezelf alsnog.</p>
+      <p class="text-blue-200 text-sm leading-relaxed mb-8 max-w-lg" data-nl="Wij zoeken geen perfecte cv's of corporate persoonlijkheden. We zoeken creators, denkers en ambitieuze mensen met energie, ideeën en het lef om dingen anders te doen. Geen vacature die bij je past? Pitch jezelf alsnog." data-en="We're not looking for perfect resumes or corporate personalities. We're looking for creators, thinkers and ambitious people with energy, ideas and the courage to do things differently. No role that fits you? Pitch yourself anyway.">Wij zoeken geen perfecte cv's of corporate persoonlijkheden. We zoeken creators, denkers en ambitieuze mensen met energie, ideeën en het lef om dingen anders te doen. Geen vacature die bij je past? Pitch jezelf alsnog.</p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
         <div class="bg-blue-700/40 rounded-2xl p-5 flex gap-3 items-start">
           <span class="text-[#d1ff68] text-xl mt-0.5">✦</span>
           <div>
-            <p class="text-white font-bold text-sm mb-1">Lef en energie</p>
-            <p class="text-blue-200 text-xs leading-relaxed">Je durft keuzes te maken, spreekt mensen aan en brengt altijd energie mee.</p>
+            <p class="text-white font-bold text-sm mb-1" data-nl="Lef en energie" data-en="Courage and energy">Lef en energie</p>
+            <p class="text-blue-200 text-xs leading-relaxed" data-nl="Je durft keuzes te maken, spreekt mensen aan en brengt altijd energie mee." data-en="You dare to make choices, speak to people and always bring energy.">Je durft keuzes te maken, spreekt mensen aan en brengt altijd energie mee.</p>
           </div>
         </div>
         <div class="bg-blue-700/40 rounded-2xl p-5 flex gap-3 items-start">
           <span class="text-[#d1ff68] text-xl mt-0.5">✦</span>
           <div>
-            <p class="text-white font-bold text-sm mb-1">Een tikkie rebels</p>
-            <p class="text-blue-200 text-xs leading-relaxed">Je volgt niet blind de regels en durft tegen de stroom in te gaan als je iets beters ziet.</p>
+            <p class="text-white font-bold text-sm mb-1" data-nl="Een tikkie rebels" data-en="A little rebellious">Een tikkie rebels</p>
+            <p class="text-blue-200 text-xs leading-relaxed" data-nl="Je volgt niet blind de regels en durft tegen de stroom in te gaan als je iets beters ziet." data-en="You don't blindly follow the rules and dare to go against the flow when you see something better.">Je volgt niet blind de regels en durft tegen de stroom in te gaan als je iets beters ziet.</p>
           </div>
         </div>
         <div class="bg-blue-700/40 rounded-2xl p-5 flex gap-3 items-start">
           <span class="text-[#d1ff68] text-xl mt-0.5">✦</span>
           <div>
-            <p class="text-white font-bold text-sm mb-1">Leergierig & gepassioneerd</p>
-            <p class="text-blue-200 text-xs leading-relaxed">Passie en leergierigheid wegen zwaarder dan welk diploma dan ook.</p>
+            <p class="text-white font-bold text-sm mb-1" data-nl="Leergierig &amp; gepassioneerd" data-en="Eager to learn &amp; passionate">Leergierig &amp; gepassioneerd</p>
+            <p class="text-blue-200 text-xs leading-relaxed" data-nl="Passie en leergierigheid wegen zwaarder dan welk diploma dan ook." data-en="Passion and eagerness to learn outweigh any diploma.">Passie en leergierigheid wegen zwaarder dan welk diploma dan ook.</p>
           </div>
         </div>
         <div class="bg-blue-700/40 rounded-2xl p-5 flex gap-3 items-start">
           <span class="text-[#d1ff68] text-xl mt-0.5">✦</span>
           <div>
-            <p class="text-white font-bold text-sm mb-1">Eigen visie</p>
-            <p class="text-blue-200 text-xs leading-relaxed">Kun jij iets laten zien van je werk of vertellen wat jouw visie is? Dat telt meer dan een mooie brief.</p>
+            <p class="text-white font-bold text-sm mb-1" data-nl="Eigen visie" data-en="Own vision">Eigen visie</p>
+            <p class="text-blue-200 text-xs leading-relaxed" data-nl="Kun jij iets laten zien van je werk of vertellen wat jouw visie is? Dat telt meer dan een mooie brief." data-en="Can you show something of your work or explain your vision? That counts more than a nice cover letter.">Kun jij iets laten zien van je werk of vertellen wat jouw visie is? Dat telt meer dan een mooie brief.</p>
           </div>
         </div>
       </div>
-      <a href="mailto:info@buzzedupagency.com?subject=Open sollicitatie" class="bg-[#d1ff68] text-black font-bold px-6 py-3 rounded-full text-sm inline-block hover:opacity-90 transition-opacity">Stuur een open sollicitatie →</a>
+      <a href="mailto:info@buzzedupagency.com?subject=Open sollicitatie" class="bg-[#d1ff68] text-black font-bold px-6 py-3 rounded-full text-sm inline-block hover:opacity-90 transition-opacity" data-nl="Stuur een open sollicitatie →" data-en="Send an open application →">Stuur een open sollicitatie →</a>
     </div>
   </section>
 
@@ -164,10 +170,10 @@
   <section class="py-12 bg-white">
     <div class="max-w-6xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
       <div>
-        <h3 class="font-black text-xl mb-1">Geen vacature die bij je past?</h3>
-        <p class="text-gray-500 text-sm">Stuur een open sollicitatie. We zijn altijd op zoek naar goed talent.</p>
+        <h3 class="font-black text-xl mb-1" data-nl="Geen vacature die bij je past?" data-en="No role that fits you?">Geen vacature die bij je past?</h3>
+        <p class="text-gray-500 text-sm" data-nl="Stuur een open sollicitatie. We zijn altijd op zoek naar goed talent." data-en="Send an open application. We're always looking for great talent.">Stuur een open sollicitatie. We zijn altijd op zoek naar goed talent.</p>
       </div>
-      <a href="mailto:info@buzzedupagency.com?subject=Open sollicitatie" class="bg-[#2222DD] text-white font-bold px-6 py-3 rounded-full text-sm whitespace-nowrap hover:bg-blue-700 transition-colors">Stuur open sollicitatie</a>
+      <a href="mailto:info@buzzedupagency.com?subject=Open sollicitatie" class="bg-[#2222DD] text-white font-bold px-6 py-3 rounded-full text-sm whitespace-nowrap hover:bg-blue-700 transition-colors" data-nl="Stuur open sollicitatie" data-en="Send open application">Stuur open sollicitatie</a>
     </div>
   </section>
 
@@ -209,7 +215,7 @@
             <p><a href="mailto:info@buzzedupagency.com" class="hover:text-white transition-colors">info@buzzedupagency.com</a></p>
             <p>Amsterdam, Nederland</p>
           </div>
-          <a href="contact.html" class="inline-block bg-[#d1ff68] text-black font-bold text-sm px-6 py-3 rounded-full hover:bg-black hover:text-[#d1ff68] transition-colors">Neem contact op →</a>
+          <a href="contact.html" class="inline-block bg-[#d1ff68] text-black font-bold text-sm px-6 py-3 rounded-full hover:bg-black hover:text-[#d1ff68] transition-colors" data-nl="Neem contact op →" data-en="Get in touch →">Neem contact op →</a>
         </div>
 
       </div>

@@ -12,6 +12,8 @@
     body { font-family: 'Inter', sans-serif; }
     .site-logo { height: 5rem; width: auto; }
     @media (min-width: 768px) { .site-logo { height: 7rem; width: auto; } }
+    .lang-btn.active { background: #2222DD; color: white; }
+    .lang-btn:not(.active):hover { background: rgba(255,255,255,0.2); color: white; }
     .accordion-content { display: none; }
     .accordion-item.open .accordion-content { display: block; }
     .accordion-item.open .chevron { transform: rotate(180deg); }
@@ -52,10 +54,14 @@
         <a href="careers.html" class="hover:text-[#d1ff68] transition-colors">Careers</a>
         <a href="cases.html" class="hover:text-[#d1ff68] transition-colors">Cases</a>
         <a href="contact.html" class="hover:text-[#d1ff68] transition-colors">Contact</a>
+        <div class="flex items-center gap-1 border border-white/30 rounded-full p-0.5">
+          <button onclick="setLang('nl')" id="btn-nl" class="lang-btn active text-xs font-bold px-2.5 py-1 rounded-full transition-colors">NL</button>
+          <button onclick="setLang('en')" id="btn-en" class="lang-btn text-xs font-bold px-2.5 py-1 rounded-full text-white/60 hover:text-white transition-colors">EN</button>
+        </div>
       </div>
       <div class="flex items-center gap-3">
         <a href="contact.html" class="hidden md:block bg-[#d1ff68] text-black font-bold text-sm px-5 py-2 rounded-full hover:bg-black hover:text-[#d1ff68] transition-colors">GET BUZZED UP</a>
-        
+
         <button onclick="toggleMenu()" class="md:hidden p-2" id="menu-btn">
           <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
@@ -70,14 +76,13 @@
       <a href="contact.html" class="block text-sm font-medium text-white hover:text-[#d1ff68]">Contact</a>
       <a href="contact.html" class="inline-block bg-[#d1ff68] text-black font-bold text-sm px-5 py-2 rounded-full mt-2">GET BUZZED UP</a>
     </div>
-    </div>
   </nav>
 
   <section class="bg-[#2222DD] pt-44 pb-16">
     <div class="max-w-6xl mx-auto px-4 md:px-8">
-      <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-4">WAT WE DOEN</span>
+      <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-4" data-nl="WAT WE DOEN" data-en="WHAT WE DO">WAT WE DOEN</span>
       <h1 class="font-black text-6xl mb-4 text-white">Services</h1>
-      <p class="text-blue-200 text-base leading-relaxed max-w-lg">Alles wat je nodig hebt om te winnen met creators. Kies wat je wil, of laat ons alles regelen.</p>
+      <p class="text-blue-200 text-base leading-relaxed max-w-lg" data-nl="Alles wat je nodig hebt om te winnen met creators. Kies wat je wil, of laat ons alles regelen." data-en="Everything you need to win with creators. Pick what you want, or let us handle it all.">Alles wat je nodig hebt om te winnen met creators. Kies wat je wil, of laat ons alles regelen.</p>
     </div>
   </section>
 
@@ -90,8 +95,8 @@
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
             </div>
             <div>
-              <h3 class="font-bold text-base">Strategy</h3>
-              <p class="text-gray-500 text-sm">Data-driven creator strategy that aligns with your goals.</p>
+              <h3 class="font-bold text-base" data-nl="Strategy" data-en="Strategy">Strategy</h3>
+              <p class="text-gray-500 text-sm" data-nl="Data-gedreven creator strategie die aansluit op jouw doelen." data-en="Data-driven creator strategy that aligns with your goals.">Data-driven creator strategy that aligns with your goals.</p>
             </div>
           </div>
           <svg class="chevron w-5 h-5 text-gray-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
@@ -122,8 +127,8 @@
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
             </div>
             <div>
-              <h3 class="font-bold text-base">Talent Management</h3>
-              <p class="text-gray-500 text-sm">Full-service management for creators who want to grow.</p>
+              <h3 class="font-bold text-base" data-nl="Talent Management" data-en="Talent Management">Talent Management</h3>
+              <p class="text-gray-500 text-sm" data-nl="Full-service management voor creators die willen groeien." data-en="Full-service management for creators who want to grow.">Full-service management for creators who want to grow.</p>
             </div>
           </div>
           <svg class="chevron w-5 h-5 text-gray-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
@@ -154,8 +159,8 @@
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
             </div>
             <div>
-              <h3 class="font-bold text-base">Campaigns</h3>
-              <p class="text-gray-500 text-sm">End-to-end campaign execution with measurable results.</p>
+              <h3 class="font-bold text-base" data-nl="Campaigns" data-en="Campaigns">Campaigns</h3>
+              <p class="text-gray-500 text-sm" data-nl="End-to-end campagne uitvoering met meetbare resultaten." data-en="End-to-end campaign execution with measurable results.">End-to-end campaign execution with measurable results.</p>
             </div>
           </div>
           <svg class="chevron w-5 h-5 text-gray-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
@@ -186,8 +191,8 @@
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M10 10l5 3-5 3V10z"/></svg>
             </div>
             <div>
-              <h3 class="font-bold text-base">Production</h3>
-              <p class="text-gray-500 text-sm">Thumb-stopping content created by our in-house team.</p>
+              <h3 class="font-bold text-base" data-nl="Production" data-en="Production">Production</h3>
+              <p class="text-gray-500 text-sm" data-nl="Opvallende content gemaakt door ons eigen team." data-en="Thumb-stopping content created by our in-house team.">Thumb-stopping content created by our in-house team.</p>
             </div>
           </div>
           <svg class="chevron w-5 h-5 text-gray-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
@@ -218,8 +223,8 @@
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="3"/></svg>
             </div>
             <div>
-              <h3 class="font-bold text-base">Paid Social</h3>
-              <p class="text-gray-500 text-sm">Amplify creator content with paid media promotion.</p>
+              <h3 class="font-bold text-base" data-nl="Paid Social" data-en="Paid Social">Paid Social</h3>
+              <p class="text-gray-500 text-sm" data-nl="Vergroot creator content met betaalde media promotie." data-en="Amplify creator content with paid media promotion.">Amplify creator content with paid media promotion.</p>
             </div>
           </div>
           <svg class="chevron w-5 h-5 text-gray-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
@@ -247,7 +252,7 @@
 
   <section class="bg-[#2222DD] py-16">
     <div class="max-w-6xl mx-auto px-4 md:px-8">
-      <h2 class="text-2xl font-black text-white mb-8">Wat je krijgt</h2>
+      <h2 class="text-2xl font-black text-white mb-8" data-nl="Wat je krijgt" data-en="What you get">Wat je krijgt</h2>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
         <div class="border border-blue-400 rounded-xl p-4 flex items-start gap-3"><svg class="w-4 h-4 text-[#d1ff68] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><p class="text-white text-xs">Strategy & planning documents</p></div>
         <div class="border border-blue-400 rounded-xl p-4 flex items-start gap-3"><svg class="w-4 h-4 text-[#d1ff68] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><p class="text-white text-xs">Creator shortlists with data</p></div>
@@ -297,7 +302,7 @@
             <p><a href="mailto:info@buzzedupagency.com" class="hover:text-white transition-colors">info@buzzedupagency.com</a></p>
             <p>Amsterdam, Nederland</p>
           </div>
-          <a href="contact.html" class="inline-block bg-[#d1ff68] text-black font-bold text-sm px-6 py-3 rounded-full hover:bg-black hover:text-[#d1ff68] transition-colors">Neem contact op →</a>
+          <a href="contact.html" class="inline-block bg-[#d1ff68] text-black font-bold text-sm px-6 py-3 rounded-full hover:bg-black hover:text-[#d1ff68] transition-colors" data-nl="Neem contact op →" data-en="Get in touch →">Neem contact op →</a>
         </div>
 
       </div>

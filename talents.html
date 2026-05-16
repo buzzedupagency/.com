@@ -12,6 +12,8 @@
     body { font-family: 'Inter', sans-serif; }
     .site-logo { height: 5rem; width: auto; }
     @media (min-width: 768px) { .site-logo { height: 7rem; width: auto; } }
+    .lang-btn.active { background: #2222DD; color: white; }
+    .lang-btn:not(.active):hover { background: rgba(255,255,255,0.2); color: white; }
     .talent-card .card-body { position: relative; z-index: 1; }
     .talent-card .card-overlay::after {
       content: '';
@@ -74,10 +76,14 @@
         <a href="careers.html" class="hover:text-[#d1ff68] transition-colors">Careers</a>
         <a href="cases.html" class="hover:text-[#d1ff68] transition-colors">Cases</a>
         <a href="contact.html" class="hover:text-[#d1ff68] transition-colors">Contact</a>
+        <div class="flex items-center gap-1 border border-white/30 rounded-full p-0.5">
+          <button onclick="setLang('nl')" id="btn-nl" class="lang-btn active text-xs font-bold px-2.5 py-1 rounded-full transition-colors">NL</button>
+          <button onclick="setLang('en')" id="btn-en" class="lang-btn text-xs font-bold px-2.5 py-1 rounded-full text-white/60 hover:text-white transition-colors">EN</button>
+        </div>
       </div>
       <div class="flex items-center gap-3">
         <a href="contact.html" class="hidden md:block bg-[#d1ff68] text-black font-bold text-sm px-5 py-2 rounded-full hover:bg-black hover:text-[#d1ff68] transition-colors">GET BUZZED UP</a>
-        
+
         <button onclick="toggleMenu()" class="md:hidden p-2" id="menu-btn">
           <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
@@ -96,15 +102,15 @@
 
   <section class="bg-[#2222DD] pt-44 pb-16">
     <div class="max-w-6xl mx-auto px-4 md:px-8">
-      <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-4">ONS ROSTER</span>
+      <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-4" data-nl="ONS ROSTER" data-en="OUR ROSTER">ONS ROSTER</span>
       <h1 class="font-black text-6xl mb-4 text-white">Talents</h1>
-      <p class="text-blue-200 text-base leading-relaxed max-w-sm">De nieuwe generatie creators.</p>
+      <p class="text-blue-200 text-base leading-relaxed max-w-sm" data-nl="De nieuwe generatie creators." data-en="The new generation of creators.">De nieuwe generatie creators.</p>
     </div>
   </section>
 
   <section class="pt-14 pb-20">
     <div class="max-w-6xl mx-auto px-4 md:px-8">
-      <p class="text-gray-600 text-sm leading-relaxed max-w-2xl mb-10">Geen creators met copy-paste persoonlijkheden of alleen maar trendcontent. Maar mensen met een eigen perspectief, energie en een identiteit die verder gaat dan één niche. Bij Buzzed Up bouwen we creators tot herkenbare merken die mensen onthouden — online én daarbuiten.</p>
+      <p class="text-gray-600 text-sm leading-relaxed max-w-2xl mb-10" data-nl="Geen creators met copy-paste persoonlijkheden of alleen maar trendcontent. Maar mensen met een eigen perspectief, energie en een identiteit die verder gaat dan één niche. Bij Buzzed Up bouwen we creators tot herkenbare merken die mensen onthouden — online én daarbuiten." data-en="Not creators with copy-paste personalities or trend-only content. But people with perspective, energy and an identity beyond one niche. At Buzzed Up, we build creators into recognizable brands people remember — online and beyond it.">Geen creators met copy-paste persoonlijkheden of alleen maar trendcontent. Maar mensen met een eigen perspectief, energie en een identiteit die verder gaat dan één niche. Bij Buzzed Up bouwen we creators tot herkenbare merken die mensen onthouden — online én daarbuiten.</p>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <a href="talents/bart.html" class="talent-card relative rounded-2xl overflow-hidden aspect-[3/4] bg-gray-900 block group" style="aspect-ratio:3/4;">
           <img width="600" height="800" src="images/talents/bart.jpg" alt="Bart" fetchpriority="high" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
@@ -183,7 +189,7 @@
             <p><a href="mailto:info@buzzedupagency.com" class="hover:text-white transition-colors">info@buzzedupagency.com</a></p>
             <p>Amsterdam, Nederland</p>
           </div>
-          <a href="contact.html" class="inline-block bg-[#d1ff68] text-black font-bold text-sm px-6 py-3 rounded-full hover:bg-black hover:text-[#d1ff68] transition-colors">Neem contact op →</a>
+          <a href="contact.html" class="inline-block bg-[#d1ff68] text-black font-bold text-sm px-6 py-3 rounded-full hover:bg-black hover:text-[#d1ff68] transition-colors" data-nl="Neem contact op →" data-en="Get in touch →">Neem contact op →</a>
         </div>
 
       </div>
