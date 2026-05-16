@@ -46,11 +46,11 @@
       <a href="/"><img src="/logo.svg" alt="Buzzed Up" id="nav-logo" style="height:70px;width:auto;filter:brightness(0) invert(1);" /></a>
       <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white" id="nav-links">
         <a href="/about/" class="text-black font-semibold border-b-2 border-[#2222DD]">About</a>
-        <a href="/services/" class="hover:underline transition-colors">Services</a>
-        <a href="/talents/" class="hover:underline transition-colors">Talents</a>
-        <a href="/careers/" class="hover:underline transition-colors">Careers</a>
-        <a href="/cases/" class="hover:underline transition-colors">Cases</a>
-        <a href="/contact/" class="hover:underline transition-colors">Contact</a>
+        <a href="/services/" class="underline decoration-transparent hover:decoration-[#d1ff68] transition-all">Services</a>
+        <a href="/talents/" class="underline decoration-transparent hover:decoration-[#d1ff68] transition-all">Talents</a>
+        <a href="/careers/" class="underline decoration-transparent hover:decoration-[#d1ff68] transition-all">Careers</a>
+        <a href="/cases/" class="underline decoration-transparent hover:decoration-[#d1ff68] transition-all">Cases</a>
+        <a href="/contact/" class="underline decoration-transparent hover:decoration-[#d1ff68] transition-all">Contact</a>
         <div class="flex items-center gap-1 border border-white/30 rounded-full p-0.5">
           <button onclick="setLang('nl')" id="btn-nl" class="lang-btn active text-xs font-bold px-2.5 py-1 rounded-full transition-colors">NL</button>
           <button onclick="setLang('en')" id="btn-en" class="lang-btn text-xs font-bold px-2.5 py-1 rounded-full text-white/60 transition-colors">EN</button>
@@ -347,9 +347,9 @@
       var _hero=document.querySelector('section');var _threshold=-1;
       // Apply solid nav immediately on subpages
       (function applyNav(){
-        nav.style.background='rgba(255,255,255,0.97)';
-        nav.style.backdropFilter='blur(20px)';
-        nav.style.webkitBackdropFilter='blur(20px)';
+        nav.style.background='#ffffff';
+        nav.style.backdropFilter='';
+        nav.style.webkitBackdropFilter='';
         nav.style.borderColor='rgba(0,0,0,0.08)';
         nav.style.boxShadow='0 1px 12px rgba(0,0,0,0.07)';
         if(nl){nl.classList.remove('text-white');nl.classList.add('text-black');}
@@ -358,9 +358,9 @@
       })();
       window.addEventListener('scroll',function(){
         if(window.scrollY>_threshold){
-          nav.style.background='rgba(255,255,255,0.97)';
-          nav.style.backdropFilter='blur(20px)';
-          nav.style.webkitBackdropFilter='blur(20px)';
+          nav.style.background='#ffffff';
+          nav.style.backdropFilter='';
+          nav.style.webkitBackdropFilter='';
           nav.style.borderColor='rgba(0,0,0,0.08)';
           nav.style.boxShadow='0 1px 12px rgba(0,0,0,0.07)';
           if(nl){nl.classList.remove('text-white');nl.classList.add('text-black');}
