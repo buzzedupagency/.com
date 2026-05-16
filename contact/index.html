@@ -380,7 +380,18 @@
       var logo=document.getElementById('nav-logo');
       var mb=document.getElementById('menu-btn');
       var mbSvg=mb?mb.querySelector('svg'):null;
-      var _hero=document.querySelector('section');var _threshold=_hero?Math.max(0,_hero.offsetTop+_hero.offsetHeight-nav.offsetHeight):60;
+      var _hero=document.querySelector('section');var _threshold=-1;
+      // Apply solid nav immediately on subpages
+      (function applyNav(){
+        nav.style.background='rgba(255,255,255,0.97)';
+        nav.style.backdropFilter='blur(20px)';
+        nav.style.webkitBackdropFilter='blur(20px)';
+        nav.style.borderColor='rgba(0,0,0,0.08)';
+        nav.style.boxShadow='0 1px 12px rgba(0,0,0,0.07)';
+        if(nl){nl.classList.remove('text-white');nl.classList.add('text-black');}
+        if(logo)logo.style.filter='none';
+        if(mbSvg){mbSvg.classList.remove('text-white');mbSvg.classList.add('text-black');}
+      })();
       window.addEventListener('scroll',function(){
         if(window.scrollY>_threshold){
           nav.style.background='rgba(255,255,255,0.97)';
