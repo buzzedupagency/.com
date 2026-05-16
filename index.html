@@ -32,6 +32,13 @@
     .marquee-track { display: flex; width: max-content; animation: marquee 22s linear infinite; }
     .marquee-track:hover { animation-play-state: paused; }
 
+    /* ✦ slow spin */
+    @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .spin-slow { display: inline-block; animation: spin-slow 8s linear infinite; }
+
+    /* Talent name hover underline */
+    .talent-card:hover .meet-name { text-decoration: underline; text-decoration-color: white; text-underline-offset: 3px; }
+
     /* Counter animation */
     .counter { transition: all 0.3s; }
 
@@ -242,7 +249,7 @@
             <div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
               <div class="card-body">
                 <p class="card-tag text-gray-300 text-[10px] mb-0.5">Creator · Founder</p>
-                <p class="text-white font-black text-lg leading-none mb-0.5">MEET <span class="text-[#d1ff68]">BART</span></p>
+                <p class="text-white font-black text-lg leading-none mb-0.5">MEET <span class="text-[#d1ff68] meet-name">BART</span></p>
                 <p class="card-tag text-gray-300 text-[10px]">6K followers</p>
               </div>
             </div>
@@ -252,7 +259,7 @@
             <div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
               <div class="card-body">
                 <p class="card-tag text-gray-300 text-[10px] mb-0.5">Lifestyle · Fashion</p>
-                <p class="text-white font-black text-lg leading-none mb-0.5">MEET <span class="text-[#d1ff68]">NIGEL</span></p>
+                <p class="text-white font-black text-lg leading-none mb-0.5">MEET <span class="text-[#d1ff68] meet-name">NIGEL</span></p>
                 <p class="card-tag text-gray-300 text-[10px]">131K followers</p>
               </div>
             </div>
@@ -262,7 +269,7 @@
             <div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
               <div class="card-body">
                 <p class="card-tag text-gray-300 text-[10px] mb-0.5">Fashion · Lifestyle</p>
-                <p class="text-white font-black text-lg leading-none mb-0.5">MEET <span class="text-[#d1ff68]">RICKY</span></p>
+                <p class="text-white font-black text-lg leading-none mb-0.5">MEET <span class="text-[#d1ff68] meet-name">RICKY</span></p>
                 <p class="card-tag text-gray-300 text-[10px]">19.4K followers</p>
               </div>
             </div>
@@ -272,7 +279,7 @@
             <div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
               <div class="card-body">
                 <p class="card-tag text-gray-300 text-[10px] mb-0.5">Beauty · Lifestyle</p>
-                <p class="text-white font-black text-lg leading-none mb-0.5">MEET <span class="text-[#d1ff68]">JULIA</span></p>
+                <p class="text-white font-black text-lg leading-none mb-0.5">MEET <span class="text-[#d1ff68] meet-name">JULIA</span></p>
                 <p class="card-tag text-gray-300 text-[10px]">69.1K followers</p>
               </div>
             </div>
@@ -289,7 +296,7 @@
     <div class="max-w-6xl mx-auto px-4 md:px-8">
       <h2 class="text-2xl font-black mb-8" data-nl="Recente <span class='bg-[#d1ff68] px-1'>Cases</span>" data-en="Recent <span class='bg-[#d1ff68] px-1'>Cases</span>">Recente <span class="bg-[#d1ff68] px-1">Cases</span></h2>
       <div class="border-2 border-dashed border-gray-200 rounded-2xl py-14 px-6 text-center max-w-sm">
-        <p class="font-black text-3xl mb-3 text-gray-200">✦</p>
+        <p class="font-black text-3xl mb-3 text-gray-200"><span class="spin-slow">✦</span></p>
         <h3 class="font-bold text-base mb-2" data-nl="Cases komen eraan" data-en="Cases coming soon">Cases komen eraan</h3>
         <p class="text-gray-400 text-sm max-w-xs mx-auto" data-nl="We documenteren onze campagnes. Kijk binnenkort terug." data-en="We're documenting our campaigns. Check back soon.">We documenteren onze campagnes. Kijk binnenkort terug.</p>
       </div>
@@ -332,7 +339,7 @@
   <section class="bg-white py-16">
     <div class="max-w-6xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
       <div>
-        <h2 class="font-black text-3xl md:text-4xl text-black leading-tight" data-nl="Ready to create some buzz?" data-en="Ready to create some buzz?">Ready to create some buzz?</h2>
+        <h2 class="font-black text-3xl md:text-4xl text-black leading-tight" data-nl="Ready to create <mark style='background:#d1ff68;padding:2px 6px;color:inherit;'>some buzz?</mark>" data-en="Ready to create <mark style='background:#d1ff68;padding:2px 6px;color:inherit;'>some buzz?</mark>">Ready to create <mark style="background:#d1ff68;padding:2px 6px;color:inherit;">some buzz?</mark></h2>
         <p class="text-gray-600 text-sm leading-relaxed mt-3 max-w-md" data-nl="Of je nu creator, founder of merk bent: als je persoonlijkheid, ambitie en iets bijzonders te bouwen hebt, laten we praten." data-en="Whether you're a creator, founder or brand: if you've got personality, ambition and something worth building, we should talk.">Of je nu creator, founder of merk bent: als je persoonlijkheid, ambitie en iets bijzonders te bouwen hebt, laten we praten.</p>
       </div>
       <a href="/contact/" class="bg-[#d1ff68] text-black font-bold px-8 py-4 rounded-full text-sm hover:bg-black hover:text-[#d1ff68] transition-colors whitespace-nowrap shrink-0" data-nl="Neem contact op →" data-en="Contact us →">Neem contact op →</a>
