@@ -47,8 +47,10 @@
     #cookie-banner { transition: transform 0.4s ease; }
 
     /* NL/EN toggle */
-    .lang-btn.active { background: #2222DD; color: white; }
-    .lang-btn:hover { background: rgba(255,255,255,0.2); color: white; }
+    .lang-btn { transition: background 0.2s ease, color 0.2s ease; cursor: pointer; }
+    .lang-btn.active { background: #2222DD; color: #fff; }
+    .lang-btn:not(.active) { background: transparent; opacity: 0.55; }
+    .lang-btn:hover { background: #d1ff68 !important; color: #000 !important; opacity: 1 !important; }
 
     /* Logo sizing */
     #nav-logo { height: 5rem; width: auto; }
@@ -534,8 +536,12 @@
     let currentLang = 'nl';
     function setLang(lang) {
       currentLang = lang;
-      document.getElementById('btn-nl').classList.toggle('active', lang === 'nl');
-      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      ['nl','en'].forEach(function(l){
+        ['btn-','mob-btn-'].forEach(function(pfx){
+          var b=document.getElementById(pfx+l);
+          if(b) b.classList.toggle('active', l===lang);
+        });
+      });
       document.querySelectorAll('[data-nl]').forEach(el => {
         const val = el.dataset[lang];
         if (val) el.innerHTML = val;
