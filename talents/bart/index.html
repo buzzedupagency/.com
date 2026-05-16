@@ -217,103 +217,37 @@
   <script>
     function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('hidden');}
     (function(){
-      var menu=document.getElementById('mobile-menu');
-      if(menu){menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.add('hidden');});});}
-      document.addEventListener('click',function(e){var btn=document.getElementById('menu-btn');if(menu&&!menu.classList.contains('hidden')&&!menu.contains(e.target)&&btn&&!btn.contains(e.target)){menu.classList.add('hidden');}});
-    })();
-    function copyEmail(email, btn) {
-      navigator.clipboard.writeText(email);
-      const span = btn.querySelector('span');
-      span.textContent = 'Gekopieerd!';
-      btn.classList.add('text-[#2222DD]');
-      setTimeout(() => { span.textContent = email; btn.classList.remove('text-[#2222DD]'); }, 2000);
-    }
-  </script>
-
-  <script>
-    // ─── Sitewide NL/EN language toggle ────────────────────────
-    function setLang(lang) {
-      localStorage.setItem('lang', lang);
-      var nb = document.getElementById('btn-nl'), eb = document.getElementById('btn-en');
-      if (nb) nb.style.cssText = lang === 'nl' ? 'background:#2222DD;color:#fff;' : '';
-      if (eb) eb.style.cssText = lang === 'en' ? 'background:#2222DD;color:#fff;' : '';
-      document.querySelectorAll('[data-nl]').forEach(function(el) {
-        var val = el.dataset[lang];
-        if (val !== undefined) el.innerHTML = val;
-      });
-    }
-    (function() {
-      var lang = localStorage.getItem('lang') || 'nl';
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function(){ setLang(lang); });
-      } else { setLang(lang); }
-    })();
-  </script>
-  <!-- COOKIE MODAL -->
-  <div id="cookie-banner" class="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-4 sm:w-80 z-50 bg-white rounded-2xl border-2 border-black p-5 shadow-2xl">
-    <p class="font-black text-base mb-1.5">Cookies 🍪</p>
-    <p class="text-gray-600 text-xs leading-relaxed mb-4">We gebruiken cookies om het gebruik van deze website te analyseren via Google Analytics. Zo verbeteren we de site continu. <a href="/privacy/" class="text-[#2222DD] underline hover:opacity-80">Privacy policy</a></p>
-    <div class="flex gap-2">
-      <button onclick="acceptCookies()" class="flex-1 bg-[#2222DD] text-white font-bold text-xs py-2.5 rounded-full hover:bg-blue-700 transition-colors">Accepteren</button>
-      <button onclick="declineCookies()" class="flex-1 border-2 border-gray-200 text-gray-600 font-semibold text-xs py-2.5 rounded-full hover:border-gray-400 transition-colors">Weigeren</button>
-    </div>
-  </div>
-
-  <script>
-    (function() {
-      var b = document.getElementById('cookie-banner');
-      if (!b) return;
-      if (localStorage.getItem('cookie-consent')) { b.style.display = 'none'; return; }
-      b.style.display = '';
-    })();
-    function acceptCookies() {
-      localStorage.setItem('cookie-consent', 'accepted');
-      document.getElementById('cookie-banner').style.display = 'none';
-      if (typeof loadGA === 'function') loadGA();
-      else {
-        var s = document.createElement('script'); s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-3J9F01KWEY';
-        document.head.appendChild(s);
-        s.onload = function(){ window.dataLayer=window.dataLayer||[]; function gtag(){dataLayer.push(arguments);} gtag('js',new Date()); gtag('config','G-3J9F01KWEY'); };
-      }
-    }
-    function declineCookies() {
-      localStorage.setItem('cookie-consent', 'declined');
-      document.getElementById('cookie-banner').style.display = 'none';
-    }
-  </script>
-
-  <script>
-    (function(){
       var nav=document.getElementById('main-nav');
       var nl=document.getElementById('nav-links');
       var logo=document.getElementById('nav-logo');
       var mb=document.getElementById('menu-btn');
       var mbSvg=mb?mb.querySelector('svg'):null;
-      var hero=document.querySelector('section');
-      var heroEnd=hero?hero.offsetTop+hero.offsetHeight:300;
+      var heroSection=document.querySelector('section');
+      var heroHeading=document.querySelector('h1');
+      var whiteThreshold=heroSection?heroSection.offsetTop+heroSection.offsetHeight:60;
+      var darkThreshold=heroHeading?Math.max(0,heroHeading.offsetTop-nav.offsetHeight):300;
       function updateNav(){
-        var s=window.scrollY;
-        if(s<=0){
-          nav.style.background='';nav.style.backdropFilter='';nav.style.webkitBackdropFilter='';
-          nav.style.borderColor='transparent';nav.style.boxShadow='';
-          if(nl){nl.classList.add('text-white');nl.classList.remove('text-black');}
-          if(logo)logo.style.filter='brightness(0) invert(1)';
-          if(mbSvg){mbSvg.classList.add('text-white');mbSvg.classList.remove('text-black');}
-        } else if(s<heroEnd){
-          nav.style.background='rgba(255,255,255,0.5)';nav.style.backdropFilter='blur(20px)';
-          nav.style.webkitBackdropFilter='blur(20px)';nav.style.borderColor='rgba(0,0,0,0.06)';
-          nav.style.boxShadow='0 1px 12px rgba(0,0,0,0.05)';
-          if(nl){nl.classList.remove('text-white');nl.classList.add('text-black');}
-          if(logo)logo.style.filter='none';
-          if(mbSvg){mbSvg.classList.remove('text-white');mbSvg.classList.add('text-black');}
-        } else {
-          nav.style.background='rgba(255,255,255,0.97)';nav.style.backdropFilter='blur(20px)';
-          nav.style.webkitBackdropFilter='blur(20px)';nav.style.borderColor='rgba(0,0,0,0.08)';
+        if(window.scrollY>whiteThreshold){
+          nav.style.background='rgba(255,255,255,0.97)';nav.style.backdropFilter='blur(14px)';
+          nav.style.webkitBackdropFilter='blur(14px)';nav.style.borderColor='rgba(0,0,0,0.08)';
           nav.style.boxShadow='0 1px 12px rgba(0,0,0,0.07)';
           if(nl){nl.classList.remove('text-white');nl.classList.add('text-black');}
           if(logo)logo.style.filter='none';
           if(mbSvg){mbSvg.classList.remove('text-white');mbSvg.classList.add('text-black');}
+        } else if(window.scrollY>darkThreshold){
+          nav.style.background='rgba(0,0,0,0.45)';nav.style.backdropFilter='blur(8px)';
+          nav.style.webkitBackdropFilter='blur(8px)';nav.style.borderColor='transparent';
+          nav.style.boxShadow='';
+          if(nl){nl.classList.add('text-white');nl.classList.remove('text-black');}
+          if(logo)logo.style.filter='brightness(0) invert(1)';
+          if(mbSvg){mbSvg.classList.add('text-white');mbSvg.classList.remove('text-black');}
+        } else {
+          nav.style.background='transparent';nav.style.backdropFilter='';
+          nav.style.webkitBackdropFilter='';nav.style.borderColor='transparent';
+          nav.style.boxShadow='';
+          if(nl){nl.classList.add('text-white');nl.classList.remove('text-black');}
+          if(logo)logo.style.filter='brightness(0) invert(1)';
+          if(mbSvg){mbSvg.classList.add('text-white');mbSvg.classList.remove('text-black');}
         }
       }
       window.addEventListener('scroll',updateNav);
