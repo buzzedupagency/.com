@@ -45,7 +45,7 @@
     <div class="max-w-6xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
       <a href="/"><img src="/logo.svg" alt="Buzzed Up" id="nav-logo" style="height:70px;width:auto;filter:brightness(0) invert(1);" /></a>
       <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white" id="nav-links">
-        <a href="/about/" class="text-black font-semibold border-b-2 border-[#2222DD]">About</a>
+        <a href="/about/" class="font-semibold border-b-2 border-[#2222DD]">About</a>
         <a href="/services/" class="hover:underline hover:decoration-[#d1ff68] transition-all">Services</a>
         <a href="/talents/" class="hover:underline hover:decoration-[#d1ff68] transition-all">Talents</a>
         <a href="/careers/" class="hover:underline hover:decoration-[#d1ff68] transition-all">Careers</a>
@@ -344,32 +344,47 @@
       var logo=document.getElementById('nav-logo');
       var mb=document.getElementById('menu-btn');
       var mbSvg=mb?mb.querySelector('svg'):null;
+      var activeLink=nl?nl.querySelector('.border-b-2'):null;
+      var langWrap=nl?nl.querySelector('.rounded-full'):null;
       var heroSection=document.querySelector('section');
       var heroHeading=document.querySelector('h1');
       var whiteThreshold=heroSection?heroSection.offsetTop+heroSection.offsetHeight:60;
       var darkThreshold=heroHeading?Math.max(0,heroHeading.offsetTop-nav.offsetHeight):300;
       function updateNav(){
-        if(window.scrollY>whiteThreshold){
+        var s=window.scrollY;
+        if(s>whiteThreshold){
+          // White frosted glass
           nav.style.background='rgba(255,255,255,0.97)';nav.style.backdropFilter='blur(14px)';
           nav.style.webkitBackdropFilter='blur(14px)';nav.style.borderColor='rgba(0,0,0,0.08)';
           nav.style.boxShadow='0 1px 12px rgba(0,0,0,0.07)';
           if(nl){nl.classList.remove('text-white');nl.classList.add('text-black');}
           if(logo)logo.style.filter='none';
           if(mbSvg){mbSvg.classList.remove('text-white');mbSvg.classList.add('text-black');}
-        } else if(window.scrollY>darkThreshold){
+          if(activeLink){activeLink.style.color='#000';activeLink.style.borderBottomColor='#2222DD';}
+          if(langWrap)langWrap.style.borderColor='rgba(0,0,0,0.15)';
+          document.querySelectorAll('#nav-links .lang-btn:not(.active)').forEach(function(b){b.style.color='#888';});
+        } else if(s>darkThreshold){
+          // Dark blur
           nav.style.background='rgba(0,0,0,0.45)';nav.style.backdropFilter='blur(8px)';
           nav.style.webkitBackdropFilter='blur(8px)';nav.style.borderColor='transparent';
           nav.style.boxShadow='';
           if(nl){nl.classList.add('text-white');nl.classList.remove('text-black');}
           if(logo)logo.style.filter='brightness(0) invert(1)';
           if(mbSvg){mbSvg.classList.add('text-white');mbSvg.classList.remove('text-black');}
+          if(activeLink){activeLink.style.color='#fff';activeLink.style.borderBottomColor='#d1ff68';}
+          if(langWrap)langWrap.style.borderColor='rgba(255,255,255,0.3)';
+          document.querySelectorAll('#nav-links .lang-btn:not(.active)').forEach(function(b){b.style.color='rgba(255,255,255,0.6)';});
         } else {
+          // Transparent
           nav.style.background='transparent';nav.style.backdropFilter='';
           nav.style.webkitBackdropFilter='';nav.style.borderColor='transparent';
           nav.style.boxShadow='';
           if(nl){nl.classList.add('text-white');nl.classList.remove('text-black');}
           if(logo)logo.style.filter='brightness(0) invert(1)';
           if(mbSvg){mbSvg.classList.add('text-white');mbSvg.classList.remove('text-black');}
+          if(activeLink){activeLink.style.color='#fff';activeLink.style.borderBottomColor='#d1ff68';}
+          if(langWrap)langWrap.style.borderColor='rgba(255,255,255,0.3)';
+          document.querySelectorAll('#nav-links .lang-btn:not(.active)').forEach(function(b){b.style.color='rgba(255,255,255,0.6)';});
         }
       }
       window.addEventListener('scroll',updateNav);
