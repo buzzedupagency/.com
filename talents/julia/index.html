@@ -303,6 +303,12 @@
   </script>
 
   <script>
+    function copyEmail(email, btn) {
+      navigator.clipboard.writeText(email).then(function() {
+        var span = btn.querySelector('span');
+        if (span) { var orig = span.textContent; span.textContent = 'Gekopieerd!'; setTimeout(function(){ span.textContent = orig; }, 2000); }
+      });
+    }
     function setLang(lang) {
       localStorage.setItem('lang', lang);
       ['nl','en'].forEach(function(l){
