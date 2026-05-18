@@ -66,17 +66,29 @@
         </button>
       </div>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden border-t border-white/20 bg-black/80 px-8 py-4 space-y-3">
-      <a href="/about/" class="block text-sm font-medium text-white hover:text-[#d1ff68]">About</a>
-      <a href="/services/" class="block text-sm font-medium text-white hover:text-[#d1ff68]">Services</a>
-      <a href="/talents/" class="block text-sm font-medium text-white hover:text-[#d1ff68]">Talents</a>
-      <a href="/careers/" class="block text-sm font-medium text-white hover:text-[#d1ff68]">Careers</a>
-      <a href="/cases/" class="block text-sm font-medium text-white hover:text-[#d1ff68]">Cases</a>
-      <a href="/contact/" class="block text-sm font-medium text-white hover:text-[#d1ff68]">Contact</a>
-      <div class="flex items-center gap-1 border border-white/30 rounded-full p-0.5 mt-1">
-        <button onclick="setLang('nl')" id="mob-btn-nl" class="lang-btn active text-xs font-bold px-2.5 py-1 rounded-full transition-colors">NL</button>
-        <button onclick="setLang('en')" id="mob-btn-en" class="lang-btn text-xs font-bold px-2.5 py-1 rounded-full text-white/60 transition-colors">EN</button>
+    <div id="mobile-menu" class="hidden fixed inset-0 z-[200] bg-[#2222DD] flex flex-col px-8 py-6 md:hidden">
+      <div class="flex items-center justify-between mb-10">
+        <a href="/"><img src="/logo.svg" alt="Buzzed Up" style="height:48px;width:auto;filter:brightness(0) invert(1);" /></a>
+        <button onclick="toggleMenu()" class="p-2 -mr-2">
+          <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
       </div>
+      <div class="flex flex-col flex-1">
+        <a href="/about/" class="text-white font-black text-4xl py-3 border-b border-white/10 hover:text-[#d1ff68] transition-colors">About</a>
+        <a href="/services/" class="text-white font-black text-4xl py-3 border-b border-white/10 hover:text-[#d1ff68] transition-colors">Services</a>
+        <a href="/talents/" class="text-white font-black text-4xl py-3 border-b border-white/10 hover:text-[#d1ff68] transition-colors">Talents</a>
+        <a href="/careers/" class="text-white font-black text-4xl py-3 border-b border-white/10 hover:text-[#d1ff68] transition-colors">Careers</a>
+        <a href="/cases/" class="text-white font-black text-4xl py-3 border-b border-white/10 hover:text-[#d1ff68] transition-colors">Cases</a>
+        <a href="/contact/" class="text-white font-black text-4xl py-3 hover:text-[#d1ff68] transition-colors">Contact</a>
+      </div>
+      <div class="flex items-center justify-between pt-6 border-t border-white/20">
+        <div class="flex items-center gap-1 border border-white/30 rounded-full p-0.5">
+          <button onclick="setLang('nl')" id="mob-btn-nl" class="lang-btn active text-xs font-bold px-2.5 py-1 rounded-full transition-colors">NL</button>
+          <button onclick="setLang('en')" id="mob-btn-en" class="lang-btn text-xs font-bold px-2.5 py-1 rounded-full text-white/60 transition-colors">EN</button>
+        </div>
+        <a href="/contact/" class="bg-[#d1ff68] text-black font-bold text-sm px-6 py-2.5 rounded-full">GET BUZZED UP</a>
+      </div>
+    </div>
       <a href="/contact/" class="inline-block bg-[#d1ff68] text-black font-bold text-sm px-5 py-2 rounded-full mt-2">GET BUZZED UP</a>
     </div>
   </nav>
@@ -389,17 +401,14 @@
 
   <script>
   (function(){
-    function toggleMenu(){
-      var m=document.getElementById('mobile-menu');
-      if(m) m.classList.toggle('hidden');
-    }
+    function toggleMenu(){var m=document.getElementById('mobile-menu');m.classList.toggle('hidden');document.body.style.overflow=m.classList.contains('hidden')?'':'hidden';}
     window.toggleMenu=toggleMenu;
     document.addEventListener('DOMContentLoaded',function(){
       var menu=document.getElementById('mobile-menu');
       var btn=document.getElementById('menu-btn');
       if(!menu) return;
       menu.querySelectorAll('a').forEach(function(a){
-        a.addEventListener('click',function(){menu.classList.add('hidden');});
+        a.addEventListener('click',function(){menu.classList.add('hidden');document.body.style.overflow='';});
       });
       document.addEventListener('click',function(e){
         if(!menu.classList.contains('hidden')&&!menu.contains(e.target)&&btn&&!btn.contains(e.target)){
