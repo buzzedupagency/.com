@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/logo.svg" type="image/svg+xml" />
+  <meta name="description" content="Creator campagnes voor merken die willen samenwerken met creators die écht passen. Geen bulklijst, maar een gerichte match op identiteit en doelgroep." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creator Campagnes | Buzzed Up Agency</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .lang-btn { transition: background 0.2s ease, color 0.2s ease; cursor: pointer; }
+    .lang-btn.active { background: #d1ff68; color: #000; }
+    .lang-btn:not(.active) { background: transparent; opacity: 0.55; }
+    .lang-btn:hover { background: #000 !important; color: #fff !important; opacity: 1 !important; }
+  </style>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    if (localStorage.getItem('cookie-consent') === 'accepted') {
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-3J9F01KWEY';
+      document.head.appendChild(s);
+      s.onload = function(){ gtag('js', new Date()); gtag('config', 'G-3J9F01KWEY'); };
+    }
+  </script>
+</head>
+<body class="bg-white text-black">
+
+  <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
+    <div class="max-w-6xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
+      <a href="/"><img src="/logo.svg" alt="Buzzed Up" id="nav-logo" style="height:70px;width:auto;filter:brightness(0) invert(1);" /></a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white" id="nav-links">
+        <a href="/about/" class="hover:underline hover:decoration-[#d1ff68] transition-all">About</a>
+        <a href="/services/" class="font-semibold border-b-2 border-[#d1ff68]">Services</a>
+        <a href="/talents/" class="hover:underline hover:decoration-[#d1ff68] transition-all">Talents</a>
+        <a href="/careers/" class="hover:underline hover:decoration-[#d1ff68] transition-all">Careers</a>
+        <a href="/cases/" class="hover:underline hover:decoration-[#d1ff68] transition-all">Cases</a>
+        <a href="/contact/" class="hover:underline hover:decoration-[#d1ff68] transition-all">Contact</a>
+        <div class="flex items-center gap-1 border border-white/30 rounded-full p-0.5">
+          <button onclick="setLang('nl')" id="btn-nl" class="lang-btn active text-xs font-bold px-2.5 py-1 rounded-full">NL</button>
+          <button onclick="setLang('en')" id="btn-en" class="lang-btn text-xs font-bold px-2.5 py-1 rounded-full text-white/60">EN</button>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="/contact/" class="hidden md:block bg-[#d1ff68] text-black font-bold text-sm px-5 py-2 rounded-full hover:bg-black hover:text-[#d1ff68] transition-colors">GET BUZZED UP</a>
+        <button onclick="toggleMenu()" class="md:hidden p-2" id="menu-btn">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div id="mobile-menu" class="hidden fixed inset-0 z-[200] bg-[#2222DD] flex flex-col px-8 py-6 md:hidden">
+    <div class="flex items-center justify-between mb-10">
+      <a href="/"><img src="/logo.svg" alt="Buzzed Up" style="height:48px;width:auto;filter:brightness(0) invert(1);" /></a>
+      <button onclick="toggleMenu()" class="p-2 -mr-2">
+        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="flex flex-col flex-1">
+      <a href="/about/" class="text-white font-black text-4xl py-3 border-b border-white/10 hover:text-[#d1ff68] transition-colors">About</a>
+      <a href="/services/" class="text-white font-black text-4xl py-3 border-b border-white/10 hover:text-[#d1ff68] transition-colors">Services</a>
+      <a href="/talents/" class="text-white font-black text-4xl py-3 border-b border-white/10 hover:text-[#d1ff68] transition-colors">Talents</a>
+      <a href="/careers/" class="text-white font-black text-4xl py-3 border-b border-white/10 hover:text-[#d1ff68] transition-colors">Careers</a>
+      <a href="/cases/" class="text-white font-black text-4xl py-3 border-b border-white/10 hover:text-[#d1ff68] transition-colors">Cases</a>
+      <a href="/contact/" class="text-white font-black text-4xl py-3 hover:text-[#d1ff68] transition-colors">Contact</a>
+    </div>
+    <div class="flex items-center justify-between pt-6 border-t border-white/20">
+      <div class="flex items-center gap-1 border border-white/30 rounded-full p-0.5">
+        <button onclick="setLang('nl')" id="mob-btn-nl" class="lang-btn active text-xs font-bold px-2.5 py-1 rounded-full">NL</button>
+        <button onclick="setLang('en')" id="mob-btn-en" class="lang-btn text-xs font-bold px-2.5 py-1 rounded-full text-white/60">EN</button>
+      </div>
+      <a href="/contact/" class="bg-[#d1ff68] text-black font-bold text-sm px-6 py-2.5 rounded-full">GET BUZZED UP</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="bg-[#2222DD] pt-28 md:pt-44 pb-12 md:pb-20">
+    <div class="max-w-6xl mx-auto px-4 md:px-8">
+      <a href="/services/" class="text-blue-300 text-xs font-medium hover:text-white transition-colors inline-flex items-center gap-1.5 mb-6">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        <span data-nl="Alle services" data-en="All services">Alle services</span>
+      </a>
+      <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-4">VOOR MERKEN</span>
+      <h1 class="font-black text-4xl md:text-6xl text-white mb-5" data-nl="Creator Campagnes" data-en="Creator Campaigns">Creator Campagnes</h1>
+      <p class="text-blue-200 text-base leading-relaxed max-w-lg" data-nl="Wij koppelen merken aan creators die écht passen — op identiteit en doelgroep, niet op bereik. Zodat de samenwerking voelt als content, niet als reclame." data-en="We match brands with creators who genuinely fit — on identity and audience, not reach. So the collaboration feels like content, not an ad.">Wij koppelen merken aan creators die écht passen — op identiteit en doelgroep, niet op bereik. Zodat de samenwerking voelt als content, niet als reclame.</p>
+    </div>
+  </section>
+
+  <!-- WAT WE DOEN -->
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-4 md:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
+        <div>
+          <h2 class="font-black text-2xl mb-6" data-nl="Wat we doen" data-en="What we do">Wat we doen</h2>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 bg-[#d1ff68] rounded-full flex-shrink-0 flex items-center justify-center mt-0.5"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+              <div>
+                <p class="font-semibold text-sm" data-nl="Creator casting & matching" data-en="Creator casting & matching">Creator casting & matching</p>
+                <p class="text-gray-500 text-xs mt-0.5" data-nl="Wij zoeken creators die passen bij jouw merk, product en doelgroep — geen bulklijst, maar een gerichte selectie." data-en="We find creators who fit your brand, product and audience — no bulk list, but a targeted selection.">Wij zoeken creators die passen bij jouw merk, product en doelgroep — geen bulklijst, maar een gerichte selectie.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 bg-[#d1ff68] rounded-full flex-shrink-0 flex items-center justify-center mt-0.5"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+              <div>
+                <p class="font-semibold text-sm" data-nl="Briefing & creative direction" data-en="Briefing & creative direction">Briefing & creative direction</p>
+                <p class="text-gray-500 text-xs mt-0.5" data-nl="Wij schrijven briefs die creators begrijpen — duidelijk genoeg om richting te geven, ruim genoeg om goed te worden." data-en="We write briefs that creators understand — clear enough to give direction, open enough to be good.">Wij schrijven briefs die creators begrijpen — duidelijk genoeg om richting te geven, ruim genoeg om goed te worden.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 bg-[#d1ff68] rounded-full flex-shrink-0 flex items-center justify-center mt-0.5"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+              <div>
+                <p class="font-semibold text-sm" data-nl="Content review & feedback" data-en="Content review & feedback">Content review & feedback</p>
+                <p class="text-gray-500 text-xs mt-0.5" data-nl="Wij beoordelen content vanuit creator-perspectief — wat werkt voor de doelgroep, wat niet, en waarom." data-en="We review content from a creator's perspective — what works for the audience, what doesn't, and why.">Wij beoordelen content vanuit creator-perspectief — wat werkt voor de doelgroep, wat niet, en waarom.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 bg-[#d1ff68] rounded-full flex-shrink-0 flex items-center justify-center mt-0.5"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+              <div>
+                <p class="font-semibold text-sm" data-nl="Campagnecoördinatie" data-en="Campaign coordination">Campagnecoördinatie</p>
+                <p class="text-gray-500 text-xs mt-0.5" data-nl="Planning, deadlines, communicatie tussen merk en creator — wij houden het overzicht." data-en="Planning, deadlines, communication between brand and creator — we keep overview.">Planning, deadlines, communicatie tussen merk en creator — wij houden het overzicht.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 bg-[#d1ff68] rounded-full flex-shrink-0 flex items-center justify-center mt-0.5"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+              <div>
+                <p class="font-semibold text-sm" data-nl="Rapportage & inzichten" data-en="Reporting & insights">Rapportage & inzichten</p>
+                <p class="text-gray-500 text-xs mt-0.5" data-nl="Na de campagne: wat werkte, wat niet, en wat je meeneemt naar de volgende samenwerking." data-en="After the campaign: what worked, what didn't, and what to take into the next collaboration.">Na de campagne: wat werkte, wat niet, en wat je meeneemt naar de volgende samenwerking.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="font-black text-2xl mb-6" data-nl="Voor wie?" data-en="Who is this for?">Voor wie?</h2>
+          <p class="text-gray-700 text-sm leading-relaxed mb-6" data-nl="Merken die weten dat influencer marketing werkt — maar die ook weten dat het mis kan gaan als je de verkeerde creator kiest of een brief stuurt die te strak zit. Merken die hun creators vertrouwen. Die begrijpen dat de beste content soms een beetje ongemakkelijk aanvoelt." data-en="Brands who know influencer marketing works — but also know it can go wrong if you pick the wrong creator or send a brief that's too tight. Brands that trust their creators. Who understand that the best content sometimes feels a little uncomfortable.">Merken die weten dat influencer marketing werkt — maar die ook weten dat het mis kan gaan als je de verkeerde creator kiest of een brief stuurt die te strak zit. Merken die hun creators vertrouwen. Die begrijpen dat de beste content soms een beetje ongemakkelijk aanvoelt.</p>
+          <div class="bg-gray-50 rounded-2xl p-6">
+            <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3" data-nl="Platforms" data-en="Platforms">Platforms</p>
+            <p class="text-sm text-gray-700" data-nl="TikTok, Instagram, YouTube. Afhankelijk van product, doelgroep en campagnedoel." data-en="TikTok, Instagram, YouTube. Depending on product, audience and campaign goal.">TikTok, Instagram, YouTube. Afhankelijk van product, doelgroep en campagnedoel.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-[#2222DD] py-14">
+    <div class="max-w-6xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <h2 class="font-black text-2xl text-white mb-2" data-nl="Klaar voor een campagne?" data-en="Ready for a campaign?">Klaar voor een campagne?</h2>
+        <p class="text-blue-200 text-sm" data-nl="Vertel ons over je merk en campagnedoel — dan kijken we wat mogelijk is." data-en="Tell us about your brand and campaign goal — we'll see what's possible.">Vertel ons over je merk en campagnedoel — dan kijken we wat mogelijk is.</p>
+      </div>
+      <a href="/contact/" class="bg-[#d1ff68] text-black font-bold px-8 py-4 rounded-full text-sm hover:bg-white transition-colors whitespace-nowrap shrink-0" data-nl="Neem contact op →" data-en="Get in touch →">Neem contact op →</a>
+    </div>
+  </section>
+
+  <footer class="bg-[#2222DD] text-white border-t border-blue-600">
+    <div class="max-w-6xl mx-auto px-4 md:px-8 pt-10 md:pt-16 pb-8 md:pb-10">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 mb-8 md:mb-14">
+        <div class="md:col-span-4">
+          <a href="/"><img src="/logo.svg" alt="Buzzed Up" style="height:52px;width:auto;filter:brightness(0) invert(1);" class="mb-5" /></a>
+          <div class="flex gap-3">
+            <a href="https://www.instagram.com/buzzedupagency" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-blue-400 flex items-center justify-center hover:bg-[#d1ff68] hover:border-[#d1ff68] hover:text-black transition-colors"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-4 h-4"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.tiktok.com/@buzzedupagency" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-blue-400 flex items-center justify-center hover:bg-[#d1ff68] hover:border-[#d1ff68] hover:text-black transition-colors"><svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.19 8.19 0 004.79 1.52V6.78a4.86 4.86 0 01-3.02-2.09z"/></svg></a>
+            <a href="https://www.linkedin.com/company/buzzed-up-agency/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-blue-400 flex items-center justify-center hover:bg-[#d1ff68] hover:border-[#d1ff68] hover:text-black transition-colors"><svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          </div>
+        </div>
+        <div class="md:col-span-2">
+          <p class="text-white font-bold text-xs uppercase tracking-widest mb-5">Agency</p>
+          <ul class="space-y-3 text-blue-200 text-sm">
+            <li><a href="/about/" class="hover:text-white underline decoration-transparent hover:decoration-[#d1ff68] transition-all">About</a></li>
+            <li><a href="/services/" class="hover:text-white underline decoration-transparent hover:decoration-[#d1ff68] transition-all">Services</a></li>
+            <li><a href="/cases/" class="hover:text-white underline decoration-transparent hover:decoration-[#d1ff68] transition-all">Cases</a></li>
+            <li><a href="/careers/" class="hover:text-white underline decoration-transparent hover:decoration-[#d1ff68] transition-all">Careers</a></li>
+          </ul>
+        </div>
+        <div class="md:col-span-4">
+          <p class="text-white font-bold text-xs uppercase tracking-widest mb-5">Contact</p>
+          <div class="space-y-3 text-blue-200 text-sm mb-8">
+            <p><a href="mailto:info@buzzedupagency.com" class="hover:text-white underline decoration-transparent hover:decoration-[#d1ff68] transition-all">info@buzzedupagency.com</a></p>
+            <p>Nederland</p>
+          </div>
+          <a href="/contact/" class="inline-block bg-[#d1ff68] text-black font-bold text-sm px-6 py-3 rounded-full hover:bg-black hover:text-[#d1ff68] transition-colors">Neem contact op →</a>
+        </div>
+      </div>
+      <div class="border-t border-blue-500 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-blue-300">
+        <p>© 2026 Buzzed Up. Alle rechten voorbehouden.</p>
+        <div class="flex gap-4 mt-2 md:mt-0"><a href="/privacy/" class="hover:text-white underline decoration-transparent hover:decoration-[#d1ff68] transition-all">Privacy</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu(){var m=document.getElementById('mobile-menu');m.classList.toggle('hidden');document.body.style.overflow=m.classList.contains('hidden')?'':'hidden';}
+    document.addEventListener('DOMContentLoaded',function(){var menu=document.getElementById('mobile-menu');if(menu)menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.add('hidden');document.body.style.overflow='';});});});
+    (function(){var nav=document.getElementById('main-nav'),nl=document.getElementById('nav-links'),logo=document.getElementById('nav-logo'),mb=document.getElementById('menu-btn'),mbSvg=mb?mb.querySelector('svg'):null;var heroSection=document.querySelector('section'),whiteThreshold=heroSection?heroSection.offsetTop+heroSection.offsetHeight:60;function setWhite(){nav.style.background='rgba(255,255,255,0.97)';nav.style.backdropFilter='blur(14px)';nav.style.webkitBackdropFilter='blur(14px)';nav.style.borderColor='rgba(0,0,0,0.08)';nav.style.boxShadow='0 1px 12px rgba(0,0,0,0.07)';if(nl){nl.classList.remove('text-white');nl.classList.add('text-black');}if(logo)logo.style.filter='none';if(mbSvg){mbSvg.classList.remove('text-white');mbSvg.classList.add('text-black');}}function setTransparent(){nav.style.background='transparent';nav.style.backdropFilter='';nav.style.webkitBackdropFilter='';nav.style.borderColor='transparent';nav.style.boxShadow='';if(nl){nl.classList.add('text-white');nl.classList.remove('text-black');}if(logo)logo.style.filter='brightness(0) invert(1)';if(mbSvg){mbSvg.classList.add('text-white');mbSvg.classList.remove('text-black');}}function updateNav(){window.scrollY>whiteThreshold?setWhite():setTransparent();}window.addEventListener('scroll',updateNav,{passive:true});updateNav();})();
+    function setLang(lang){localStorage.setItem('lang',lang);['nl','en'].forEach(function(l){['btn-','mob-btn-'].forEach(function(pfx){var b=document.getElementById(pfx+l);if(b)b.classList.toggle('active',l===lang);});});document.querySelectorAll('[data-nl]').forEach(function(el){var val=el.dataset[lang];if(val!==undefined)el.innerHTML=val;});}
+    (function(){var lang=localStorage.getItem('lang')||'nl';if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',function(){setLang(lang);});}else{setLang(lang);}})();
+  </script>
+</body>
+</html>
