@@ -41,7 +41,7 @@
 </head>
 <body class="bg-white text-black">
 
-  <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
+  <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent" style="background:#2222DD">
     <div class="max-w-6xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
       <a href="/"><img src="/logo.svg" alt="Buzzed Up" id="nav-logo" style="height:70px;width:auto;filter:brightness(0) invert(1);" /></a>
       <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white" id="nav-links">
@@ -256,7 +256,7 @@
       var langWrap=nl?nl.querySelector('.rounded-full'):null;
       var heroSection=document.querySelector('section');
       var heroHeading=document.querySelector('h1');
-      var whiteThreshold=heroSection?heroSection.offsetTop+heroSection.offsetHeight:60;
+      var whiteThreshold=80;
       var darkThreshold=heroHeading?Math.max(0,heroHeading.offsetTop-nav.offsetHeight):300;
       function setWhite(){
         nav.style.background='rgba(255,255,255,0.97)';nav.style.backdropFilter='blur(14px)';
@@ -281,7 +281,7 @@
         document.querySelectorAll('#nav-links .lang-btn.active').forEach(function(b){b.style.background='#d1ff68';b.style.color='#000';});
       }
       function setTransparent(){
-        nav.style.background='rgba(0,0,0,0)';nav.style.backdropFilter='';
+        nav.style.background='#2222DD';nav.style.backdropFilter='';
         nav.style.webkitBackdropFilter='';nav.style.borderColor='transparent';
         nav.style.boxShadow='';
         if(nl){nl.classList.add('text-white');nl.classList.remove('text-black');}
@@ -294,7 +294,6 @@
       function updateNav(){
         var s=window.scrollY;
         if(s>whiteThreshold){ setWhite(); }
-        else if(s>darkThreshold){ setDark(); }
         else { setTransparent(); }
       }
       window.addEventListener('scroll',updateNav,{passive:true});
