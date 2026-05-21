@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /blog/
 
-Sitemap: https://buzzedupagency.com/sitemap.xml
+Sitemap: https://www.buzzedupagency.com/sitemap.xml
