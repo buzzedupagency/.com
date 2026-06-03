@@ -15,8 +15,8 @@
     @media (min-width: 768px) { .site-logo { height: 7rem; width: auto; } }
     .lang-btn { transition: background 0.2s ease, color 0.2s ease; cursor: pointer; }
     .lang-btn.active { background: #d1ff68; color: #000; }
-    .lang-btn:not(.active) { background: transparent; opacity: 0.55; }
-    .lang-btn:hover { background: #000 !important; color: #fff !important; opacity: 1 !important; }
+    .lang-btn:not(.active) { background: transparent; color: inherit !important; box-shadow: inset 0 0 0 1.5px currentColor; opacity: 0.7; }
+    .lang-btn:hover { background: #000 !important; color: #d1ff68 !important; opacity: 1 !important; }
     .accordion-content { display: none; }
     .accordion-item.open .accordion-content { display: block; }
     .accordion-item.open .chevron { transform: rotate(180deg); }
@@ -99,160 +99,70 @@
     <div class="max-w-6xl mx-auto px-4 md:px-8">
       <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-4" data-nl="WAT WE DOEN" data-en="WHAT WE DO">WAT WE DOEN</span>
       <h1 class="font-black text-4xl md:text-6xl mb-4 text-white">Services</h1>
-      <p class="text-blue-200 text-base leading-relaxed max-w-lg" data-nl="Talentmanagement, creator campagnes, merkstrategie en personal branding. Alles vanuit creator-perspectief." data-en="Talent management, creator campaigns, brand strategy and personal branding. Everything from a creator's perspective.">Talentmanagement, creator campagnes, merkstrategie en personal branding. Alles vanuit creator-perspectief.</p>
+      <p class="text-blue-200 text-base leading-relaxed max-w-lg" data-nl="Talentmanagement voor creators. Campagnes voor merken. Personal branding voor founders. Alles vanuit hetzelfde perspectief: creator-first." data-en="Talent management for creators. Campaigns for brands. Personal branding for founders. All from the same perspective: creator-first.">Talentmanagement voor creators. Campagnes voor merken. Personal branding voor founders. Alles vanuit hetzelfde perspectief: creator-first.</p>
     </div>
   </section>
 
-  <section class="pt-14 pb-16">
+  <section class="py-14">
     <div class="max-w-6xl mx-auto px-4 md:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
-      <!-- Talentmanagement -->
-      <div class="accordion-item border-b border-gray-200 py-5 cursor-pointer" onclick="toggleAccordion(this)">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 bg-[#d1ff68] rounded-xl flex items-center justify-center flex-shrink-0">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-            </div>
-            <div>
-              <h3 class="font-bold text-base" data-nl="Talentmanagement" data-en="Talent Management">Talentmanagement</h3>
-              <p class="text-gray-500 text-sm" data-nl="Van dealonderhandeling tot strategie: ik begeleid creators van A tot Z." data-en="From deal negotiations to strategy: I guide creators from A to Z.">Van dealonderhandeling tot strategie: ik begeleid creators van A tot Z.</p>
-            </div>
+        <a href="/services/talentmanagement/" class="group bg-[#2222DD] text-white rounded-2xl p-7 flex flex-col justify-between min-h-[200px] hover:bg-[#1a1ab8] transition-colors relative overflow-hidden">
+          <img src="/images/talents/nigel.jpg" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover object-bottom opacity-[0.13] group-hover:opacity-[0.19] transition-opacity duration-500" />
+          <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-tr from-[#2222DD] via-[#2222DD]/60 to-transparent"></div>
+          <div class="relative z-10">
+            <span class="text-[#d1ff68] text-xs font-bold uppercase tracking-widest mb-3 block" data-nl="Voor creators" data-en="For creators">Voor creators</span>
+            <h2 class="font-black text-2xl leading-tight mb-3" data-nl="Talent&shy;management" data-en="Talent Management">Talent&shy;management</h2>
+            <p class="text-blue-200 text-sm leading-relaxed" data-nl="Deals, strategie en matchmaking, zodat jij je bezig kunt houden met content." data-en="Deals, strategy and matchmaking, so you can focus on content.">Deals, strategie en matchmaking, zodat jij je bezig kunt houden met content.</p>
           </div>
-          <svg class="chevron w-5 h-5 text-gray-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-        </div>
-        <div class="accordion-content mt-5 pl-6 md:pl-14">
-          <p class="text-[#2222DD] text-xs font-bold uppercase mb-2" data-nl="Wat er inzit" data-en="What's included">Wat er inzit</p>
-          <ul class="text-sm text-gray-700 space-y-1 mb-4">
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <span data-nl="Dealonderhandelingen" data-en="Deal negotiations">Dealonderhandelingen</span></li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <span data-nl="Contractbeheer" data-en="Contract management">Contractbeheer</span></li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <span data-nl="Merk- en campagne matches" data-en="Brand and campaign matching">Merk- en campagne matches</span></li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <span data-nl="Creator guidance & coaching" data-en="Creator guidance & coaching">Creator guidance & coaching</span></li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <span data-nl="Strategische groeiplannen" data-en="Strategic growth plans">Strategische groeiplannen</span></li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <span data-nl="Netwerk & merkconnecties" data-en="Network & brand connections">Netwerk & merkconnecties</span></li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <span data-nl="Langetermijnstrategie" data-en="Long-term strategy">Langetermijnstrategie</span></li>
-          </ul>
-          <p class="text-[#2222DD] text-xs font-bold uppercase mb-1" data-nl="Beste voor" data-en="Best for">Beste voor</p>
-          <p class="text-gray-600 text-sm mb-4" data-nl="Creators die willen groeien en laten zien wie ze zijn en wat ze te vertellen hebben" data-en="Creators who want to grow and share who they are and what they have to say">Creators die willen groeien en laten zien wie ze zijn en wat ze te vertellen hebben</p>
-        </div>
-      </div>
-
-      <!-- Creator Campagnes -->
-      <div class="accordion-item border-b border-gray-200 py-5 cursor-pointer" onclick="toggleAccordion(this)">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 bg-[#d1ff68] rounded-xl flex items-center justify-center flex-shrink-0">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
-            </div>
-            <div>
-              <h3 class="font-bold text-base" data-nl="Creator Campagnes" data-en="Creator Campaigns">Creator Campagnes</h3>
-              <p class="text-gray-500 text-sm" data-nl="Van casting tot briefing: ik help merken de juiste creator vinden en de campagne goed neerzetten." data-en="From casting to briefing: I help brands find the right creator and set up the campaign properly.">Van casting tot briefing: ik help merken de juiste creator vinden en de campagne goed neerzetten.</p>
-            </div>
+          <div class="flex items-center gap-2 mt-6 text-[#d1ff68] text-sm font-bold relative z-10">
+            <span data-nl="Meer lezen" data-en="Read more">Meer lezen</span>
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </div>
-          <svg class="chevron w-5 h-5 text-gray-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-        </div>
-        <div class="accordion-content mt-5 pl-6 md:pl-14">
-          <p class="text-[#2222DD] text-xs font-bold uppercase mb-2" data-nl="Wat er inzit" data-en="What's included">Wat er inzit</p>
-          <ul class="text-sm text-gray-700 space-y-1 mb-4">
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <span data-nl="Creator casting & matching" data-en="Creator casting & matching">Creator casting & matching</span></li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <span data-nl="Creator-brand fit analyse" data-en="Creator-brand fit analysis">Creator-brand fit analyse</span></li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <span data-nl="Briefing development & creative direction" data-en="Briefing development & creative direction">Briefing development & creative direction</span></li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <span data-nl="Content review & feedback" data-en="Content review & feedback">Content review & feedback</span></li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <span data-nl="Campagnestrategie (advies & consultancy)" data-en="Campaign strategy (advice & consultancy)">Campagnestrategie (advies & consultancy)</span></li>
-          </ul>
-          <p class="text-[#2222DD] text-xs font-bold uppercase mb-1" data-nl="Beste voor" data-en="Best for">Beste voor</p>
-          <p class="text-gray-600 text-sm mb-4" data-nl="Merken die willen dat campagnes voelen als content, niet als reclame" data-en="Brands who want campaigns that feel like content, not ads">Merken die willen dat campagnes voelen als content, niet als reclame</p>
-        </div>
-      </div>
+        </a>
 
-      <!-- Merkstrategie -->
-      <div class="accordion-item border-b border-gray-200 py-5 cursor-pointer" onclick="toggleAccordion(this)">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 bg-[#d1ff68] rounded-xl flex items-center justify-center flex-shrink-0">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-            </div>
-            <div>
-              <h3 class="font-bold text-base" data-nl="Merkstrategie" data-en="Brand Strategy">Merkstrategie</h3>
-              <p class="text-gray-500 text-sm" data-nl="Ik werk aan de positionering en stem van merken die willen laten zien wie ze zijn en waar ze voor staan." data-en="I work on the positioning and voice of brands that want to show who they are and what they stand for.">Ik werk aan de positionering en stem van merken die willen laten zien wie ze zijn en waar ze voor staan.</p>
-            </div>
+        <a href="/services/creator-campagnes/" class="group bg-[#2222DD] text-white rounded-2xl p-7 flex flex-col justify-between min-h-[200px] hover:bg-[#1a1ab8] transition-colors relative overflow-hidden">
+          <img src="/images/talents/julia.jpg" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover object-bottom opacity-[0.13] group-hover:opacity-[0.19] transition-opacity duration-500" />
+          <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-tr from-[#2222DD] via-[#2222DD]/60 to-transparent"></div>
+          <div class="relative z-10">
+            <span class="text-[#d1ff68] text-xs font-bold uppercase tracking-widest mb-3 block" data-nl="Voor merken" data-en="For brands">Voor merken</span>
+            <h2 class="font-black text-2xl leading-tight mb-3" data-nl="Creator Campagnes" data-en="Creator Campaigns">Creator Campagnes</h2>
+            <p class="text-blue-200 text-sm leading-relaxed" data-nl="Wij koppelen merken aan creators die écht passen: op identiteit, niet op bereik." data-en="We match brands with creators who genuinely fit: on identity, not reach.">Wij koppelen merken aan creators die écht passen: op identiteit, niet op bereik.</p>
           </div>
-          <svg class="chevron w-5 h-5 text-gray-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-        </div>
-        <div class="accordion-content mt-5 pl-6 md:pl-14">
-          <p class="text-[#2222DD] text-xs font-bold uppercase mb-2" data-nl="Wat er inzit" data-en="What's included">Wat er inzit</p>
-          <ul class="text-sm text-gray-700 space-y-1 mb-4">
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <span data-nl="Merkpositionering" data-en="Brand positioning">Merkpositionering</span></li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <span data-nl="Tone of voice & merkidentiteit" data-en="Tone of voice & brand identity">Tone of voice & merkidentiteit</span></li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <span data-nl="Contentstrategie voor merken" data-en="Content strategy for brands">Contentstrategie voor merken</span></li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <span data-nl="Social media strategie" data-en="Social media strategy">Social media strategie</span></li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <span data-nl="Doelgroepanalyse & audience psychology" data-en="Target audience analysis & audience psychology">Doelgroepanalyse & audience psychology</span></li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <span data-nl="Creatieve concepten & storytelling" data-en="Creative concepts & storytelling">Creatieve concepten & storytelling</span></li>
-          </ul>
-          <p class="text-[#2222DD] text-xs font-bold uppercase mb-1" data-nl="Beste voor" data-en="Best for">Beste voor</p>
-          <p class="text-gray-600 text-sm mb-4" data-nl="Merken die willen delen wie ze zijn, wat ze doen en wat ze te vertellen hebben" data-en="Brands that want to share who they are, what they do and what they have to say">Merken die willen delen wie ze zijn, wat ze doen en wat ze te vertellen hebben</p>
-        </div>
-      </div>
-
-      <!-- Personal Branding -->
-      <div class="accordion-item border-b border-gray-200 py-5 cursor-pointer" onclick="toggleAccordion(this)">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 bg-[#d1ff68] rounded-xl flex items-center justify-center flex-shrink-0">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-            </div>
-            <div>
-              <h3 class="font-bold text-base" data-nl="Personal Branding" data-en="Personal Branding">Personal Branding</h3>
-              <p class="text-gray-500 text-sm" data-nl="Voor founders en creators die willen delen wie ze zijn, wat ze doen en wat ze te vertellen hebben." data-en="For founders and creators who want to share who they are, what they do and what they have to say.">Voor founders en creators die willen delen wie ze zijn, wat ze doen en wat ze te vertellen hebben.</p>
-            </div>
+          <div class="flex items-center gap-2 mt-6 text-[#d1ff68] text-sm font-bold relative z-10">
+            <span data-nl="Meer lezen" data-en="Read more">Meer lezen</span>
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </div>
-          <svg class="chevron w-5 h-5 text-gray-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-        </div>
-        <div class="accordion-content mt-5 pl-6 md:pl-14">
-          <p class="text-[#2222DD] text-xs font-bold uppercase mb-2" data-nl="Wat er inzit" data-en="What's included">Wat er inzit</p>
-          <ul class="text-sm text-gray-700 space-y-1 mb-4">
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <span data-nl="Positionering & persoonlijk verhaal" data-en="Positioning & personal narrative">Positionering & persoonlijk verhaal</span></li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <span data-nl="Tone of voice & online identiteit" data-en="Tone of voice & online identity">Tone of voice & online identiteit</span></li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <span data-nl="Formatontwikkeling & hook development" data-en="Format development & hook writing">Formatontwikkeling & hook development</span></li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <span data-nl="TikTok / Instagram / LinkedIn strategie" data-en="TikTok / Instagram / LinkedIn strategy">TikTok / Instagram / LinkedIn strategie</span></li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <span data-nl="Founder contentstrategie" data-en="Founder content strategy">Founder contentstrategie</span></li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-[#2222DD]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <span data-nl="Content feedback & optimalisatie" data-en="Content feedback & optimisation">Content feedback & optimalisatie</span></li>
-          </ul>
-          <p class="text-[#2222DD] text-xs font-bold uppercase mb-1" data-nl="Beste voor" data-en="Best for">Beste voor</p>
-          <p class="text-gray-600 text-sm mb-4" data-nl="Founders en creators die willen laten zien wie ze zijn en wat ze te vertellen hebben" data-en="Founders and creators who want to show who they are and what they have to say">Founders en creators die willen laten zien wie ze zijn en wat ze te vertellen hebben</p>
-        </div>
-      </div>
+        </a>
 
-    </div>
-  </section>
+        <a href="/services/personal-branding/" class="group bg-[#2222DD] text-white rounded-2xl p-7 flex flex-col justify-between min-h-[200px] hover:bg-[#1a1ab8] transition-colors relative overflow-hidden">
+          <img src="/images/talents/bart.jpg" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover object-top opacity-[0.13] group-hover:opacity-[0.19] transition-opacity duration-500" />
+          <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-tr from-[#2222DD] via-[#2222DD]/60 to-transparent"></div>
+          <div class="relative z-10">
+            <span class="text-[#d1ff68] text-xs font-bold uppercase tracking-widest mb-3 block" data-nl="Voor founders & creators" data-en="For founders & creators">Voor founders & creators</span>
+            <h2 class="font-black text-2xl leading-tight mb-3">Personal Branding</h2>
+            <p class="text-blue-200 text-sm leading-relaxed" data-nl="Positionering, tone of voice en formats: hoe word je herkenbaar en waarom onthoudt iemand jou?" data-en="Positioning, tone of voice and formats: how do you become recognizable, and why do people remember you?">Positionering, tone of voice en formats: hoe word je herkenbaar en waarom onthoudt iemand jou?</p>
+          </div>
+          <div class="flex items-center gap-2 mt-6 text-[#d1ff68] text-sm font-bold relative z-10">
+            <span data-nl="Meer lezen" data-en="Read more">Meer lezen</span>
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </a>
 
-  <section class="py-16">
-    <div class="max-w-6xl mx-auto px-4 md:px-8">
-      <h2 class="font-black text-2xl mb-8" data-nl="Wat je krijgt" data-en="What you get">Wat je krijgt</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl">
-        <div class="flex items-center gap-3">
-          <div class="w-5 h-5 bg-[#d1ff68] rounded-full flex-shrink-0 flex items-center justify-center"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
-          <span class="text-sm text-gray-700" data-nl="Strategie- en planningsdocumenten" data-en="Strategy and planning documents">Strategie- en planningsdocumenten</span>
-        </div>
-        <div class="flex items-center gap-3">
-          <div class="w-5 h-5 bg-[#d1ff68] rounded-full flex-shrink-0 flex items-center justify-center"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
-          <span class="text-sm text-gray-700" data-nl="Creator shortlists" data-en="Creator shortlists">Creator shortlists</span>
-        </div>
-        <div class="flex items-center gap-3">
-          <div class="w-5 h-5 bg-[#d1ff68] rounded-full flex-shrink-0 flex items-center justify-center"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
-          <span class="text-sm text-gray-700" data-nl="Content briefs en richtlijnen" data-en="Content briefs and guidelines">Content briefs en richtlijnen</span>
-        </div>
-        <div class="flex items-center gap-3">
-          <div class="w-5 h-5 bg-[#d1ff68] rounded-full flex-shrink-0 flex items-center justify-center"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
-          <span class="text-sm text-gray-700" data-nl="Review en goedkeuringsproces" data-en="Review and approval workflow">Review en goedkeuringsproces</span>
-        </div>
-        <div class="flex items-center gap-3">
-          <div class="w-5 h-5 bg-[#d1ff68] rounded-full flex-shrink-0 flex items-center justify-center"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
-          <span class="text-sm text-gray-700" data-nl="Campagnerapportages" data-en="Campaign performance reports">Campagnerapportages</span>
-        </div>
-        <div class="flex items-center gap-3">
-          <div class="w-5 h-5 bg-[#d1ff68] rounded-full flex-shrink-0 flex items-center justify-center"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
-          <span class="text-sm text-gray-700" data-nl="Maandelijkse inzichten en aanbevelingen" data-en="Monthly insights and recommendations">Maandelijkse inzichten en aanbevelingen</span>
-        </div>
+        <a href="/services/merkstrategie/" class="group bg-[#2222DD] text-white rounded-2xl p-7 flex flex-col justify-between min-h-[200px] hover:bg-[#1a1ab8] transition-colors relative overflow-hidden">
+          <img src="/images/banner.jpg" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover opacity-[0.11] group-hover:opacity-[0.17] transition-opacity duration-500" />
+          <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-tr from-[#2222DD] via-[#2222DD]/60 to-transparent"></div>
+          <div class="relative z-10">
+            <span class="text-[#d1ff68] text-xs font-bold uppercase tracking-widest mb-3 block" data-nl="Voor merken" data-en="For brands">Voor merken</span>
+            <h2 class="font-black text-2xl leading-tight mb-3" data-nl="Merkstrategie" data-en="Brand Strategy">Merkstrategie</h2>
+            <p class="text-blue-200 text-sm leading-relaxed" data-nl="Contentstrategie en positionering voor merken die hun plek online willen vinden." data-en="Content strategy and positioning for brands finding their place online.">Contentstrategie en positionering voor merken die hun plek online willen vinden.</p>
+          </div>
+          <div class="flex items-center gap-2 mt-6 text-[#d1ff68] text-sm font-bold relative z-10">
+            <span data-nl="Meer lezen" data-en="Read more">Meer lezen</span>
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
       </div>
     </div>
   </section>
